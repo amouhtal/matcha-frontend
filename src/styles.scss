@@ -3,9 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-*,::after,::before{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+body {
+  background: url("./assets/bg.jpg") no-repeat center center fixed;
 }

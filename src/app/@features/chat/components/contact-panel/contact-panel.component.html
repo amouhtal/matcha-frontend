@@ -1,0 +1,36 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<!-- divide-y divide-slate-200 -->
+
+<div class="h-full border-r">
+  <div class="settings  flex justify-between bg-gray-200 rounded p-2">
+    <img
+      src="https://picsum.photos/200"
+      alt="profile picture"
+      class="profile-picture w-12 h-12 rounded-full"
+    />
+    <div class="text flex items-center">
+      <i class="material-icons"> sync </i>
+      <i class="material-icons"> chat </i>
+      <i class="material-icons"> menu </i>
+    </div>
+  </div>
+  <div class="search-box h-12 bg-gray-100 py-1 px-2 flex justify-center">
+    <div class="input-wrapper flex items-center rounded w-[80%]">
+      <i class="material-icons search-icon rounded-lg"> search </i>
+      <input
+        type="text"
+        placeholder="Search a contact"
+        class="rounded-lg p-1"
+      />
+    </div>
+  </div>
+  <div class="contacts h-[85%] overflow-y-auto">
+    <matcha-contact
+      *ngFor="let contact of contacts"
+      [contact]="contact"
+    ></matcha-contact>
+  </div>
+</div>
