@@ -1,10 +1,10 @@
-<div class="contact flex items-center p-4 w-full border-b">
+<div class="contact flex items-center justify-center md:justify-between  py-2 md:px-4 w-full ">
   <img src="{{ contact.avatar }} " alt="" class="w-12 h-12 rounded-full" />
-  <div class="text self-end">
+  <div class="text hidden md:block">
     <h3 class="text-base font-medium">{{ contact.name }}</h3>
     <p class=" w-4 md:w-32  truncate overflow-hidden whitespace-nowrap">
       {{ contact.lastMessage }}
     </p>
   </div>
-  <span class="text-xs text-gray-400">{{ contact.date }}</span>
+  <span *ngIf="contact.date" class="hidden md:block text-xs text-gray-400">{{ contact.date }}</span>
 </div>

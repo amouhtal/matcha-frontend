@@ -1,0 +1,28 @@
+.user-message {
+  display: flex;
+  justify-content: flex-end;
+}
+.friend-message {
+  display: flex;
+  justify-content: flex-start;
+}
+.bubble-message {
+  display: inline;
+  padding: 10px 14px;
+  order: 2;
+  border-radius: 10px;
+  margin: 10px 14px;
+  position: relative;
+  
+  &--right {
+    background-color: rgb(190, 188, 188);
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+    }
+  }
+  &--left {
+    background-color: rgb(151, 175, 247);
+  }
+}

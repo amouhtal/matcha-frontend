@@ -1,11 +1,5 @@
-<link
-  href="https://fonts.googleapis.com/icon?family=Material+Icons"
-  rel="stylesheet"
-/>
-<!-- divide-y divide-slate-200 -->
-
 <div class="h-full border-r">
-  <div class="settings  flex justify-between bg-gray-200 rounded p-2">
+  <div class="settings  flex justify-between bg-gray-200 rounded py-2 px-4">
     <img
       src="https://picsum.photos/200"
       alt="profile picture"
@@ -18,12 +12,12 @@
     </div>
   </div>
   <div class="search-box h-12 bg-gray-100 py-1 px-2 flex justify-center">
-    <div class="input-wrapper flex items-center rounded w-[80%]">
+    <div class="input-wrapper flex items-center flex-start rounded ">
       <i class="material-icons search-icon rounded-lg"> search </i>
       <input
         type="text"
         placeholder="Search a contact"
-        class="rounded-lg p-1"
+        class="rounded-lg p-1 w-full"
       />
     </div>
   </div>
@@ -31,6 +25,7 @@
     <matcha-contact
       *ngFor="let contact of contacts"
       [contact]="contact"
+      class="border-b border-slate-200"
     ></matcha-contact>
   </div>
 </div>
