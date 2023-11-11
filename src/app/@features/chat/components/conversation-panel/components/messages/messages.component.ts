@@ -34,7 +34,7 @@ export class MessagesComponent {
     },
     {
       id: 4,
-      message: 'I am fine too, thanks',
+      message: 'I am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanks,I am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanksI am fine too, thanks',
       date: new Date(),
       isMe: true
     },

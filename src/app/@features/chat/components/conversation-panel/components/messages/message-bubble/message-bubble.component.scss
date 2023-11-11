@@ -1,13 +1,19 @@
 .user-message {
   display: flex;
   justify-content: flex-end;
+  width: 50%;
+  float: right;
 }
 .friend-message {
   display: flex;
   justify-content: flex-start;
+  width: 50%;
+  float: left;
+  
 }
 .bubble-message {
   display: inline;
+  width: fit-content;
   padding: 10px 14px;
   order: 2;
   border-radius: 10px;

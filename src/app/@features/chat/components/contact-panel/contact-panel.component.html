@@ -1,18 +1,18 @@
 <div class="h-full border-r">
-  <div class="settings  flex justify-between bg-gray-200 rounded py-2 px-4">
+  <div class="settings flex justify-between bg-gray-200 rounded py-2 px-4">
     <img
       src="https://picsum.photos/200"
       alt="profile picture"
       class="profile-picture w-12 h-12 rounded-full"
     />
     <div class="text flex items-center">
-      <i class="material-icons"> sync </i>
-      <i class="material-icons"> chat </i>
-      <i class="material-icons"> menu </i>
+      <i class="material-icons icons"> sync </i>
+      <i class="material-icons icons"> chat </i>
+      <i class="material-icons icons"> menu </i>
     </div>
   </div>
   <div class="search-box h-12 bg-gray-100 py-1 px-2 flex justify-center">
-    <div class="input-wrapper flex items-center flex-start rounded ">
+    <div class="input-wrapper flex items-center flex-start rounded">
       <i class="material-icons search-icon rounded-lg"> search </i>
       <input
         type="text"
@@ -26,6 +26,14 @@
       *ngFor="let contact of contacts"
       [contact]="contact"
       class="border-b border-slate-200"
-    ></matcha-contact>
+    >
+      <span name class="hidden md:block">{{ contact.name }}</span>
+      <p
+        message
+        class="hidden md:block w-4 md:w-32 truncate overflow-hidden whitespace-nowrap"
+      >
+        {{ contact.lastMessage }}
+      </p>
+    </matcha-contact>
   </div>
 </div>

@@ -6,7 +6,8 @@
     type="text"
     placeholder="Type a message ..."
     class="grow rounded-lg p-1"
+    [(ngModel)]="message"
   />
-  <i class="material-icons m-2 icons"> mic </i>
+  <i class="material-icons m-2 icons" (click)="sendMessage()"> mic </i>
   <i class="material-icons m-2 icons"> send </i>
 </div>

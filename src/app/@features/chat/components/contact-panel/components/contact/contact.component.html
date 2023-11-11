@@ -1,10 +1,12 @@
-<div class="contact flex items-center justify-center md:justify-between  py-2 md:px-4 w-full ">
+<div class="contact flex items-center justify-center py-2 md:px-4 w-full md:gap-x-4">
   <img src="{{ contact.avatar }} " alt="" class="w-12 h-12 rounded-full" />
-  <div class="text hidden md:block">
-    <h3 class="text-base font-medium">{{ contact.name }}</h3>
-    <p class=" w-4 md:w-32  truncate overflow-hidden whitespace-nowrap">
-      {{ contact.lastMessage }}
-    </p>
+  <div class="text">
+    <h3 class="text-base font-medium">
+      <ng-content select="[name]"></ng-content>
+    </h3>
+    <ng-content select="[message]"></ng-content>
   </div>
-  <span *ngIf="contact.date" class="hidden md:block text-xs text-gray-400">{{ contact.date }}</span>
+  <span *ngIf="contact.date" class="hidden md:block text-xs text-gray-400">{{
+    contact.date
+  }}</span>
 </div>

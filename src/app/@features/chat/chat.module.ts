@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './pages/chat/chat.component';
@@ -10,6 +11,10 @@ import { FriendContactComponent } from './components/conversation-panel/componen
 import { MessagesComponent } from './components/conversation-panel/components/messages/messages.component';
 import { MessageBubbleComponent } from './components/conversation-panel/components/messages/message-bubble/message-bubble.component';
 import { SendMessageComponent } from './components/conversation-panel/components/send-message/send-message.component';
+import { ChatService } from './pages/chat/chat.service';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { SendMessageComponent } from './components/conversation-panel/components
     MessageBubbleComponent,
     SendMessageComponent,
   ],
-  imports: [CommonModule, ChatRoutingModule],
+  imports: [CommonModule, ChatRoutingModule, FormsModule],
+  providers: [ChatService],
 })
 export class ChatModule {}
