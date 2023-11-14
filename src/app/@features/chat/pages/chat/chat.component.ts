@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from './chat.service';
+import { ChatStreamService } from './chat.service';
 
 @Component({
   selector: 'matcha-chat',
@@ -8,17 +8,20 @@ import { ChatService } from './chat.service';
 })
 export class ChatComponent implements OnInit{
   message!: string;
-  constructor(private chatService: ChatService) {
+  constructor(private chatStreamService: ChatStreamService) {
   }
 
   ngOnInit(): void {
-    this.chatService.receiveMessage().subscribe((msg) => {
+    this.chatStreamService.receiveMessage().subscribe((msg) => {
       console.log(msg);
     });
   }
 
   sendMessage(){
-    this.chatService.sendMessage(this.message);
+    this.chatStreamService.sendMessage(this.message);
     this.message = '';
   }
 }
+
+// SELECT public.conversation.id, last_message, is_read, username FROM conversation RIGHT JOIN users ON 
+// users.id = ()

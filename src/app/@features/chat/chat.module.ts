@@ -11,10 +11,11 @@ import { FriendContactComponent } from './components/conversation-panel/componen
 import { MessagesComponent } from './components/conversation-panel/components/messages/messages.component';
 import { MessageBubbleComponent } from './components/conversation-panel/components/messages/message-bubble/message-bubble.component';
 import { SendMessageComponent } from './components/conversation-panel/components/send-message/send-message.component';
-import { ChatService } from './pages/chat/chat.service';
+import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
-
+const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
 
 @NgModule({
   declarations: [
@@ -27,7 +28,12 @@ import { FormsModule } from '@angular/forms';
     MessageBubbleComponent,
     SendMessageComponent,
   ],
-  imports: [CommonModule, ChatRoutingModule, FormsModule],
-  providers: [ChatService],
+  imports: [
+    CommonModule,
+    ChatRoutingModule,
+    FormsModule,
+    SocketIoModule.forRoot(config),
+  ],
+  providers: [ChatStreamService],
 })
 export class ChatModule {}
