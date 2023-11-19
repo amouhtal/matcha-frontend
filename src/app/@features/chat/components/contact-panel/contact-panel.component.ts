@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ContactDTO } from './models/contact.dto';
 import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 
@@ -9,6 +9,7 @@ import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
   styleUrls: ['./contact-panel.component.scss']
 })
 export class ContactPanelComponent {
+  @Output() changeContact = new EventEmitter<ContactDTO>();
   contacts! : ContactDTO[] 
   // = 
   // [
@@ -109,5 +110,9 @@ export class ContactPanelComponent {
       console.log(contacts);
       this.contacts = contacts;
     }));
+  }
+
+  selectContact(contact: ContactDTO) {
+    this.changeContact.emit(contact);
   }
 }

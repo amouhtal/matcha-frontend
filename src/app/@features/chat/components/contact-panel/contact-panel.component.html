@@ -25,6 +25,7 @@
     <matcha-contact
       *ngFor="let contact of contacts"
       [contact]="contact"
+      (selectedContact)="selectContact($event)"
       class="border-b border-slate-200"
     >
       <span name class="hidden md:block">{{ contact.name }}</span>
