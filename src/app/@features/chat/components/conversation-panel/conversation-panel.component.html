@@ -2,6 +2,9 @@
   <matcha-friend-contact
     [friendContact]="friendContact"
   ></matcha-friend-contact>
-  <matcha-messages></matcha-messages>
-  <matcha-send-message></matcha-send-message>
+  <matcha-messages
+    *ngIf="friendContact"
+    [cnvId]="friendContact.id"
+  ></matcha-messages>
+  <matcha-send-message [friendId]="friendContact.user_id"></matcha-send-message>
 </div>

@@ -10,7 +10,8 @@ export class ChatStreamService {
     this.socket.connect();
   }
 
-  sendMessage(msg: string) {
+  sendMessage(msg: any) {
+    console.log(msg);
     this.socket.emit('sendFriendMessage', msg);
   }
 

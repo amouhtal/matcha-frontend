@@ -10,7 +10,7 @@ import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 })
 export class ContactPanelComponent {
   @Output() changeContact = new EventEmitter<ContactDTO>();
-  contacts! : ContactDTO[] 
+  @Input() contacts! : ContactDTO[];
   // = 
   // [
   //   {
@@ -106,10 +106,10 @@ export class ContactPanelComponent {
   // ];
 
   constructor(private contactsService: ContactsService) {
-    console.log(this.contactsService.getContacts(1).subscribe((contacts: any) => {
-      console.log(contacts);
-      this.contacts = contacts;
-    }));
+    // console.log(this.contactsService.getContacts(1).subscribe((contacts: any) => {
+    //   console.log(contacts);
+    //   this.contacts = contacts;
+    // }));
   }
 
   selectContact(contact: ContactDTO) {

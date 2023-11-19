@@ -15,4 +15,8 @@ export class ContactsService {
       }
     } );
   }
+
+  getLastContact(userID: number){
+    return this.http.get('http://localhost:3000/conversations')
+  }
 }

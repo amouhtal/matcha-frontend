@@ -7,7 +7,14 @@ import { ContactDTO } from '../contact-panel/models/contact.dto';
   styleUrls: ['./conversation-panel.component.scss'],
 })
 export class ConversationPanelComponent {
-  @Input() friendContact!: ContactDTO ;
+  @Input() friendContact: ContactDTO = {
+    id: 0,
+    name: '',
+    lastMessage: '',
+    avatar: '',
+    date: '',
+    user_id: 0
+  } ;
 
   constructor() {}
 }
