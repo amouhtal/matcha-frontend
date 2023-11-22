@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
+import { CommunicationService } from './communication.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ChatStreamService {
-  constructor(private socket: Socket) {
-    this.socket.connect();
-  }
+  constructor(private communicationService: CommunicationService) {}
 
   sendMessage(msg: any) {
-    console.log(msg);
-    this.socket.emit('sendFriendMessage', msg);
+    this.communicationService.emit('sendFriendMessage', msg);
   }
 
   receiveMessage() {
     const message$ = new Observable<{ message: any }>((observer) => {
-      this.socket.on('receiveFriendMessage', (msg: any) => {
+      this.communicationService.on('receiveFriendMessage', (msg: any) => {
+        console.log('emit message');
         observer.next(msg);
       });
       return () => {
-        this.socket.disconnect();
+        this.communicationService.disconnect();
       };
     });
     return message$;

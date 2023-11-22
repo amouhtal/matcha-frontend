@@ -1,20 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { ContactDTO } from '../contact-panel/models/contact.dto';
+import { MessageDTO } from './components/messages/messages.component';
 
 @Component({
   selector: 'matcha-conversation-panel',
   templateUrl: './conversation-panel.component.html',
   styleUrls: ['./conversation-panel.component.scss'],
 })
-export class ConversationPanelComponent {
+export class ConversationPanelComponent implements OnChanges {
+  message!: MessageDTO ;
   @Input() friendContact: ContactDTO = {
     id: 0,
     name: '',
     lastMessage: '',
     avatar: '',
     date: '',
-    user_id: 0
-  } ;
+    user_id: 0,
+  };
 
   constructor() {}
+
+  ngOnChanges(): void {
+    console.log('friendContact', this.friendContact);
+  }
+
+  addMessage(message: MessageDTO) {
+    this.message = message;
+  }
 }

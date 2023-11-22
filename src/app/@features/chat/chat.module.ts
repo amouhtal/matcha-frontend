@@ -14,8 +14,9 @@ import { SendMessageComponent } from './components/conversation-panel/components
 import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
+import { CommunicationService } from './pages/chat/communication.service';
 
-const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
+// const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', optio
     CommonModule,
     ChatRoutingModule,
     FormsModule,
-    SocketIoModule.forRoot(config),
+    SocketIoModule
+    // SocketIoModule.forRoot(config),
   ],
-  providers: [ChatStreamService],
+  providers: [ChatStreamService, CommunicationService],
 })
 export class ChatModule {}

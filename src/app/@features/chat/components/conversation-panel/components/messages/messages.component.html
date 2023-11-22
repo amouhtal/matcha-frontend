@@ -1,3 +1,11 @@
-<div class="flex flex-col p-4 overflow-y-auto">
-    <matcha-message-bubble *ngFor="let message of messages" [message]="message"></matcha-message-bubble>
+<div
+  #scrollMe
+  [scrollTop]="scrollMe.scrollHeight"
+  id="messages-container"
+  class="grow flex flex-col p-4 overflow-y-auto"
+>
+  <matcha-message-bubble
+    *ngFor="let message of messages"
+    [message]="message"
+  ></matcha-message-bubble>
 </div>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ChatStreamService } from './chat.service';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 
 @Component({
@@ -7,27 +6,24 @@ import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterContentInit {
   contact!: any;
   contacts!: any;
   constructor(
-    private chatStreamService: ChatStreamService,
     private contactsService: ContactsService
   ) {}
 
   ngOnInit(): void {
-    this.contactsService.getContacts(1).subscribe(
-      (contacts: any)=> {
-        this.contacts = contacts;
-        this.changeContact(contacts[0]);
-        console.log('contacts', contacts[0]);
-      }
-    )
-    this.chatStreamService.receiveMessage().subscribe((msg) => {
-      console.log(msg);
-    });
+    
   }
-
+  ngAfterContentInit(): void {
+    this.contactsService.getContacts(1).subscribe((contacts: any) => {
+      this.contacts = contacts;
+      this.changeContact(contacts[0]);
+      console.log('contacts', contacts[0]);
+    });
+    
+  }
   changeContact(contact: any) {
     console.log('contact', contact);
     this.contact = contact;
