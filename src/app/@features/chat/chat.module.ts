@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { SocketIoModule } from 'ngx-socket-io';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './pages/chat/chat.component';
@@ -15,6 +15,8 @@ import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { CommunicationService } from './pages/chat/communication.service';
+import { StoreModule } from '@ngrx/store';
+import { clickContactReducer } from './local-store/reducers/chat.reducer';
 
 // const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
 
@@ -33,7 +35,8 @@ import { CommunicationService } from './pages/chat/communication.service';
     CommonModule,
     ChatRoutingModule,
     FormsModule,
-    SocketIoModule
+    SocketIoModule,
+    StoreModule.forRoot({ clickContact: clickContactReducer }),
     // SocketIoModule.forRoot(config),
   ],
   providers: [ChatStreamService, CommunicationService],

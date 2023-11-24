@@ -1,3 +1,20 @@
-.chat{
-    height: 90vh;
+.chat {
+  height: 90vh;
+}
+
+.switchIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  z-index: 5;
+}
+
+.show-panel {
+  display: block;
+}
+
+.hide-panel {
+  display: none ;
 }
