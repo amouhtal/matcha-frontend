@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatchaRoutingModule } from './matcha-routing.module';
 import { MatchaComponent } from './matcha.component';
 import { PublicModule } from './@public/public.module';
+import { CoreModule } from './@core/core.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { PublicModule } from './@public/public.module';
   imports: [
     BrowserModule,
     MatchaRoutingModule,
-    PublicModule
+    PublicModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [MatchaComponent]
