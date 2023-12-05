@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatchaRoutingModule } from './matcha-routing.module';
 import { MatchaComponent } from './matcha.component';
 import { PublicModule } from './@public/public.module';
+import { ChatModule } from './@features/chat/chat.module';
+
 import { CoreModule } from './@core/core.module';
 
 @NgModule({
@@ -13,7 +15,8 @@ import { CoreModule } from './@core/core.module';
     BrowserModule,
     MatchaRoutingModule,
     PublicModule,
-    CoreModule
+    ChatModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [MatchaComponent]
