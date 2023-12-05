@@ -1,0 +1,11 @@
+<div class="navbar w-full flex justify-between p-4 bg-white">
+  <div class="match"></div>
+  <div class="flex justify-between items-center w-24 md:w-32">
+    <i class="material-icons icons text-gray-600 cursor-pointer"> forum </i>
+    {{counter$ | async}}
+    <matcha-profile></matcha-profile>
+    <i class="material-icons icons text-gray-600 cursor-pointer" pointer>
+      logout
+    </i>
+  </div>
+</div>

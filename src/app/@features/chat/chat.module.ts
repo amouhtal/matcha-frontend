@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SocketIoModule } from 'ngx-socket-io';
-
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './pages/chat/chat.component';
 import { ContactPanelComponent } from './components/contact-panel/contact-panel.component';
@@ -13,10 +12,10 @@ import { MessageBubbleComponent } from './components/conversation-panel/componen
 import { SendMessageComponent } from './components/conversation-panel/components/send-message/send-message.component';
 import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
-import { environment } from 'src/environments/environment';
 import { CommunicationService } from './pages/chat/communication.service';
 import { StoreModule } from '@ngrx/store';
 import { clickContactReducer } from './local-store/reducers/chat.reducer';
+import { notificationReducer } from './local-store/reducers/notification.reducer';
 
 // const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
 
@@ -36,8 +35,7 @@ import { clickContactReducer } from './local-store/reducers/chat.reducer';
     ChatRoutingModule,
     FormsModule,
     SocketIoModule,
-    StoreModule.forRoot({ clickContact: clickContactReducer }),
-    // SocketIoModule.forRoot(config),
+    StoreModule.forRoot({ clickContact: clickContactReducer, notification: notificationReducer } ),
   ],
   providers: [ChatStreamService, CommunicationService],
 })

@@ -1,6 +1,5 @@
 <div class="chat bg-white rounded relative">
   <div class="flex h-full">
-    <!-- {{(switchToConversation$ | async)  && windowWidth <= 768}} -->
     <matcha-contact-panel
       (changeContact)="changeContact($event)"
       [contacts]="contacts"
@@ -21,7 +20,3 @@
     ></matcha-conversation-panel>
   </div>
 </div>
-<!-- [ngClass]="{
-  'hide-panel': (switchToConversation$ | async) && windowWidth <= 768,
-  'show-panel': !(switchToConversation$ | async) && windowWidth <= 768
-}" -->

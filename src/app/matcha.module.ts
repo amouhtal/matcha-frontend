@@ -4,6 +4,7 @@ import { MatchaRoutingModule } from './matcha-routing.module';
 import { MatchaComponent } from './matcha.component';
 import { ChatModule } from './@features/chat/chat.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from './@features/navbar/navbar.module';
 
 @NgModule({
   declarations: [MatchaComponent],
@@ -11,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     MatchaRoutingModule,
     ChatModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarModule,
   ],
   providers: [],
   bootstrap: [MatchaComponent],

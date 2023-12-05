@@ -1,11 +1,11 @@
 <div class="w-full flex items-center justify-center">
   <div class="w-[80%]">
     <div
-      class="border-b border-slate-200 contact flex items-center justify-start py-2 md:px-4 w-full md:gap-x-4 relative"
+      class="border-b border-slate-200 contact flex items-center justify-start py-2 md:px-4 md:gap-x-4 relative"
       (click)="switToConversation()"
     >
       <img src="{{ contact.avatar }} " alt="" class="w-12 h-12 rounded-full" />
-      <div class="text relative ml-3">
+      <div class="text relative ml-3 max-w-[70%]">
         <h3 class="text-base font-medium">
           <ng-content select="[name]"></ng-content>
         </h3>
