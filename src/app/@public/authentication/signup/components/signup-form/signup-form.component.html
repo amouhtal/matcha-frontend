@@ -1,50 +1,51 @@
 <form
   [formGroup]="signupForm"
   (ngSubmit)="onSubmit()"
-  class="bg-[#F2F2F0] h-[100%] relative flex flex-col justify-center items-center border-amber-50 rounded-lg"
+  class="relative flex h-[100%] flex-col items-center justify-center rounded-lg border-amber-50 bg-[#F2F2F0]"
 >
+<div class="mb-2 flex items-center"> 
   <img
-    class="absolute z-1 top-1/4"
-    ngSrc="../../../../../../assets/images/smily-face.png"
-    width="72"
-    height="72"
+      class="pl-10"
+    ngSrc="../../../../../../assets/images/authIcon.png"
+    width="144"
+    height="144"
   />
-  <img
-    class="absolute top-[27%] left-1/2"
-    ngSrc="../../../../../../assets/images/swipe-icon.png"
-    width="72"
-    height="101"
-  />
-
+</div>
+<div class="mb-8 flex flex-col items-center">
   <p class="text-3xl">Welcome To Matcha</p>
   <p class="text-xs text-slate-400">Please enter your informations</p>
-  <div class="flex flex-col w-1/3">
+</div>
+  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
     <input
-      class=" SignInput"
+      class="SignInput"
       placeholder="Email address"
       formControlName="email"
     />
   </div>
-  <div class="flex flex-col w-1/3">
+  <div class="flex w-[80%] gap-4 sm:w-[70%] md:w-[60%] lg:w-1/2">
     <input
-      class=" SignInput"
+      class="SignInput"
       placeholder="First name"
       formControlName="first_name"
     />
-  </div>
-  <div class="flex flex-col w-1/3">
-    <input class=" SignInput" placeholder="Last name" formControlName="last_name" />
-  </div>
-  <div class="flex flex-col w-1/3">
     <input
-      class=" SignInput"
+      class="SignInput"
+      placeholder="Last name"
+      formControlName="last_name"
+    />
+  </div>
+  <!-- <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
+  </div> -->
+  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
+    <input
+      class="SignInput"
       placeholder="Username"
       formControlName="username"
     />
   </div>
-  <div class="flex flex-col w-1/3">
+  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
     <input
-      class=" SignInput"
+      class="SignInput"
       placeholder="Password"
       type="password"
       formControlName="password"
@@ -54,7 +55,7 @@
     {{ error }}
   </p>
   <button
-    class="disabled:bg-slate-400 bg-black px-3 py-1 text-[#F2F2F0] rounded-lg mt-3"
+    class="mt-3 rounded-lg bg-black px-3 py-[10px] text-[#F2F2F0] disabled:bg-slate-400 w-1/2"
     type="submit"
     [disabled]="!signupForm.valid"
   >
@@ -62,4 +63,3 @@
   </button>
 </form>
 <!-- this button to refrech userLocation -->
-
