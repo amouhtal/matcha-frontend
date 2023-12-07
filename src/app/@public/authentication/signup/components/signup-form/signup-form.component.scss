@@ -1,0 +1,21 @@
+.SignInput {
+    margin: 0.5rem 0rem;
+    border: 1px solid rgb(227, 227, 227);
+    border-radius: 0.5rem; 
+    background-color: #fbfbfb;
+    padding : 1rem 1rem  1rem 0.8rem;
+    color : #000;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.SignInput:focus {
+    outline: none;
+    border: 0.5px solid rgb(255 141 92);
+    box-shadow: 0px 0px 8px 0px rgb(255 141 92);
+
+}
+
+.SignInput::placeholder {
+    color: rgb(142, 142, 142);
+}

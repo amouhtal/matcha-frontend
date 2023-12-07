@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "axios": "^1.6.0",
     "@ngrx/store": "^16.3.0",
     "lite-server": "^2.6.1",
     "ngx-socket-io": "^4.5.1",
@@ -39,6 +40,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.4.31",
+    "prettier": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.3",
     "typescript": "~5.1.3"
   }
