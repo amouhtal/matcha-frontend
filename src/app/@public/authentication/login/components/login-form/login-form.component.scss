@@ -1,4 +1,5 @@
-.SignInput {
+
+.LoginInput {
     margin: 0.5rem 0rem;
     border: 1px solid rgb(227, 227, 227);
     border-radius: 0.5rem; 
@@ -9,13 +10,13 @@
     width: 100%;
 }
 
-.SignInput:focus {
+.LoginInput:focus {
     outline: none;
     border: 0.5px solid rgb(255 141 92);
     box-shadow: 0px 0px 8px 0px rgb(255 141 92);
 
 }
 
-.SignInput::placeholder {
+.LoginInput::placeholder {
     color: rgb(142, 142, 142);
 }

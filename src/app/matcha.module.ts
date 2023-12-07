@@ -5,6 +5,7 @@ import { MatchaComponent } from './matcha.component';
 import { PublicModule } from './@public/public.module';
 import { ChatModule } from './@features/chat/chat.module';
 
+import { CoreModule } from './@core/core.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ChatModule } from './@features/chat/chat.module';
     MatchaRoutingModule,
     PublicModule,
     ChatModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [MatchaComponent]
