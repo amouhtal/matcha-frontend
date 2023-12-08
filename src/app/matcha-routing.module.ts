@@ -5,8 +5,8 @@ import { MainComponent } from './@features/main/pages/main/main.component';
 
 
 const routes: Routes = [
-  {path : "public" , loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule)},
-  { path: 'chat',  component: ChatComponent },
+  { path : "public" , loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule)},
+  { path: 'chat',  component: ChatComponent  },
   { path: 'home', component: MainComponent },
   // { path: '**', redirectTo: '/chat', pathMatch: 'full' }
 

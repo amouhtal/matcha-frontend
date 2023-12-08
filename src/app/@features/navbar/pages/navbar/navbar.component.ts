@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -10,5 +11,12 @@ import { Observable } from 'rxjs';
 export class NavbarComponent {
   notificationCount = 0;
   counter$: Observable<number> = this.store.select("notification");
-  constructor(private store: Store<{ notification: number }>) {}
+  constructor(private store: Store<{ notification: number }>,private router: Router) {}
+
+  Messages() {
+    this.router.navigate(['/chat']);
+  }
+  Likers() {
+    this.router.navigate(['/']);
+  }
 }

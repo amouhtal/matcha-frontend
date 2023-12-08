@@ -8,7 +8,8 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  getContacts(userID: number){
+  getContacts(){
+    const userID: number = sessionStorage.getItem('session') ? JSON.parse(sessionStorage.getItem('session') as string).user_id : 0;
     return this.http.get('http://localhost:3000/conversations', {
       params: {
         userID

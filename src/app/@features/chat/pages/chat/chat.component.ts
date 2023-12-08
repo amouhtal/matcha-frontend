@@ -28,7 +28,7 @@ export class ChatComponent implements OnInit, AfterContentInit {
   ) {}
 
   ngOnInit(): void {
-    this.contactsService.getContacts(1).subscribe((contacts: any) => {
+    this.contactsService.getContacts().subscribe((contacts: any) => {
       this.contacts = contacts;
       this.changeContact(contacts[0]);
       console.log('contacts', contacts[0]);
