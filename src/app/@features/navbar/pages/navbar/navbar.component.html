@@ -1,32 +1,29 @@
-<div class="flex justify-between ">
-<div class="navbar md:p-8 w-min rounded  bg-white">
-  <div class="flex flex-col items-center justify-between w-16 md:w-48 h-96">
+<div class="navbar p-2 lg:p-8  rounded bg-white w-screen lg:w-24 bg-lime-500">
+  <div class="flex lg:flex-col justify-between items-center w-full p-2">
     <matcha-profile></matcha-profile>
-    <div class="h-40 flex flex-col justify-evenly w-[80%]">
+    <div class=" flex lg:flex-col justify-between w-[60%] lg:h-80">
       <div class="flex items-center  justify-between  cursor-pointer " (click)="Messages()">
         <i class="material-icons icons text-gray-600 "> forum </i>
-        <h4 class="md:m-2 w-full hidden md:block">Messages</h4>
+        <h4 class="md:m-2 w-full hidden lg:block">Messages</h4>
       </div>
       <div class="flex items-center  justify-between  cursor-pointer" (click)="Likers()">
         <i class="material-symbols-outlined  text-gray-600  ">volunteer_activism</i>
-        <h4 class="md:m-2 w-full hidden md:block">Browse</h4>
+        <h4 class="md:m-2 w-full hidden lg:block">Browse</h4>
       </div>
       <div class="flex items-center  justify-between  cursor-pointer" (click)="Likers()">
         <i class="material-symbols-outlined  text-gray-600  ">heart_plus</i>
-        <h4 class="md:m-2 w-full hidden md:block">Who liked me</h4>
+        <h4 class="md:m-2 w-full hidden lg:block">Who liked me</h4>
       </div>
       <div class="flex items-center  justify-between  cursor-pointer" (click)="Messages()">
         <i class="material-symbols-outlined  text-gray-600  ">diversity_1</i>
-        <h4 class="md:m-2 w-full hidden md:block">My couples</h4>
+        <h4 class="md:m-2 w-full hidden lg:block">My couples</h4>
       </div>
     </div>
-    <div  class="flex items-center  justify-between  cursor-pointer  w-[80%]">
+    <div  class="flex items-center  justify-between cursor-pointer">
       <i class="material-icons icons text-gray-600 " >
         logout
       </i>
       <h4 class="md:m-2 w-full hidden md:block">Logout</h4>
       </div>
     </div>
-</div>
-<router-outlet class="gow"></router-outlet>
 </div>

@@ -1,7 +1,9 @@
 .chat {
-  height: 90vh;
+  height: 100vh;
 }
-
+:host{
+  width: 100%;
+}
 .switchIcon {
   position: absolute;
   top: 0;
@@ -13,6 +15,7 @@
 
 .show-panel {
   display: block;
+  width: 100%;
 }
 
 .hide-panel {

@@ -1,11 +1,33 @@
-<div class="chat bg-white rounded relative">
+<div class="chat bg-white rounded relative h-full w-full">
   <div class="flex h-full">
     <matcha-contact-panel
       (changeContact)="changeContact($event)"
       [contacts]="contacts"
       [ngClass]="{
-        'hide-panel': (switchToConversation$ | async),
-        'show-panel': !(switchToConversation$ | async),
+        'hidden': !(switchToConversation$ | async),
+        'show-panel': (switchToConversation$ | async),
+      }"
+      class="h-full hidden lg:!block lg:w-3/12"
+    >
+    </matcha-contact-panel>
+    <matcha-conversation-panel
+      [friendContact]="contact"
+      [ngClass]="{
+        'show-panel': !(switchToConversation$ | async) ,
+        'hide-panel': (switchToConversation$ | async) ,
+      }"
+      class="lg:!block w-full md:w-8/12 lg:w-10/12"
+    ></matcha-conversation-panel>
+  </div>
+</div>
+<!-- <div class="chat bg-white rounded relative  w-full ">
+  <div class="flex ">
+    <matcha-contact-panel
+      (changeContact)="changeContact($event)"
+      [contacts]="contacts"
+      [ngClass]="{
+        'hide-panel': !(switchToConversation$ | async),
+        'show-panel': (switchToConversation$ | async),
       }"
       class="h-full hidden md:!block w-full md:w-4/12 lg:w-3/12"
     >
@@ -13,10 +35,10 @@
     <matcha-conversation-panel
       [friendContact]="contact"
       [ngClass]="{
-        'show-panel': (switchToConversation$ | async) ,
-        'hide-panel': !(switchToConversation$ | async) ,
+        'show-panel': !(switchToConversation$ | async) ,
+        'hide-panel': (switchToConversation$ | async) ,
       }"
       class="h-full w-full md:!block md:w-8/12 lg:w-10/12"
     ></matcha-conversation-panel>
   </div>
-</div>
+</div> -->

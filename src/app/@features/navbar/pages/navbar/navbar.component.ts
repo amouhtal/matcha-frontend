@@ -14,9 +14,9 @@ export class NavbarComponent {
   constructor(private store: Store<{ notification: number }>,private router: Router) {}
 
   Messages() {
-    this.router.navigate(['/chat']);
+    this.router.navigate(['/features/chat']);
   }
   Likers() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/features/']);
   }
 }

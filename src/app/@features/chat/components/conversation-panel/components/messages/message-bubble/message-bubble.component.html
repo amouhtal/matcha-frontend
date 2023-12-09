@@ -1,5 +1,5 @@
 <div [ngClass]="message.isMe ? 'user-message ' : 'friend-message'" >
-  <p [ngClass]="message.isMe ? 'bubble-message--right' : 'bubble-message--left'" class="bubble-message w-2/4">
+  <p [ngClass]="message.isMe ? 'bubble-message--right' : 'bubble-message--left'" class="bubble-message break-all w-[50%]">
     {{ message.message }}
   </p>
 </div>

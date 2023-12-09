@@ -1,13 +1,13 @@
 .user-message {
   display: flex;
   justify-content: flex-end;
-  width: 50%;
+  max-width: 50%;
   float: right;
 }
 .friend-message {
   display: flex;
   justify-content: flex-start;
-  width: 50%;
+  max-width: 50%;
   float: left;
   
 }
