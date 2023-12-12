@@ -55,10 +55,10 @@ export class SignupFormComponent implements OnInit {
     let data = this.signupForm.value;
     data.latitude = this.userLocation?.latitude;
     data.longitude = this.userLocation?.longitude;
-    console.log(data);
+    // console.log(data);
     this.http.post('http://localhost:3000/user/signup', data,{withCredentials : true}).subscribe({
       next: (ret) => {
-        console.log(ret);
+        // console.log(ret);
         this.router.navigate(['/public/auth/verify']);
       },
       error: (error) => {

@@ -10,7 +10,7 @@ export class ContactsService {
 
   getContacts(){
     const userID: number = sessionStorage.getItem('session') ? JSON.parse(sessionStorage.getItem('session') as string).user_id : 0;
-    return this.http.get('http://localhost:3000/conversations', {
+    return this.http.get('http://localhost:3000/chat/conversations', {
       params: {
         userID
       }
@@ -18,6 +18,6 @@ export class ContactsService {
   }
 
   getLastContact(userID: number){
-    return this.http.get('http://localhost:3000/conversations')
+    return this.http.get('http://localhost:3000/chat/conversations')
   }
 }

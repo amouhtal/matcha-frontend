@@ -8,14 +8,14 @@ import { CoreModule } from './@core/core.module';
 import { PageNotFoundComponent } from './@shared/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [MatchaComponent, PageNotFoundComponent,],
+  declarations: [MatchaComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     MatchaRoutingModule,
     CoreModule,
     HttpClientModule,
     PublicModule,
-
+  
   ],
   providers: [],
   bootstrap: [MatchaComponent],

@@ -31,7 +31,7 @@ export class MessagesComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     private messgesService: MessagesService,
     private chatStreamService: ChatStreamService,
-    private titleService: Title
+    private titleService: Title,
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class MessagesComponent implements OnInit, OnChanges, OnDestroy {
 
     this.loadConversation(this.cnvId);
     this.chatStreamService.receiveMessage().subscribe((msg: any) => {
-      console.log('msg received', msg);
+      // console.log('msg received', msg);
       this.addMessage(msg);
     });
   }
@@ -59,7 +59,7 @@ export class MessagesComponent implements OnInit, OnChanges, OnDestroy {
       .getConversationMessages(cnvId)
       .subscribe((messages: any) => {
         this.messages = messages;
-        console.log('result', messages);
+        // console.log('result', messages);
       });
   }
 
@@ -67,11 +67,11 @@ export class MessagesComponent implements OnInit, OnChanges, OnDestroy {
     this.messages.push(message);
     let showTitle = true;
     const pageTitle = this.titleService.getTitle();
-    this.titleUpdateInterval = setInterval(() => {
-      showTitle = !showTitle;
-      console.log(showTitle);
-      this.updateTitle(showTitle, pageTitle, '| 🔔 New Message');
-    }, 2000);
+    // this.titleUpdateInterval = setInterval(() => {
+    //   showTitle = !showTitle;
+    //   console.log(showTitle);
+    //   this.updateTitle(showTitle, pageTitle, '| 🔔 New Message');
+    // }, 2000);
   }
 
   updateTitle(show: boolean, pageTitle: string, notification: string) {

@@ -22,11 +22,11 @@ export class SendMessageComponent implements OnChanges {
   constructor(private chatStreamService: ChatStreamService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes');
+    // console.log('changes');
   }
 
   sendMessage() {
-    console.log('friendId', this.friendId);
+    // console.log('friendId', this.friendId);
     if (this.friendId !== undefined) {
       let message = {
         sender_id: sessionStorage.getItem('session') ? JSON.parse(sessionStorage.getItem('session') as string).user_id : 0 ,

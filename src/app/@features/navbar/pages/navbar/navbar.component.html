@@ -1,29 +1,44 @@
-<div class="navbar p-2 lg:p-8  rounded bg-white w-screen lg:w-24 bg-lime-500">
-  <div class="flex lg:flex-col justify-between items-center w-full p-2">
-    <matcha-profile></matcha-profile>
-    <div class=" flex lg:flex-col justify-between w-[60%] lg:h-80">
-      <div class="flex items-center  justify-between  cursor-pointer " (click)="Messages()">
-        <i class="material-icons icons text-gray-600 "> forum </i>
-        <h4 class="md:m-2 w-full hidden lg:block">Messages</h4>
-      </div>
-      <div class="flex items-center  justify-between  cursor-pointer" (click)="Likers()">
-        <i class="material-symbols-outlined  text-gray-600  ">volunteer_activism</i>
-        <h4 class="md:m-2 w-full hidden lg:block">Browse</h4>
-      </div>
-      <div class="flex items-center  justify-between  cursor-pointer" (click)="Likers()">
-        <i class="material-symbols-outlined  text-gray-600  ">heart_plus</i>
-        <h4 class="md:m-2 w-full hidden lg:block">Who liked me</h4>
-      </div>
-      <div class="flex items-center  justify-between  cursor-pointer" (click)="Messages()">
-        <i class="material-symbols-outlined  text-gray-600  ">diversity_1</i>
-        <h4 class="md:m-2 w-full hidden lg:block">My couples</h4>
-      </div>
+<div
+  [ngClass]="{
+    hidden: !(chatIn$ | async),
+    block: (chatIn$ | async)
+  }"
+  class="navbar flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:w-24 lg:flex-col"
+>
+  <matcha-profile></matcha-profile>
+  <div class="flex w-[60%] justify-between lg:h-80 lg:flex-col">
+    <div
+      [attr.notification-count]="notificationCount"
+      class="messagesNotification relative flex cursor-pointer items-center justify-between"
+      (click)="Messages()"
+    >
+      <i class="material-icons icons text-gray-600"> forum </i>
+      <h4 class="hidden w-full md:m-2 lg:block">Messages</h4>
     </div>
-    <div  class="flex items-center  justify-between cursor-pointer">
-      <i class="material-icons icons text-gray-600 " >
-        logout
-      </i>
-      <h4 class="md:m-2 w-full hidden md:block">Logout</h4>
-      </div>
+    <div
+      class="flex cursor-pointer items-center justify-between"
+      (click)="Likers()"
+    >
+      <i class="material-symbols-outlined text-gray-600">volunteer_activism</i>
+      <h4 class="hidden w-full md:m-2 lg:block">Browse</h4>
     </div>
+    <div
+      class="flex cursor-pointer items-center justify-between"
+      (click)="Likers()"
+    >
+      <i class="material-symbols-outlined text-gray-600">heart_plus</i>
+      <h4 class="hidden w-full md:m-2 lg:block">Who liked me</h4>
+    </div>
+    <div
+      class="flex cursor-pointer items-center justify-between"
+      (click)="Messages()"
+    >
+      <i class="material-symbols-outlined text-gray-600">diversity_1</i>
+      <h4 class="hidden w-full md:m-2 lg:block">My couples</h4>
+    </div>
+  </div>
+  <div class="flex hidden cursor-pointer items-center justify-between lg:block">
+    <i class="material-icons icons text-gray-600"> logout </i>
+    <h4 class="w-full md:m-2">Logout</h4>
+  </div>
 </div>

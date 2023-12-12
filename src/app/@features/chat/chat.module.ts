@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { CommunicationService } from './pages/chat/communication.service';
 import { StoreModule } from '@ngrx/store';
 import { clickContactReducer } from './local-store/reducers/chat.reducer';
-import { notificationReducer } from './local-store/reducers/notification.reducer';
 // import { ChatRoutingModule } from './chat-routing.module';
 
 // const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
@@ -35,7 +34,7 @@ import { notificationReducer } from './local-store/reducers/notification.reducer
     // ChatRoutingModule,
     FormsModule,
     SocketIoModule,
-    StoreModule.forRoot({ clickContact: clickContactReducer, notification: notificationReducer } ),
+    // StoreModule.forRoot({ clickContact: clickContactReducer, notification: notificationReducer } ),
   ],
   providers: [ChatStreamService, CommunicationService],
 })

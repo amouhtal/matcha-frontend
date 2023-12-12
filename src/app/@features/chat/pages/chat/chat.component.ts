@@ -31,14 +31,14 @@ export class ChatComponent implements OnInit, AfterContentInit {
     this.contactsService.getContacts().subscribe((contacts: any) => {
       this.contacts = contacts;
       this.changeContact(contacts[0]);
-      console.log('contacts', contacts[0]);
+      // console.log('contacts', contacts[0]);
     });
-    console.log('window width', window.innerWidth);
+    // console.log('window width', window.innerWidth);
   }
 
   ngAfterContentInit(): void {}
   changeContact(contact: any) {
-    console.log('contact', contact);
+    // console.log('contact', contact);
     this.contact = contact;
     this.store.dispatch(chatAction.switchToConversation());
   }

@@ -17,7 +17,7 @@ export class ChatStreamService {
   receiveMessage() {
     const message$ = new Observable<{ message: any }>((observer) => {
       this.communicationService.on('receiveFriendMessage', (msg: any) => {
-        console.log('emit message');
+        // console.log('emit message');
         observer.next(msg);
         this.store.dispatch(NotificationAction());
       });
