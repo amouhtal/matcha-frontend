@@ -1,22 +1,22 @@
-<div class="chat bg-white rounded relative h-full w-full">
+<div class="chat relative h-full w-full rounded bg-white">
   <div class="flex h-full">
     <matcha-contact-panel
       (changeContact)="changeContact($event)"
       [contacts]="contacts"
       [ngClass]="{
-        'hidden': !(switchToConversation$ | async),
-        'show-panel': (switchToConversation$ | async),
+        hidden: !(switchToConversation$ | async),
+        'show-panel': (switchToConversation$ | async)
       }"
-      class="h-full hidden lg:!block lg:w-3/12"
+      class="hidden h-full lg:!block lg:w-3/12"
     >
     </matcha-contact-panel>
     <matcha-conversation-panel
       [friendContact]="contact"
       [ngClass]="{
-        'show-panel': !(switchToConversation$ | async) ,
-        'hide-panel': (switchToConversation$ | async) ,
+        'show-panel': !(switchToConversation$ | async),
+        'hide-panel': (switchToConversation$ | async)
       }"
-      class="lg:!block w-full md:w-8/12 lg:w-10/12"
+      class="w-full md:w-8/12 lg:!block lg:w-10/12"
     ></matcha-conversation-panel>
   </div>
 </div>

@@ -1,6 +1,15 @@
-#matcha-messages{
-    flex-grow: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+#matcha-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
+@media screen and (max-width: 1023px) {
+  #matcha-messages {
+    width: 100%;
+  }
+
+  :host {
+    width: 100%;
+  }
 }

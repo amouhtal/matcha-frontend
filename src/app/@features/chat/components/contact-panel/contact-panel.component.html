@@ -1,5 +1,5 @@
 <div class="h-full border-r">
-  <div class="settings flex justify-between bg-gray-200 rounded py-2 px-4">
+  <div class="settings flex justify-between rounded bg-gray-200 px-4 py-2">
     <!-- <img
       src="https://picsum.photos/200"
       alt="profile picture"
@@ -8,28 +8,27 @@
     <div class="text flex items-center">
       <i class="material-icons icons"> sync </i>
       <i
-        class="material-icons icons md:hidden block"
+        class="material-icons icons block md:hidden"
         (click)="switchToConversation()"
       >
         chat
       </i>
       <i class="material-icons icons"> menu </i>
-      
     </div>
     <i class="material-icons icons"> logout </i>
   </div>
-  <div class="search-box h-12 bg-gray-100 py-1 px-2 flex justify-center">
+  <div class="search-box flex h-12 justify-center bg-gray-100 px-2 py-1">
     <div
-      class="flex w-3/4 items-center flex-start rounded-lg relative overflow-hidden"
+      class="flex-start relative flex w-3/4 items-center overflow-hidden rounded-lg"
     >
-      <i class="material-icons search-icon rounded-lg absolute ml-2">
+      <i class="material-icons search-icon absolute ml-2 rounded-lg">
         search
       </i>
       <!-- <i class="material-icons icons"> more_vert </i> -->
       <input
         type="text"
         placeholder="Search a contact"
-        class="p-1 w-full indent-7 rounded-lg"
+        class="w-full rounded-lg p-1 indent-7"
       />
     </div>
   </div>
@@ -41,7 +40,7 @@
       class="contact"
     >
       <span name class="md:block">{{ contact.name }}</span>
-      <p message class="truncate overflow-hidden whitespace-nowrap">
+      <p message class="overflow-hidden truncate whitespace-nowrap">
         {{ contact.lastMessage }}
       </p>
     </matcha-contact>
