@@ -8,3 +8,20 @@
     //     background-color: #f0f0f1;
     // }
 }
+.contact::after{
+    content: attr(notification-count);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

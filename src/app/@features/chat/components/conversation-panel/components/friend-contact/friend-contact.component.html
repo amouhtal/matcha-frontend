@@ -1,11 +1,11 @@
-<div class="flex h-16 justify-between grow-0 bg-gray-200 rounded">
-  <matcha-contact class="min-w w-[40%]" [contact]="friendContact">
+<div class="flex h-16 grow-0 justify-between rounded bg-gray-200">
+  <matcha-contact class="grow" [contact]="friendContact">
     <span name>{{ friendContact.name }}</span>
-    <p message class="w-4 md:w-32 truncate overflow-hidden whitespace-nowrap">
+    <p message class="w-4 overflow-hidden truncate whitespace-nowrap md:w-32">
       {{ friendContact.lastMessage }}
     </p>
   </matcha-contact>
-  <div class="text flex items-center justify-center w-[30%]">
+  <div class="text flex w-[30%] items-center justify-center">
     <i class="material-icons icons"> sync </i>
     <i class="material-icons icons"> chat </i>
     <i class="material-icons icons" (click)="switchToContacts()"> menu </i>

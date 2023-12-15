@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   Input,
   OnChanges,
   Output,
@@ -17,19 +18,34 @@ import { MessageDTO } from '../messages/messages.component';
 export class SendMessageComponent implements OnChanges {
   @Output() addMessage: EventEmitter<MessageDTO> =
     new EventEmitter<MessageDTO>();
-  message!: string;
+  message: string = '';
   @Input() friendId!: number | undefined;
+  showEmojiPicker: boolean = false;
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    console.log(event.target.classList);
+    if (!event.target.classList.contains('emoji-icon')
+    && !event.target.classList.contains('emoji-picker')) {
+      console.log('clicked outside');
+    this.showEmojiPicker = false;
+    }
+  }
   constructor(private chatStreamService: ChatStreamService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     // console.log('changes');
   }
-
+  showEmoji(tr:boolean) {
+    this.showEmojiPicker = !this.showEmojiPicker;
+  }
   sendMessage() {
     // console.log('friendId', this.friendId);
     if (this.friendId !== undefined) {
       let message = {
-        sender_id: sessionStorage.getItem('session') ? JSON.parse(sessionStorage.getItem('session') as string).user_id : 0 ,
+        sender_id: sessionStorage.getItem('session')
+          ? JSON.parse(sessionStorage.getItem('session') as string).user_id
+          : 0,
         receiver_id: this.friendId,
         message: this.message,
         isMe: false,
@@ -44,5 +60,8 @@ export class SendMessageComponent implements OnChanges {
       this.addMessage.emit(Mymessage);
       this.message = '';
     }
+  }
+  addEmoji(event: string) {
+    this.message += event;
   }
 }

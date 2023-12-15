@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommunicationService } from './communication.service';
 import { Store } from '@ngrx/store';
-import { NotificationAction } from '../../local-store/actions/notification.action';
+import * as NotificationAction from 'src/app/@features/navbar/local-store/actions/notification.action';
+// import { NotificationAction } from '../../local-store/actions/notification.action';
 @Injectable()
 export class ChatStreamService {
   constructor(
     private communicationService: CommunicationService,
-    private store: Store<{ notification: number }>
+    private store: Store<{ notification: number }>,
   ) {}
 
   sendMessage(msg: any) {
@@ -19,7 +20,7 @@ export class ChatStreamService {
       this.communicationService.on('receiveFriendMessage', (msg: any) => {
         // console.log('emit message');
         observer.next(msg);
-        this.store.dispatch(NotificationAction());
+        this.store.dispatch(NotificationAction.newNotification());
       });
       return () => {
         this.communicationService.disconnect();
@@ -27,4 +28,19 @@ export class ChatStreamService {
     });
     return message$;
   }
+
+  // receiveNotification() {
+  //   const notification$ = new Observable<{ notification: number }>(
+  //     (observer) => {
+  //       this.communicationService.on('newNotification', (msg: any) => {
+  //         // console.log('emit message');
+  //         observer.next(msg);
+  //       });
+  //       return () => {
+  //         this.communicationService.disconnect();
+  //       };
+  //     },
+  //   );
+  //   return notification$;
+  // }
 }

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { NotificationService } from 'src/app/@api/services/notification/notification.service';
-import * as notificationActions from '../../local-store/actions/notification.action';
 @Component({
   selector: 'matcha-navbar',
   templateUrl: './navbar.component.html',
@@ -11,8 +10,10 @@ import * as notificationActions from '../../local-store/actions/notification.act
 })
 export class NavbarComponent implements OnInit {
   notificationCount = 5;
-  counter$: Observable<number> = this.store.select('notification');
+  // counter$: Observable<number> = this.store.select('notification');
+  newNotification$ = this.store.select('messageNotification');
   chatIn$: Observable<boolean> = this.store.select('clickContact');
+  // messageNotificationReducer
   constructor(
     private store: Store<{
       notification: number;
@@ -30,6 +31,14 @@ export class NavbarComponent implements OnInit {
         //   notificationActions.notificationCount(notificationCount),
         // );
         this.notificationCount = notificationCount.count;
+      },
+    });
+    this.newNotification$.subscribe({
+      next: (newNotification) => {
+        if (newNotification) {
+          const result = Number(this.notificationCount) + 1;
+          this.notificationCount = result;
+        }
       },
     });
   }

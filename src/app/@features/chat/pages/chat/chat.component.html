@@ -4,7 +4,7 @@
       (changeContact)="changeContact($event)"
       [contacts]="contacts"
       [ngClass]="{
-        hidden: !(switchToConversation$ | async),
+        'hide-panel': !(switchToConversation$ | async),
         'show-panel': (switchToConversation$ | async)
       }"
       class="hidden h-full lg:!block lg:w-3/12"

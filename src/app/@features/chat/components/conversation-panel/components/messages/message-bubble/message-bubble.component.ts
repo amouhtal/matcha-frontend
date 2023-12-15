@@ -7,8 +7,7 @@ import { MessageDTO } from '../messages.component';
   styleUrls: ['./message-bubble.component.scss'],
 })
 export class MessageBubbleComponent {
-
   @Input() message!: MessageDTO;
-  
+
   constructor() {}
 }

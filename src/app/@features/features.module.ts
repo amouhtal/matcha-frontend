@@ -6,8 +6,9 @@ import { NavbarModule } from './navbar/navbar.module';
 import { FeaturesComponent } from './features/features.component';
 import { StoreModule } from '@ngrx/store';
 import { clickContactReducer } from './chat/local-store/reducers/chat.reducer';
-import { notificationReducer } from './chat/local-store/reducers/notification.reducer';
+// import { notificationReducer } from './chat/local-store/reducers/notification.reducer';
 import { messageNotificationReducer } from './navbar/local-store/reducer/notification.reducer';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [FeaturesComponent],
@@ -19,8 +20,10 @@ import { messageNotificationReducer } from './navbar/local-store/reducer/notific
     StoreModule.forRoot({
       clickContact: clickContactReducer,
       messageNotification: messageNotificationReducer,
-      notification: notificationReducer,
+      // notification: notificationReducer,
     }),
+    EffectsModule.forRoot([]),
+  
   ],
   bootstrap: [FeaturesComponent],
 })

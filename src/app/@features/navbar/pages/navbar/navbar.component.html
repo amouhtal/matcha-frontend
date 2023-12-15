@@ -1,6 +1,6 @@
 <div
   [ngClass]="{
-    hidden: !(chatIn$ | async),
+    'hidden lg:!flex': !(chatIn$ | async),
     block: (chatIn$ | async)
   }"
   class="navbar flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:h-full lg:w-48 lg:flex-col lg:rounded lg:py-4"
@@ -37,8 +37,8 @@
       <h4 class="hidden w-full md:m-2 lg:block">Matches</h4>
     </div>
   </div>
-  <div class="flex cursor-pointer items-center justify-between ">
+  <div class="flex cursor-pointer items-center justify-between">
     <i class="material-icons icons text-gray-600"> logout </i>
-    <h4 class=" md:m-2">Logout</h4>
+    <h4 class="md:m-2">Logout</h4>
   </div>
 </div>

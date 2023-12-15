@@ -6,3 +6,4 @@ export const notificationCount = createAction(
 );
 
 export const newNotification = createAction('NEW_NOTIFICATION');
+

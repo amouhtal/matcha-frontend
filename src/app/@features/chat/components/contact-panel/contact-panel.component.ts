@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ContactDTO } from './models/contact.dto';
 import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 import { Store } from '@ngrx/store';
@@ -9,7 +9,7 @@ import * as chatAction from '../../local-store/actions/chat.action';
   templateUrl: './contact-panel.component.html',
   styleUrls: ['./contact-panel.component.scss'],
 })
-export class ContactPanelComponent {
+export class ContactPanelComponent implements OnChanges {
   @Output() changeContact = new EventEmitter<ContactDTO>();
   @Input() contacts!: ContactDTO[];
   constructor(
@@ -22,6 +22,10 @@ export class ContactPanelComponent {
     // }));
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    // console.log(changes);
+    console.log(changes);
+  }
   selectContact(contact: ContactDTO) {
     this.changeContact.emit(contact);
   }

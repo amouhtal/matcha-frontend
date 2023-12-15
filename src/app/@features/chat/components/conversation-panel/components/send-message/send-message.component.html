@@ -1,13 +1,50 @@
 <div
-  class="bg-gray-100 h-16 p-2 flex items-center justify-evenly bottom-0 w-full"
+  class="bottom-0 flex h-16 w-full items-center justify-evenly bg-gray-100 p-2"
 >
-  <i class="material-icons rounded-lg m-2 icons"> sentiment_very_satisfied </i>
+  <div class="emoji relative">
+    <div *ngIf="showEmojiPicker" class="emoji-icon absolute -top-36">
+      <ul
+        class="emoji-icon grid w-52 grid-cols-8 gap-1 rounded bg-gray-200 p-2"
+      >
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+        <li class="emoji-icon" (click)="addEmoji('😀')">😀</li>
+        <li class="emoji-icon" (click)="addEmoji('😃')">😃</li>
+        <li class="emoji-icon" (click)="addEmoji('🤣')">🤣</li>
+        <li class="emoji-icon" (click)="addEmoji('😡')">😡</li>
+      </ul>
+    </div>
+    <i
+      class="emoji-icon material-icons icons m-2 rounded-lg"
+      (click)="showEmoji(true)"
+    >
+      sentiment_very_satisfied
+    </i>
+  </div>
   <input
     type="text"
     placeholder="Type a message ..."
     class="grow rounded-lg p-1"
     [(ngModel)]="message"
   />
-  <i class="material-icons m-2 icons"> mic </i>
-  <i class="material-icons m-2 icons" (click)="sendMessage()"> send </i>
+  <i class="material-icons icons m-2"> mic </i>
+  <i class="material-icons icons m-2" (click)="sendMessage()"> send </i>
 </div>
