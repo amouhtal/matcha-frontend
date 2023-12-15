@@ -1,20 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as notificationActions from '../actions/notification.action';
+import { NotificationStateDTO } from '../../models/notification-state.dto';
 
-interface NotificationState {
-  type: string;
-  text: string;
-  is_read: boolean;
-}
-
-export const initialState: NotificationState[] = [];
-
-export const notificationReducer = createReducer(
-  initialState,
-  on(notificationActions.notification, (state, { notifications }) => {
-    return notifications;
-  }),
-);
 const initialValue: number = 0;
 
 export const messageNotificationReducer = createReducer(
@@ -26,3 +13,43 @@ export const messageNotificationReducer = createReducer(
     return state + 1;
   }),
 );
+
+export interface NotificationState {
+  notificationState: NotificationStateDTO[];
+  loading: boolean;
+  loaded: boolean;
+  error: null;
+}
+// export const notificationState: NotificationStateDTO[] = [];
+export const initialState: NotificationState = {
+  notificationState: [],
+  loading: false,
+  loaded: false,
+  error: null,
+};
+
+export const notificationReducer = createReducer(
+  initialState,
+  on(notificationActions.getNotification, (state: NotificationState) => {
+    return {
+      ...state,
+      loading: true,
+      loaded: false,
+      error: null,
+    };
+  }),
+  on(notificationActions.getNotificationSuccess, (state: NotificationState) => {
+    return {
+      ...state,
+      loading: false,
+      loaded: true,
+    };
+  }),
+);
+
+/*
+ Argument of type '(state: NotificationState) => { loading: boolean; notificationState: NotificationStateDTO[]; loaded: false; error: null; }' is not assignable to parameter of type 'OnReducer<NotificationState, [ActionCreator<"[GET_NOTIFICATION]", () => TypedAction<"[GET_NOTIFICATION]">>], { loading: boolean; notificationState: NotificationStateDTO[]; loaded: false; error: null; }, NotificationState>'.
+  Call signature return types '{ loading: boolean; notificationState: NotificationStateDTO[]; loaded: false; error: null; }' and 'NotificationState' are incompatible.
+    The types of 'loading' are incompatible between these types.
+      Type 'boolean' is not assignable to type 'false' 
+ */
