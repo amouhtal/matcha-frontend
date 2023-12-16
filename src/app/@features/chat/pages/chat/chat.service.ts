@@ -18,7 +18,6 @@ export class ChatStreamService {
   receiveMessage() {
     const message$ = new Observable<{ message: any }>((observer) => {
       this.communicationService.on('receiveFriendMessage', (msg: any) => {
-        // console.log('emit message');
         observer.next(msg);
         this.store.dispatch(NotificationAction.newNotification());
       });
@@ -33,7 +32,6 @@ export class ChatStreamService {
   //   const notification$ = new Observable<{ notification: number }>(
   //     (observer) => {
   //       this.communicationService.on('newNotification', (msg: any) => {
-  //         // console.log('emit message');
   //         observer.next(msg);
   //       });
   //       return () => {

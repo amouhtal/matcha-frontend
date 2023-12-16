@@ -34,7 +34,6 @@ import { clickContactReducer } from './local-store/reducers/chat.reducer';
     // ChatRoutingModule,
     FormsModule,
     SocketIoModule,
-    // StoreModule.forRoot({ clickContact: clickContactReducer, notification: notificationReducer } ),
   ],
   providers: [ChatStreamService, CommunicationService],
 })

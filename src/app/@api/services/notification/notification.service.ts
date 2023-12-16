@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +22,13 @@ export class NotificationService {
   }
 
   getNotifications() {
-    return this.http.get('http://localhost:3000/notification', {
-      params: {
-        userId: this.userID,
-      },
-    });
+    return this.http
+      .get('http://localhost:3000/notification', {
+        params: {
+          userId: this.userID,
+        },
+      })
+      .pipe(delay(3000));
   }
 
   addNotification(notification: any) {

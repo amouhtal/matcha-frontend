@@ -10,10 +10,18 @@
     <div
       [attr.notification-count]="notificationCount"
       class="messagesNotification relative flex cursor-pointer items-center justify-between"
-      (click)="Messages()"
+      (click)="Navigate('chat')"
     >
       <i class="material-icons icons text-gray-600"> forum </i>
       <h4 class="hidden w-full md:m-2 lg:block">Messages</h4>
+    </div>
+    <div
+      [attr.notification-count]="notificationCount"
+      class="messagesNotification relative flex cursor-pointer items-center justify-between"
+      (click)="Notifications()"
+    >
+      <i class="material-icons icons text-gray-600"> notifications </i>
+      <h4 class="hidden w-full md:m-2 lg:block">Notifications</h4>
     </div>
     <div
       class="flex cursor-pointer items-center justify-between"

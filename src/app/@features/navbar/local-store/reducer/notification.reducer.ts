@@ -30,21 +30,32 @@ export const initialState: NotificationState = {
 
 export const notificationReducer = createReducer(
   initialState,
-  on(notificationActions.getNotification, (state: NotificationState) => {
+  on(notificationActions.getNotification, (state) => {
     return {
       ...state,
       loading: true,
-      loaded: false,
-      error: null,
+
     };
   }),
-  on(notificationActions.getNotificationSuccess, (state: NotificationState) => {
+  on(notificationActions.getNotificationSuccess, (state: NotificationState, {notifications}) => {
     return {
       ...state,
       loading: false,
       loaded: true,
+      notificationState: notifications,
     };
   }),
+  on(
+    notificationActions.getNotificationFailure,
+    (state: NotificationState, { error }) => {
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: error,
+      };
+    },
+  ),
 );
 
 /*

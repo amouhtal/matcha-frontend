@@ -24,7 +24,6 @@ export class SendMessageComponent implements OnChanges {
 
   @HostListener('document:click', ['$event'])
   clickout(event: any) {
-    console.log(event.target.classList);
     if (!event.target.classList.contains('emoji-icon')
     && !event.target.classList.contains('emoji-picker')) {
       console.log('clicked outside');
@@ -34,13 +33,11 @@ export class SendMessageComponent implements OnChanges {
   constructor(private chatStreamService: ChatStreamService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log('changes');
   }
   showEmoji(tr:boolean) {
     this.showEmojiPicker = !this.showEmojiPicker;
   }
   sendMessage() {
-    // console.log('friendId', this.friendId);
     if (this.friendId !== undefined) {
       let message = {
         sender_id: sessionStorage.getItem('session')

@@ -5,11 +5,7 @@ export const notificationCount = createAction(
   '[NOTIFICATION_COUNT]',
   props<{ count: number }>(),
 );
-
-
-// addNotification, addNotificationSuccess, addNotificationFailure,
-
-// getNotification, getNotificationSuccess, getNotificationFailure,
+export const newNotification = createAction('NEW_NOTIFICATION');
 
 export const getNotification = createAction('[GET_NOTIFICATION]');
 export const getNotificationSuccess = createAction(
@@ -20,6 +16,4 @@ export const getNotificationFailure = createAction(
   '[GET_NOTIFICATION_FAILURE]',
   props<{ error: any }>(),
 );
-
-export const newNotification = createAction('NEW_NOTIFICATION');
 

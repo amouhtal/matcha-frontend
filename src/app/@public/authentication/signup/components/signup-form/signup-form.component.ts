@@ -29,7 +29,7 @@ export class SignupFormComponent implements OnInit {
     password: new FormControl('', [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?\-&]{8,20}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&-])[A-Za-z\d@$!%*?\-&]{8,20}$/,
       ),
     ]),
   });
@@ -37,7 +37,10 @@ export class SignupFormComponent implements OnInit {
   result: any;
   error: string = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.signupForm.statusChanges.subscribe();
@@ -56,15 +59,19 @@ export class SignupFormComponent implements OnInit {
     data.latitude = this.userLocation?.latitude;
     data.longitude = this.userLocation?.longitude;
     // console.log(data);
-    this.http.post('http://localhost:3000/user/signup', data,{withCredentials : true}).subscribe({
-      next: (ret) => {
-        // console.log(ret);
-        this.router.navigate(['/public/auth/verify']);
-      },
-      error: (error) => {
-        console.log(error.error);
-        this.error = error.error;
-      },
-    });
+    this.http
+      .post('http://localhost:3000/user/signup', data, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (ret) => {
+          // console.log(ret);
+          this.router.navigate(['/public/auth/verify']);
+        },
+        error: (error) => {
+          console.log(error.error);
+          this.error = error.error;
+        },
+      });
   }
 }
