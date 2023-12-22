@@ -15,7 +15,7 @@ export class LoginFormComponent {
   });
   constructor(private http: HttpClient, private router: Router) {}
   error: string = '';
-
+  // passwordStatus: boolean = false;
   onSubmit() {
     let data = this.loginForm.value;
     this.http
@@ -23,7 +23,7 @@ export class LoginFormComponent {
       .subscribe({
         next: (ret :any) => {
           console.log(ret);
-          sessionStorage.setItem('session' , JSON.stringify(ret.session));
+          localStorage.setItem('session' , JSON.stringify(ret.session));
             this.router.navigate(['/']);
         },
         error: (err) => {

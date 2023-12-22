@@ -1,6 +1,42 @@
-<!-- <div class="w-1/2 h-64 bg-slate-300"> -->
 <div class="flex h-screen w-full justify-center">
-  <div class="hidden bg-[#FF8D5C] md:block md:w-[40%] lg:w-1/2"></div>
+  <div
+    class="rightSide hidden items-center justify-center bg-white sm:hidden md:flex md:w-[40%] lg:w-1/2"
+  >
+    <div
+      class="rightContent flex h-[50%] w-[50%] flex-col items-center justify-center bg-secondary-color p-[5%]"
+    >
+      <div class="flex items-center justify-center">
+        <img
+          src="assets/images/full logo.svg"
+          alt="Login"
+          class="sm:h-[80px] sm:w-[100px] md:h-[100px] md:w-[150px]"
+        />
+      </div>
+      <div
+        class="inline-flex h-2/3 flex-col items-center justify-center text-center"
+      >
+        <p class="text mb-1">
+          Welcome to
+          <b class="text-primary-color md:text-xl lg:text-3xl"> Matcha.</b>
+        </p>
+        <div class="flex min-h-[65px] items-center justify-center">
+          <ngx-typed-js
+            class="text"
+            [strings]="[
+              'Where Connections Happen!',
+              'Discover meaningful relationships',
+              'our user friendly design and smart algorithms.'
+            ]"
+            [fadeOut]="true"
+            [loop]="true"
+            [showCursor]="false"
+          >
+            <h1 class="typing"></h1>
+          </ngx-typed-js>
+        </div>
+      </div>
+    </div>
+  </div>
   <matcha-signup-form class="w-[100%] md:w-[60%] lg:w-1/2"></matcha-signup-form>
 </div>
 <!-- </div> -->
