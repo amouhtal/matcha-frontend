@@ -22,13 +22,11 @@ export class NotificationService {
   }
 
   getNotifications() {
-    return this.http
-      .get('http://localhost:3000/notification', {
-        params: {
-          userId: this.userID,
-        },
-      })
-      .pipe(delay(3000));
+    return this.http.get('http://localhost:3000/notification', {
+      params: {
+        userId: this.userID,
+      },
+    });
   }
 
   addNotification(notification: any) {

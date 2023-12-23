@@ -1,8 +1,9 @@
 :host {
   height: min(600px, 90vh);
-
 }
 
+.notification-on {
+}
 @media screen and (max-width: 1023px) {
   :host {
     width: 100%;
@@ -10,12 +11,16 @@
   }
 }
 
-.tthidden {
-  display: none;
+h4{
+  background-color: #ff676e;
+  transition: all 5s linear;
 }
-.ttblock {
-  display: block;
-}
+// .tthidden {
+//   display: none;
+// }
+// .ttblock {
+//   display: block;
+// }
 
 .messagesNotification::after {
   content: attr(notification-count);
@@ -32,3 +37,5 @@
   border-radius: 50%;
   box-shadow: 0 0 1px #333;
 }
+
+

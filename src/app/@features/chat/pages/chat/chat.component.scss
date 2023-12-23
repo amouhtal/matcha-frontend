@@ -1,4 +1,4 @@
-:host{
+:host {
   height: 100%;
   width: 70%;
   // max-height: calc(100vh - 64px);
@@ -6,8 +6,8 @@
   // overflow-y: auto;
 }
 
-@media screen and (max-width: 1023px){
-  :host{
+@media screen and (max-width: 1023px) {
+  :host {
     width: 100%;
   }
 }
@@ -27,5 +27,5 @@
 }
 
 .hide-panel {
-  display: none ;
+  display: none;
 }

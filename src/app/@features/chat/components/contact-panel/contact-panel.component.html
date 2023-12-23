@@ -1,5 +1,5 @@
-<div class="h-full border-r overflow-hidden">
-  <div class="settings flex justify-between rounded bg-gray-200 px-4 py-2">
+<div class="h-full overflow-hidden border-r">
+  <div class="settings flex h-16 justify-between rounded bg-gray-200 px-4 py-2">
     <!-- <img
       src="https://picsum.photos/200"
       alt="profile picture"
@@ -15,7 +15,9 @@
       </i>
       <i class="material-icons icons"> menu </i>
     </div>
-    <i class="material-icons icons"> logout </i>
+    <div class="logout text flex items-center">
+      <i class="material-icons icons"> logout </i>
+    </div>
   </div>
   <div class="search-box flex h-12 justify-center bg-gray-100 px-2 py-1">
     <div
@@ -44,6 +46,5 @@
         {{ contact.lastMessage }}
       </p>
     </matcha-contact>
-    
   </div>
 </div>

@@ -1,6 +1,6 @@
 export interface NotificationStateDTO {
   type: string;
   text: string;
-  date: string;
+  created_at: string;
   is_read: boolean;
 }

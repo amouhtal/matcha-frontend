@@ -1,0 +1,30 @@
+:host {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 1023px) {
+  :host {
+    width: 100%;
+    height: 90vh;
+    right: 0;
+    top: 0;
+  }
+}
+
+.notifications__header {
+  background-color: #ff676e;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.notifications__header h2 {
+}

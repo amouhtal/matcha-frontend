@@ -4,15 +4,13 @@ import { FeaturesRoutingModule } from './features-routing.module';
 import { ChatModule } from './chat/chat.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { FeaturesComponent } from './features/features.component';
-import { Store, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { clickContactReducer } from './chat/local-store/reducers/chat.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { NotificationEffects } from './navbar/local-store/effects/notification.effects';
-import {
-  messageNotificationReducer,
-  notificationReducer,
-} from './navbar/local-store/reducer/notification.reducer';
-import { HttpClientModule } from '@angular/common/http';
+import { messageNotificationReducer } from './navbar/local-store/reducer/notification.reducer';
+import { notificationReducer } from './notifications/local-store/reducer/notification.reducer';
+import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
+// import { NotificationsModule } from './notifications/notifications.module';
 
 @NgModule({
   declarations: [FeaturesComponent],
@@ -22,18 +20,18 @@ import { HttpClientModule } from '@angular/common/http';
     FeaturesRoutingModule,
     ChatModule,
     NavbarModule,
+    // NotificationsModule,
     // StoreModule.forRoot({
     //   clickContact: clickContactReducer,
     //   messageNotification: messageNotificationReducer,
     //   notificationState: notificationReducer,
     //   // notification: notificationReducer,
     // }),
-    StoreModule.forFeature('notificationState', notificationReducer),
-    
+
     StoreModule.forFeature('clickContact', clickContactReducer),
     StoreModule.forFeature('messageNotification', messageNotificationReducer),
+    StoreModule.forFeature('notificationState', notificationReducer),
     EffectsModule.forFeature([NotificationEffects]),
   ],
-  // bootstrap: [FeaturesComponent],
 })
 export class FeaturesModule {}

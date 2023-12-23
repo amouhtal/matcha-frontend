@@ -15,11 +15,10 @@ export class NotificationEffects {
   loadUsers$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(notificationActions.getNotification),
-
       switchMap(() =>
         this.notificationService.getNotifications().pipe(
           map((notification) => {
-            console.log('notification', notification );
+            console.log('notification', notification);
             return notificationActions.getNotificationSuccess({
               notifications: notification as NotificationStateDTO[],
             });
@@ -31,4 +30,5 @@ export class NotificationEffects {
       ),
     );
   });
+
 }
