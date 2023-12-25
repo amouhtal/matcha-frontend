@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 import { NgOptimizedImage } from '@angular/common'
+import { NgxTypedJsModule } from 'ngx-typed-js';
 @NgModule({
   declarations: [
     SignupPageComponent,
@@ -17,7 +18,8 @@ import { NgOptimizedImage } from '@angular/common'
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgxTypedJsModule
   ]
 })
 export class SignupModule { }

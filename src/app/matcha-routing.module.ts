@@ -10,6 +10,8 @@ import { SignupPageComponent } from './@public/authentication/signup/pages/signu
 const routes: Routes = [
   {path : "public" , loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule)},
   { path: 'chat',  component: ChatComponent },
+  { path: '',  component: ChatComponent },
+
 
 ];
 
