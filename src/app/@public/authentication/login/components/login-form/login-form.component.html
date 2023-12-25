@@ -1,7 +1,7 @@
 <form
   [formGroup]="loginForm"
   (ngSubmit)="onSubmit()"
-  class="relative flex gap-[5%] h-[80%] w-3/4 flex-col items-center justify-center rounded-lg"
+  class="relative flex h-[80%] w-3/4 flex-col items-center justify-center gap-[5%] rounded-lg"
 >
   <div class="mb-8 flex flex-col items-center">
     <p class="text-3xl text-primary-color">Welcome To Matcha</p>
@@ -12,7 +12,12 @@
     <label> USERNAME </label>
   </div>
   <div class="fields relative flex w-2/4 flex-col">
-    <input class="LoginInput" type="password" required formControlName="password" />
+    <input
+      class="LoginInput"
+      type="password"
+      required
+      formControlName="password"
+    />
     <label> PASSWORD </label>
   </div>
   <p class="text-red-400" *ngIf="error">

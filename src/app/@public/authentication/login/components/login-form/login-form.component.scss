@@ -1,6 +1,5 @@
 .LoginInput {
   margin: 0.5rem 0rem;
-  // border: 1px solid rgb(227, 227, 227);
   border-radius: 0.5rem;
   background-color: var(--secondary-color);
   padding: 1rem 1rem 1rem 0.8rem;
@@ -12,15 +11,10 @@
 .LoginInput:focus {
   outline: none;
   border: 0.5px solid var(--primary-color-light);
-//   box-shadow: 0px 0px 8px 0px var(--primary-color-light);
 }
 
 .LoginInput::placeholder {
   color: var(--primary-color);
-}
-
-.fields input {
-  // req
 }
 
 .fields label {
@@ -28,8 +22,6 @@
   font-size: 0.8rem;
   bottom: 35%;
   left: 5%;
-  // left: 0.8rem;
-  // top: 0.8rem;
   color: var(--primary-color);
   transition: 0.5s;
   pointer-events: none;
@@ -37,19 +29,10 @@
 
 .fields input:focus ~ label,
 .fields input:valid ~ label {
-  transform:  translateY(-1.75rem);
-  // top: -20%;
-  // left: 0.8rem;
-  background: linear-gradient(
-    to bottom,
-    white,
-    var(--secondary-color)
-  );
+  transform: translateY(-1.75rem);
+  background: linear-gradient(to bottom, white, var(--secondary-color));
   font-size: 0.7rem;
   color: var(--primary-color);
   padding: 0 0.2rem;
   border-radius: 0.5rem;
-//   border-left: 0.5px solid rgb(255 141 92);
-//   border-right: 0.5px solid rgb(255 141 92);
-  // transition: 1s;
 }
