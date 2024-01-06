@@ -1,0 +1,58 @@
+<div class="sign-up-contianer">
+  <div class="left-side">
+    <div class="left-head">
+      <img
+        src="../../../../../assets/images/full logo.svg"
+        alt="Login"
+        class="sm:h-[80px] sm:w-[100px] md:h-[100px] md:w-[150px]"
+      />
+      <h1>Complete SIGN UP</h1>
+    </div>
+    <div class="steps">
+      <span class="circle active" data-title="General Information">
+        <p class="number-one" *ngIf="progress == 0">1</p>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="done"
+          *ngIf="progress > 0"
+        ></mat-icon>
+      </span>
+      <span
+        class="circle"
+        data-title="Set Your Tags"
+        [ngClass]="{ active: progress > 0 }"
+      >
+        <p class="number-one" *ngIf="progress <= 1">2</p>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="done"
+          *ngIf="progress > 1"
+        ></mat-icon>
+      </span>
+      <span
+        class="circle"
+        data-title="Choose Your Photos"
+        [ngClass]="{ active: progress > 1 }"
+      >
+        <p class="number-one" *ngIf="progress <= 2">3</p>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="done"
+          *ngIf="progress > 2"
+        ></mat-icon>
+      </span>
+      <!-- <span class="circle" data-title="forth step">4</span> -->
+      <div class="progress-bar">
+        <span class="indicator" [style.height]="progressHight"></span>
+      </div>
+    </div>
+  </div>
+  <matcha-complete-signup-form
+  class="w-[60%] h-[80%]"
+    [progress]="progress"
+    (newItemEvent)="Next($event)"
+  ></matcha-complete-signup-form>
+</div>

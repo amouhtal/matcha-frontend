@@ -1,0 +1,89 @@
+<div class="completeSignupForm">
+  <div *ngIf="progress == 0" class="section">
+    <h1 class="firstHeader">
+      Your profile is almost complete, please fill in the following details
+    </h1>
+    <div class="firstSection">
+      <div class="flex w-1/2 items-center justify-center gap-1">
+        <label class="text-primary-color">Gender</label>
+        <div class="wrapper">
+          <input
+            class="chosen-value"
+            type="text"
+            value=""
+            [placeholder]="genderPlaceholder"
+            (focus)="openDropdown('gender')"
+            (blur)="openDropdown('gender')"
+          />
+          <ul
+            class="value-list"
+            [ngClass]="{ open: genderDropDownStatus === true }"
+          >
+            <li (click)="ChooseGender('male')">Male</li>
+            <li (click)="ChooseGender('female')">Fenale</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex w-1/2 items-center justify-center gap-1">
+        <label class="text-primary-color">Sexual Prefrence</label>
+        <div class="wrapper">
+          <input
+            class="chosen-value"
+            type="text"
+            value=""
+            [placeholder]="sPPlaceholder"
+            (focus)="openDropdown('sp')"
+            (blur)="openDropdown('sp')"
+          />
+          <ul
+            class="value-list"
+            [ngClass]="{ open: sPDropDownStatus === true }"
+          >
+            <li (click)="ChooseSP('male')">Male</li>
+            <li (click)="ChooseSP('female')">Fenale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bioSection">
+      <label>Biogrpahy</label>
+      <textarea placeholder="tell us about yourself..." [value]="bioValue"> </textarea>
+    </div>
+    <div class="birthdaySection">
+      <label>Date of birth</label>
+      <input type="date" placeholder="First name" />
+    </div>
+    <div class="buttons">
+      <button id="prev" disabled class="prevButton">Prev</button>
+      <button id="next" (click)="Next()" class="nextButton">Next</button>
+    </div>
+  </div>
+  <div *ngIf="progress == 1" class="section ">
+    <h1 class="firstHeader">Choose Your Interests</h1>
+    <div class="tagSection">
+      <h2 >Tags</h2>
+      <div class="tagsArea">
+        <div class="tag" *ngFor="let tag of tags">
+          <span  [ngClass]="this.tagsStatus.get(tag) ? 'active' : 'inactive' "
+          (click)="toggleTag(tag)"
+          > {{ tag }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="prev" (click)="Prev()" class="prevButton">Prev</button>
+      <button id="next" (click)="Next()" class="nextButton">Next</button>
+    </div>
+  </div>
+  <div *ngIf="progress == 2" class="section">
+    <label>EMAIL</label>
+    <input type="text" placeholder="Email" />
+    <div class="buttons">
+      <button id="prev" (click)="Prev()" class="nextButton">Prev</button>
+      <button id="next" (click)="Next()" class="prevButton">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="progress == 3" class="section">
+    <h1>Thank you for signing up</h1>
+  </div>
+</div>
