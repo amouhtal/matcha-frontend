@@ -3,8 +3,9 @@
     'hidden lg:!flex': !(chatIn$ | async),
     block: (chatIn$ | async)
   }"
-  class="navbar flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:relative lg:h-full lg:w-fit lg:flex-col lg:rounded lg:p-4"
+  class="navbar flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white relative lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded lg:p-4"
 >
+  <div class=""></div>
   <matcha-profile></matcha-profile>
   <div class="flex justify-between lg:h-[60%] lg:flex-col">
     <div
@@ -13,7 +14,7 @@
       (click)="Navigate('chat')"
     >
       <i class="material-icons icons text-gray-600"> forum </i>
-      <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+      <h4  class="hidden w-full md:m-2 lg:block">
         Messages
       </h4>
     </div>
@@ -23,7 +24,7 @@
       (click)="Notifications()"
     >
       <i class="material-icons icons text-gray-600"> notifications </i>
-      <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+      <h4  class="hidden w-full md:m-2 lg:block">
         Notifications
       </h4>
     </div>
@@ -32,7 +33,7 @@
       (click)="Likers()"
     >
       <i class="material-symbols-outlined text-gray-600">volunteer_activism</i>
-      <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+      <h4  class="hidden w-full md:m-2 lg:block">
         Browse
       </h4>
     </div>
@@ -41,7 +42,7 @@
       (click)="Likers()"
     >
       <i class="material-symbols-outlined text-gray-600">heart_plus</i>
-      <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+      <h4  class="hidden w-full md:m-2 lg:block">
         Likers
       </h4>
     </div>
@@ -50,16 +51,21 @@
       (click)="Messages()"
     >
       <i class="material-symbols-outlined text-gray-600">diversity_1</i>
-      <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+      <h4  class="hidden w-full md:m-2 lg:block">
         Matches
       </h4>
     </div>
   </div>
   <div class="flex w-full cursor-pointer items-center justify-center">
     <i class="material-icons icons text-gray-600"> logout </i>
-    <h4 *ngIf="!notificationOn" class="hidden w-full md:m-2 lg:block">
+    <h4  class="hidden w-full md:m-2 lg:block">
       Logout
     </h4>
   </div>
-  <!-- <matcha-notifications *ngIf="notificationOn"></matcha-notifications> -->
+    <matcha-notifications
+    [ngClass]="{
+      'desinimated-box ': !(notificationOn),
+      'animated-box': (notificationOn)
+    }"
+    ></matcha-notifications>
 </div>

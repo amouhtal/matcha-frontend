@@ -1,9 +1,13 @@
 :host {
   height: min(600px, 90vh);
+  z-index: 600;
 }
 
+.navbar{
+}
 .notification-on {
 }
+
 @media screen and (max-width: 1023px) {
   :host {
     width: 100%;
@@ -11,10 +15,9 @@
   }
 }
 
-h4{
-  background-color: #ff676e;
-  transition: all 5s linear;
-}
+// h4{
+//   transition: all 5s linear;
+// }
 // .tthidden {
 //   display: none;
 // }
@@ -38,4 +41,43 @@ h4{
   box-shadow: 0 0 1px #333;
 }
 
+:host ::matcha-notifications {
+  transform: translateX(-100%);
+}
 
+.animated-box {
+  position: absolute;
+  left: 100%;
+  // animation:  2s ease-in-out;
+  transition:  1s ease-in-out;
+  z-index: -100;
+}
+
+@keyframes moveAnimation {
+  0%{
+    transform: scale(0);
+  }
+  100% {
+    left: 100%; /* Move to the right edge of the container */
+  }
+
+}
+
+.desinimated-box {
+  position: absolute;
+  z-index: -100;
+  left: -260%;
+  transition:  1s ease-in-out;
+  // animation: dmoveAnimation 2s ease-in-out;
+}
+
+// .desinimated-box 
+
+@keyframes dmoveAnimation {
+  0% {
+    left: 0%
+  }
+  100% {
+    left:-100%
+  }
+}

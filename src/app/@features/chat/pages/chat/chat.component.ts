@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 import * as chatAction from '../../local-store/actions/chat.action';
 import { Observable } from 'rxjs';
+
 @Component({
   selector: 'matcha-chat',
   templateUrl: './chat.component.html',
@@ -35,6 +36,7 @@ export class ChatComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {}
+
   changeContact(contact: any) {
     this.contact = contact;
     this.store.dispatch(chatAction.switchToConversation());

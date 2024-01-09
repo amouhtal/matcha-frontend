@@ -12,5 +12,43 @@
 }
 
 body {
-  background: url("./assets/bg.jpg") no-repeat center center fixed;
+  overflow: hidden;
+  position: relative;
+  // background: url("./assets/bg.jpg") no-repeat center center fixed;
+}
+
+.circle {
+  border-radius: 50%;
+  background: #d4b6d9;
+  filter: blur(161.1999969482422px);
+  width: 40%;
+  height: 40%;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: -5;
+}
+
+.circle1{
+  left: 20%;
+  top: 0;
+}
+
+.circle2{
+  right: 20%;
+  top: 0;
+}
+
+.circle3{
+  left: 20%;
+  bottom: 20%;
+}
+
+.circle4{
+  right: 20%;
+  bottom: 20%;
+}
+
+.circle1{
+  right: 40%;
+  top: 40%;
 }
