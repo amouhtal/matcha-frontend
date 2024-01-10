@@ -1,4 +1,4 @@
-<div class="chat relative h-full w-full rounded bg-white">
+<div class="chat relative h-full w-full rounded bg-teal-300">
   <div class="flex h-full">
     <matcha-contact-panel
       (changeContact)="changeContact($event)"
@@ -7,7 +7,7 @@
         'hide-panel': !(switchToConversation$ | async),
         'show-panel': (switchToConversation$ | async)
       }"
-      class="hidden h-full lg:!block lg:w-3/12"
+      class="hidden h-full lg:!block lg:w-3/12 bg-white"
     >
     </matcha-contact-panel>
     <matcha-conversation-panel
@@ -16,7 +16,7 @@
         'show-panel': !(switchToConversation$ | async),
         'hide-panel': (switchToConversation$ | async)
       }"
-      class="w-full md:w-8/12 lg:!block lg:w-10/12"
+      class="w-full md:w-8/12 lg:!block lg:w-10/12 bg-white"
     ></matcha-conversation-panel>
   </div>
 </div>

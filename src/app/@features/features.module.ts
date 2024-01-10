@@ -10,7 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { messageNotificationReducer } from './navbar/local-store/reducer/notification.reducer';
 import { notificationReducer } from './notifications/local-store/reducer/notification.reducer';
 import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
-// import { NotificationsModule } from './notifications/notifications.module';
+import { BrowseModule } from './browse/browse.module';
 
 @NgModule({
   declarations: [FeaturesComponent],
@@ -20,6 +20,7 @@ import { NotificationEffects } from './notifications/local-store/effects/notific
     FeaturesRoutingModule,
     ChatModule,
     NavbarModule,
+    BrowseModule,
     // NotificationsModule,
     // StoreModule.forRoot({
     //   clickContact: clickContactReducer,

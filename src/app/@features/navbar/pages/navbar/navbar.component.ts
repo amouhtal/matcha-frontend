@@ -55,7 +55,9 @@ export class NavbarComponent implements OnInit {
   Messages() {
     this.router.navigate(['/features/chat']);
   }
-
+  Browse() {
+    this.router.navigate(['/features/browse']);
+  }
   Notifications() {
     this.notificationOn = !this.notificationOn;
     // this.router.navigate(['/features/notifications']);

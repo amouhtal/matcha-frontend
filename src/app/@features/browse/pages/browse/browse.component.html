@@ -1,0 +1,39 @@
+<div class="browse  relative w-full rounded bg-white">
+  <div class="search flex ">
+    <input type="text" class="search_input" placeholder="Search..." />
+    <div class="search_icon">
+      <i class="material-icons">search</i>
+    </div>
+    <select>
+      <option value="" disabled selected>Age</option>
+      <option value="18">18></option>
+      <option value="30">30></option>
+      <option value="40">40></option>
+    </select>
+    <select>
+      <option value="" disabled selected>fame rating</option>
+      <option value="0">0></option>
+      <option value="1">1></option>
+      <option value="2">2></option>
+      <option value="3">3></option>
+      <option value="4">4></option>
+    </select>
+    <select>
+      <option value="" disabled selected>interest tags</option>
+      <option value="18-30">Volvo</option>
+      <option value="30-42">Saab</option>
+      <option value="42>">Saab</option>
+    </select>
+  </div>
+  <div class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0">
+    <matcha-profile *ngFor="let profile of profiles">
+      <div class="profile_avatar flex justify-center rounded-xl" profile_avatar>
+        <img src="{{ profile.profile_avatar }}" class="rounded-xl" alt="" />
+      </div>
+      <span class="profile_name text-lg" profile_name>{{ profile.name }} </span>
+      <span class="location_text text-xs" profile_location
+        >{{ profile.profile_location }}
+      </span>
+    </matcha-profile>
+  </div>
+</div>

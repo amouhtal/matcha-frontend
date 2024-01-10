@@ -3,11 +3,6 @@
   z-index: 600;
 }
 
-.navbar{
-}
-.notification-on {
-}
-
 @media screen and (max-width: 1023px) {
   :host {
     width: 100%;
@@ -53,15 +48,6 @@
   z-index: -100;
 }
 
-@keyframes moveAnimation {
-  0%{
-    transform: scale(0);
-  }
-  100% {
-    left: 100%; /* Move to the right edge of the container */
-  }
-
-}
 
 .desinimated-box {
   position: absolute;
@@ -69,15 +55,4 @@
   left: -260%;
   transition:  1s ease-in-out;
   // animation: dmoveAnimation 2s ease-in-out;
-}
-
-// .desinimated-box 
-
-@keyframes dmoveAnimation {
-  0% {
-    left: 0%
-  }
-  100% {
-    left:-100%
-  }
 }
