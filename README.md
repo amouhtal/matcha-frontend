@@ -1,3 +1,12 @@
+# Introduction
+This project aims to create a dating website.
+its about create an application that allows two potential
+lovers to meet, from the registration process to the final encounter.
+Users will be able to register, log in, complete their profile, search and view the profiles
+of other users, and show interest in them with a “like”1
+, chat with those that “liked” back
+
+
 # MatchaFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
