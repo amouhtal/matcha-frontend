@@ -1,5 +1,5 @@
-<div class="browse  relative w-full rounded bg-white">
-  <div class="search flex ">
+<div class="browse relative w-full rounded bg-white">
+  <div class="search flex">
     <input type="text" class="search_input" placeholder="Search..." />
     <div class="search_icon">
       <i class="material-icons">search</i>
@@ -10,14 +10,25 @@
       <option value="30">30></option>
       <option value="40">40></option>
     </select>
-    <select>
-      <option value="" disabled selected>fame rating</option>
-      <option value="0">0></option>
-      <option value="1">1></option>
-      <option value="2">2></option>
-      <option value="3">3></option>
-      <option value="4">4></option>
-    </select>
+    <div class="flex items-center justify-center">
+      <div class="rating flex items-center rounded bg-teal-400">
+        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(1)"
+          >favorite</i
+        >
+        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(2)"
+          >favorite</i
+        >
+        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(3)"
+          >favorite</i
+        >
+        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(4)"
+          >favorite</i
+        >
+        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(5)"
+          >favorite</i
+        >
+      </div>
+    </div>
     <select>
       <option value="" disabled selected>interest tags</option>
       <option value="18-30">Volvo</option>
@@ -25,7 +36,9 @@
       <option value="42>">Saab</option>
     </select>
   </div>
-  <div class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0">
+  <div
+    class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0"
+  >
     <matcha-profile *ngFor="let profile of profiles">
       <div class="profile_avatar flex justify-center rounded-xl" profile_avatar>
         <img src="{{ profile.profile_avatar }}" class="rounded-xl" alt="" />
