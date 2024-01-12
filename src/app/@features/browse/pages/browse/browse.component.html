@@ -1,30 +1,88 @@
-<div class="browse relative w-full rounded bg-white">
-  <div class="search flex">
-    <input type="text" class="search_input" placeholder="Search..." />
-    <div class="search_icon">
-      <i class="material-icons">search</i>
+<div class="browse relative w-full rounded ">
+  <div class="search flex h-16 items-center justify-evenly shadow">
+    <label for="">Age: </label>
+    <div
+      class="select-box-container relative h-8 rounded  shadow-xl"
+    >
+      <div
+        class="relative right-0 flex h-full flex-col items-center justify-center py-2"
+      >
+        <i
+          class="material-icons arrow-up cursor-pointer text-gray-800"
+          (mousedown)="startDecrementing('+')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startDecrementing('+')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+        <i
+          class="material-icons arrow-down cursor-pointer"
+          (mousedown)="startDecrementing('-')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startDecrementing('-')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+      </div>
+
+      <span
+        class="max-age select-age flex w-20 items-center justify-center text-gray-800"
+      >
+        {{ ageGape }}
+      </span>
+
+      <div
+        class="relative right-0 flex h-full flex-col items-center justify-evenly py-2 shadow-2xl"
+      >
+        <i
+          class="material-icons arrow-up cursor-pointer"
+          (mousedown)="startIncrementingMax('+')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startIncrementingMax('+')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+        <i
+          class="material-icons arrow-down cursor-pointer"
+          (mousedown)="startIncrementingMax('-')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startIncrementingMax('-')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+      </div>
     </div>
-    <select>
-      <option value="" disabled selected>Age</option>
-      <option value="18">18></option>
-      <option value="30">30></option>
-      <option value="40">40></option>
-    </select>
     <div class="flex items-center justify-center">
-      <div class="rating flex items-center rounded bg-teal-400">
-        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(1)"
+      <label for="">Rating: </label>
+
+      <div class="rating flex items-center rounded  p-2 shadow-2xl">
+        <i
+          class="material-icons heart cursor-pointer hover:text-rose-500"
+          (click)="rate(1)"
           >favorite</i
         >
-        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(2)"
+        <i
+          class="material-icons heart cursor-pointer hover:text-rose-500"
+          (click)="rate(2)"
           >favorite</i
         >
-        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(3)"
+        <i
+          class="material-icons heart cursor-pointer hover:text-rose-500"
+          (click)="rate(3)"
           >favorite</i
         >
-        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(4)"
+        <i
+          class="material-icons heart cursor-pointer hover:text-rose-500"
+          (click)="rate(4)"
           >favorite</i
         >
-        <i class="material-icons heart hover:text-rose-500 cursor-pointer" (click)="rate(5)"
+        <i
+          class="material-icons heart cursor-pointer hover:text-rose-500"
+          (click)="rate(5)"
           >favorite</i
         >
       </div>
@@ -35,13 +93,22 @@
       <option value="30-42">Saab</option>
       <option value="42>">Saab</option>
     </select>
+    <button
+      class="show-button rounded bg-rose-400 px-4 py-2 shadow-lg  font-medium text-white hover:bg-rose-500 hover:shadow-rose-500/50"
+    >
+      Show
+    </button>
   </div>
   <div
-    class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0"
+    class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0 lg:grid-cols-3 xl:grid-cols-4"
   >
-    <matcha-profile *ngFor="let profile of profiles">
-      <div class="profile_avatar flex justify-center rounded-xl" profile_avatar>
-        <img src="{{ profile.profile_avatar }}" class="rounded-xl" alt="" />
+    <matcha-profile *ngFor="let profile of profiles" class="bg-white">
+      <div class="profile_avatar flex justify-center rounded-xl bg-white" profile_avatar>
+        <img
+          src="{{ profile.profile_avatar }}"
+          class="h-64 w-40 rounded-xl"
+          alt=""
+        />
       </div>
       <span class="profile_name text-lg" profile_name>{{ profile.name }} </span>
       <span class="location_text text-xs" profile_location

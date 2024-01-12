@@ -2,11 +2,14 @@
   height: 100%;
   width: 70%;
 }
+.browse{
+  background: #F9FAFF;
 
+}
 @media screen and (max-width: 1023px) {
   :host {
     width: 100%;
-    overflow: scroll;
+    // overflow: scroll;
   }
 }
 
@@ -15,8 +18,7 @@
 }
 
 .search {
-  max-height: 10%;
-  min-height: 10%;
+  margin-bottom: 20px;
 }
 
 .search_result {
@@ -26,6 +28,27 @@
   padding: 10px;
 }
 
-.heart--active{
+.heart--active {
   color: #f43f5e;
+  // color: gold;
 }
+
+
+.select-box-container{
+  display: flex;
+  justify-content: center;
+  
+  .select-age {
+    // background-color: #f43f5e;
+    font-size: 20px;
+  
+  }
+  .arrow-down {
+    // color: white;
+  }
+  .arrow-up{
+    // color: white;
+    transform: rotate(180deg);
+  }
+}
+
