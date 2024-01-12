@@ -1,0 +1,5 @@
+<div [ngClass]="message.isMe ? 'user-message ' : 'friend-message'" class="font-mono text-gray-800">
+  <p [ngClass]="message.isMe ? 'bubble-message--right' : 'bubble-message--left'" class="bubble-message break-all w-[50%]">
+    {{ message.message }}
+  </p>
+</div>

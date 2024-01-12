@@ -1,0 +1,33 @@
+<div class="notifications z-50 absolute h-full w-full rounded bg-white border">
+  <div
+    class="notifications__header flex h-12 items-center justify-center rounded-t-sm font-mono"
+  >
+    <h2 class="notifications__title">Notifications</h2>
+  </div>
+  <div class="notifications__body">
+    <div class="notifications__list ">
+      <matcha-notification-item
+        *ngFor="let notification of notifications"
+        [notification]="unreadNotificationCount$"
+      >
+      </matcha-notification-item>
+      <!-- <div class="notifications__item">
+        <div class="notifications__item__icon">
+          <i class="material-icons">notifications</i>
+        </div>
+        <div class="notifications__item__content">
+          <div class="notifications__item__content__title">
+            Notification title
+          </div>
+          <div class="notifications__item__content__description">
+            Notification description
+            {{ test$ | async | json }}
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <!-- <div class="notifications__footer">
+    <button class="notifications__footer__button">View all</button>
+  </div> -->
+</div>

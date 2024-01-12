@@ -13,18 +13,23 @@ export class LoginFormComponent {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
   error: string = '';
 
   onSubmit() {
     let data = this.loginForm.value;
     this.http
-      .post('http://localhost:3000/user/login', data, { withCredentials: true })
+      .post('http://localhost:3000/user/login', data, {
+        withCredentials: true,
+      })
       .subscribe({
-        next: (ret :any) => {
+        next: (ret: any) => {
           console.log(ret);
-          sessionStorage.setItem('session' , JSON.stringify(ret.session));
-            this.router.navigate(['/']);
+          sessionStorage.setItem('session', JSON.stringify(ret.session));
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.log(err);

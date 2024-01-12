@@ -10,7 +10,6 @@ export class VerifiedGuardService {
     private http: HttpClient,
   ) {}
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
-    console.log(sessionStorage.getItem('session'));
     if (sessionStorage.getItem('session') != null) {
       let session = JSON.parse(sessionStorage.getItem('session') || '{}');
       return this.http

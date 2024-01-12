@@ -12,5 +12,41 @@
 }
 
 body {
-  background: url("./assets/bg.jpg") no-repeat center center fixed;
+  overflow: hidden;
+  position: relative;
+  // background: url("./assets/bg.jpg") no-repeat center center fixed;
+}
+
+.circle {
+  border-radius: 50%;
+  background: #d4b6d9;
+  filter: blur(161.1999969482422px);
+  width: 20%;
+  height: 20%;
+  flex-shrink: 0;
+  position: absolute;
+  z-index: -5;
+}
+
+.circle2 {
+  right: 30%;
+  top: 30%;
+}
+
+.circle3 {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle4 {
+  left: 10%;
+  bottom: 0;
+  transform: translate(0, 50%);
+}
+
+.circle5 {
+  right: 10%;
+  bottom: 0;
+  transform: translate(0, 80%);
 }
