@@ -28,22 +28,25 @@ body {
   z-index: -5;
 }
 
-.circle2{
+.circle2 {
   right: 30%;
   top: 30%;
 }
 
-.circle3{
-  left: 90%;
-
+.circle3 {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.circle4{
+.circle4 {
   left: 10%;
-  bottom: -10%;
+  bottom: 0;
+  transform: translate(0, 50%);
 }
 
-.circle5{
+.circle5 {
   right: 10%;
-  bottom: -10%;
+  bottom: 0;
+  transform: translate(0, 80%);
 }
