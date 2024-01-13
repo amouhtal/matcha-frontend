@@ -14,7 +14,6 @@
 body {
   overflow: hidden;
   position: relative;
-  // background: url("./assets/bg.jpg") no-repeat center center fixed;
 }
 
 .circle {
@@ -23,20 +22,19 @@ body {
   filter: blur(161.1999969482422px);
   width: 20%;
   height: 20%;
-  flex-shrink: 0;
-  position: absolute;
+  position: relative;
   z-index: -5;
 }
 
 .circle2 {
-  right: 30%;
-  top: 30%;
+  right: -30%;
+  top: -30%;
 }
 
 .circle3 {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: -50%;
+  top: -50%;
+  // transform: translate(-50%, -50%);
 }
 
 .circle4 {
