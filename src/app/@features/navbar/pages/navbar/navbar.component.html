@@ -1,9 +1,10 @@
+<!-- [ngClass]="{
+  'hidden lg:!flex': !(chatIn$ | async),
+  block: (chatIn$ | async)
+}" -->
 <div
-  [ngClass]="{
-    'hidden lg:!flex': !(chatIn$ | async),
-    block: (chatIn$ | async)
-  }"
-  class="navbar relative flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded lg:p-4"
+
+  class="navbar lg:relative flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded lg:p-4"
 >
   <matcha-profile></matcha-profile>
   <div class="flex w-[60%] justify-between lg:h-[60%] lg:w-full lg:flex-col">
@@ -54,6 +55,6 @@
       'desinimated-box ': !notificationOn,
       'animated-box': notificationOn
     }"
-    class=" border-l rounded shadow-xl"
+    class="notification rounded border-l shadow-xl"
   ></matcha-notifications>
 </div>
