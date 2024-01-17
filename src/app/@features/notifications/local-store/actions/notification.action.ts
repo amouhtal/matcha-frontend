@@ -12,3 +12,14 @@ export const getNotificationFailure = createAction(
   '[GET_NOTIFICATION_FAILURE]',
   props<{ error: any }>(),
 );
+
+export const resetNotification = createAction('[RESET_NOTIFICATION]');
+
+export const resetNotificationSuccess = createAction(
+  '[RESET_NOTIFICATION_SUCCESS]',
+);
+
+export const resetNotificationFailure = createAction(
+  '[RESET_NOTIFICATION_FAILURE]',
+  props<{ error: any }>(),
+);

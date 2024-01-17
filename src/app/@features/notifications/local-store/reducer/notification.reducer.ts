@@ -1,15 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import * as notificationActions from '../actions/notification.action';
-import { NotificationStateDTO } from '../../models/notification-state.dto';
-
-export interface NotificationState {
-  notificationState: NotificationStateDTO[];
-  unreadNotificationCount: number;
-  unreadMessageCount: number;
-  loading: boolean;
-  loaded: boolean;
-  error: null;
-}
+import { NotificationState } from '../../models/notification-state';
 
 export const initialState: NotificationState = {
   notificationState: [],
@@ -22,15 +13,18 @@ export const initialState: NotificationState = {
 
 export const notificationReducer = createReducer(
   initialState,
-  on(notificationActions.getNotification, (state) => {
-    return {
-      ...state,
-      loading: true,
-    };
-  }),
+  on(
+    notificationActions.getNotification,
+    (state: NotificationState): NotificationState => {
+      return {
+        ...state,
+        loading: true,
+      };
+    },
+  ),
   on(
     notificationActions.getNotificationSuccess,
-    (state: NotificationState, { notifications }) => {
+    (state: NotificationState, { notifications }): NotificationState => {
       let unreadNotificationCount = state.unreadNotificationCount;
       let unreadMessageCount = state.unreadMessageCount;
       notifications.map((notification) => {
@@ -62,4 +56,27 @@ export const notificationReducer = createReducer(
       };
     },
   ),
+  on(notificationActions.resetNotification, (state: NotificationState) => {
+      return {
+        ...state,
+        loading: true,
+      };
+  }),
+  on(notificationActions.resetNotificationSuccess, (state: NotificationState) => {
+    return {
+        ...state,
+        loading: false,
+        loaded: true,
+        unreadNotificationCount: 0,
+        unreadMessageCount: 0,
+      };
+  }),
+  on(notificationActions.resetNotificationFailure, (state: NotificationState, { error }) => {
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: error,
+      };
+  }),
 );
