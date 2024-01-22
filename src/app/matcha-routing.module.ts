@@ -11,7 +11,7 @@ import { CompleteSignupPageComponent } from './@features/complete-signup/pages/c
 const routes: Routes = [
   {path : "public" , loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule)},
   { path: 'chat',  component: ChatComponent },
-  { path: 'features/complete',  component: CompleteSignupPageComponent },
+  { path: 'features/complete-signup',  component: CompleteSignupPageComponent },
   { path: '',  component: ChatComponent },
 
 

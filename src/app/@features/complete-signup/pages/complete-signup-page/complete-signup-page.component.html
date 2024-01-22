@@ -4,7 +4,7 @@
       <img
         src="../../../../../assets/images/full logo.svg"
         alt="Login"
-        class="sm:h-[80px] sm:w-[100px] md:h-[100px] md:w-[150px]"
+        class=""
       />
       <h1>Complete SIGN UP</h1>
     </div>
@@ -46,12 +46,14 @@
       </span>
       <!-- <span class="circle" data-title="forth step">4</span> -->
       <div class="progress-bar">
-        <span class="indicator" [style.height]="progressHight"></span>
+        <span class="indicator verticalIndicator" [style.height]="progressHight"></span>
+        <span class="indicator horizantalIndicator" [style.width]="progressHight"></span>
+
       </div>
     </div>
   </div>
   <matcha-complete-signup-form
-  class="w-[60%] h-[80%]"
+  class="md:w-[100%] lg:w-[80%] h-[80%]"
     [progress]="progress"
     (newItemEvent)="Next($event)"
   ></matcha-complete-signup-form>

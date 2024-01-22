@@ -29,6 +29,7 @@
 .buttons .nextButton,
 .buttons .prevButton {
   width: 16%;
+  min-width: 120px;
   border-radius: 0.5rem;
   border: 1px solid var(--primary-color);
   background-color: var(--primary-color);
@@ -46,16 +47,35 @@
 //   transform: scale(0.97);
 // }
 
-.buttons .prevButton:disabled {
+.buttons .prevButton:disabled , .buttons .nextButton:disabled {
   background: var(--primary-color-light);
   color: white;
   cursor: not-allowed;
 }
+
+
+.errorArea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 5%;
+  width: 100%;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.8rem;
+  font-family: Poppins;
+  align-self: center;
+}
 ////////////////////////////////////////////////////////////
-.firstHeader {
+.header {
   color: var(--primary-color);
   font-family: Poppins;
   align-self: flex-start;
+  font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+  line-height: normal;
 }
 
 .firstSection {
@@ -66,7 +86,15 @@
   width: 80%;
 }
 
-.wrapper {
+.selectFileds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 50%;
+}
+
+.selectBoxWrapper {
   position: relative;
   width: 100%;
   display: flex;
@@ -228,7 +256,7 @@
   margin-bottom: 10px;
   padding-left: 3%;
   padding-top: 3%;
-  height: 50%;
+  height: 60%;
 
   h2 {
     font-family: Poppins;
@@ -239,7 +267,6 @@
 }
 
 .tagsArea {
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -262,46 +289,260 @@
     align-items: center;
   }
 
-  .tag .active {
+  .tag span {
     display: flex;
-    // flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 50px;
-    padding: 20px 60px;
-    // margin: 10px 0px;
+    width: 100%;
+    height: 100%;
+    padding: 15px 60px;
+    margin: 10px 0px;
     outline: none;
-    background-color: var(--primary-color);
-    color: white;
     line-height: 1.5;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
   }
 
+  .tag .active {
+    background-color: var(--primary-color);
+    color: white;
+  }
   .tag .inactive {
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 50px;
-    padding: 20px 60px;
-    margin: 0px 10px;
-    outline: none;
     background-color: white;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
-    line-height: 1.5;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
   }
 }
 
-@media (min-height: 1024px) {
+/////////////////////// 3rd section ///////////////////////
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 70%;
+  margin-bottom: 20px;
+}
+.note{
+  position: relative;
+  color : var(--primary-color);
+  width: 100%;
+  height: 10%;
+}
+.note::before {
+  // content: "NOTE : The highlighted Photo will be your profile picture , double click photo to highlight it";
+  content: attr(data-text);
+  flex: auto;
+  font-size: clamp(0.6rem, 1vw, 1.2rem);
+  // increase letter spacing for a better look
+  letter-spacing: 2px;
+  font-family: Poppins;
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+}
+
+.imagePreview img {
+  border: 0px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 180px;
+  height: 250px;
+  margin: 20px 20px;
+  border-radius: 10px;
+  // overflow: hidden;
+  z-index: 1;
+}
+
+.firstImageLabel {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.firstImage {
+  display: none;
+}
+
+.firstImageHolder {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  position: relative;
+  transition: ease-in-out 0.5s;
+}
+
+.addIcon {
+  color: red;
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  cursor: pointer;
+}
+
+.removeIcon {
+  background-color: #f1f1f1;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 15px;
+  width: 15px;
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.removeIcon:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.profilePicture {
+  border: 2px dashed var(--primary-color);
+}
+
+.profilePictureHover:hover {
+  transform: scale(1.2);
+  transition: ease-in-out 0.3s;
+}
+////////////////////////////////////////////////////////////
+///////////////// Media Queries ////////////////////////////
+////////////////////////////////////////////////////////////
+
+@media only screen and (width > 1440px) {
+  .wrapper {
+    width: 200px;
+    height: 280px;
+  }
+  .buttons .nextButton,
+  .buttons .prevButton {
+    min-width: 200px;
+    font-size: 1.5rem;
+    height: 60px;
+  }
+}
+@media only screen and (width = 1440px) {
+  .tagsArea .tag span {
+    padding: 20px 60px;
+  }
+  .wrapper {
+    width: 150px;
+    height: 200px;
+  }
+  .row {
+    width: 100%;
+    height: 40%;
+  }
+}
+
+@media only screen and (width < 1440px) {
+  .tagsArea .tag span {
+    padding: 10px 30px;
+  }
+  .wrapper {
+    width: 120px;
+    height: 200px;
+  }
+  .row {
+    width: 100%;
+    height: 60%;
+  }
+}
+
+@media only screen and (width < 1024px) {
+  .row {
+    width: 100%;
+    height: 50%;
+  }
+  .wrapper {
+    width: 100px;
+    height: 150px;
+  }
+}
+
+@media only screen and (width = 768px) {
+  .row {
+    height: 40%;
+  }
+  .note::before {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (width < 768px) {
+  .note{
+    margin: 5px 0px;
+  }
+  .note::before {
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+  }
   .section {
-    // background-color: red;
+    justify-content: flex-start;
+  }
+  .firstSection,
+  .bioSection,
+  .birthdaySection {
+    width: 100%;
+  }
+  .selectFileds {
+    align-items: flex-start;
+    flex-direction: column;
+
+    width: 95%;
+    .selectBoxWrapper {
+      align-items: flex-start;
+      .chosen-value {
+        width: 90%;
+      }
+      .value-list {
+        width: 90%;
+        left: 0;
+      }
+    }
+  }
+  .tagsArea .tag span {
+    padding: 5px 20px;
+    margin: 5px 0px;
+  }
+}
+
+@media only screen and (width <= 425px) {
+  .wrapper {
+    width: 85px;
+    height: 130px;
+  }
+}
+
+@media only screen and (width <= 320px) {
+  .tagsArea {
+    height: 100%;
+  }
+  .buttons .nextButton,
+  .buttons .prevButton {
+    min-width: 80px;
+    font-size: 0.8rem;
+  }
+
+  .personalInfoHeader {
+    font-size: 1rem;
   }
 }
