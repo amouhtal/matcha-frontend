@@ -36,4 +36,7 @@ export class LoginFormComponent {
         },
       });
   }
+  redirectSignup(){
+    this.router.navigate(['/public/auth/signup']);
+  }
 }

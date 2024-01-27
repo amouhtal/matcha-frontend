@@ -8,6 +8,7 @@ import { ChatModule } from './@features/chat/chat.module';
 import { CoreModule } from './@core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompletePageModule } from './@features/complete-signup/complete-signup.module';
+import { FeaturesModule } from './@features/features.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CompletePageModule } from './@features/complete-signup/complete-signup.
     BrowserModule,
     MatchaRoutingModule,
     PublicModule,
+    FeaturesModule,
     ChatModule,
     CoreModule,
     BrowserAnimationsModule,

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./verify-account-page.component.scss']
 })
 export class VerifyAccountPageComponent {
-
+ username: string = 'new user'
+  constructor() { 
+    this.username = JSON.parse(localStorage.getItem('session')!).username || 'new user'
+  };
 }

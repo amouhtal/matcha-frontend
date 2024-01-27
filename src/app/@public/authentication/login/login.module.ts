@@ -15,6 +15,7 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     FormsModule,
     NgOptimizedImage,
     NgxTypedJsModule,
+    
 
   ],
 })

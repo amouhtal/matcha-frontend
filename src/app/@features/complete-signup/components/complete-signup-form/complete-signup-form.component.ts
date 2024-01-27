@@ -70,6 +70,7 @@ export class CompleteSignupFormComponent implements OnInit {
     private router: Router,
     private platform: Platform,
   ) {}
+
   ngOnInit(): void {
     if (this.platform.ANDROID || this.platform.IOS)
       this.photosNote =
@@ -239,6 +240,7 @@ export class CompleteSignupFormComponent implements OnInit {
       .subscribe({
         next: (ret) => {
           console.log(ret);
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.log(error.error);
