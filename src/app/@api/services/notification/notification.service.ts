@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,6 +41,15 @@ export class NotificationService {
       params: {
         userId: this.userID,
         notificationId: notificationId,
+      },
+    });
+  }
+
+  resetNotifications() {
+    console.log('this.userID', this.userID);
+    return this.http.put('http://localhost:3000/notification/resetAllRead', {
+      params: {
+        userId: this.userID,
       },
     });
   }
