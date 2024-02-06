@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, switchMap, of } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Injectable()
-export class VerifiedGuardService {
+export class CompleteSignupGuardService {
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -15,19 +15,17 @@ export class VerifiedGuardService {
       let session = JSON.parse(localStorage.getItem('session') || '{}');
       return this.http
         .post(
-          'http://localhost:3000/user/getVerification',
-          { id: session.user_id },
+          'http://localhost:3000/user/completeSignupStatus',
+          {},
           { withCredentials: true },
         )
         .pipe(
           switchMap((res: any) => {
-            if (res.verified == true) {
+            if (res.signCompleteStatus == true) {
               this.router.navigate(['/']);
-              return of(true);
-            } else {
-              this.router.navigate(['/public/auth/verify']);
               return of(false);
             }
+            return of(true);
           }),
         );
     } else {
