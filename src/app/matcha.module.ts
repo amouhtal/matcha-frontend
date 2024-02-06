@@ -6,6 +6,9 @@ import { PublicModule } from './@public/public.module';
 import { ChatModule } from './@features/chat/chat.module';
 
 import { CoreModule } from './@core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompletePageModule } from './@features/complete-signup/complete-signup.module';
+import { FeaturesModule } from './@features/features.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,11 @@ import { CoreModule } from './@core/core.module';
     BrowserModule,
     MatchaRoutingModule,
     PublicModule,
+    FeaturesModule,
     ChatModule,
     CoreModule,
+    BrowserAnimationsModule,
+    CompletePageModule
   ],
   providers: [],
   bootstrap: [MatchaComponent]

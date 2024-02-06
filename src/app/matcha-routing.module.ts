@@ -6,10 +6,13 @@ import { MatchaComponent } from './matcha.component';
 import { SignupFormComponent } from './@public/authentication/signup/components/signup-form/signup-form.component';
 import { VerifiedGuardService } from './@core/guards/verified-guard.service';
 import { SignupPageComponent } from './@public/authentication/signup/pages/signup-page/signup-page.component';
+import { CompleteSignupPageComponent } from './@features/complete-signup/pages/complete-signup-page/complete-signup-page.component';
+import { FeaturesGuardService } from './@core/guards/features-guard.service';
 
 const routes: Routes = [
-  {path : "public" , loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule)},
+  {path : "public" ,loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule) },
   { path: 'chat',  component: ChatComponent },
+  { path: "features",canActivate : [FeaturesGuardService] ,loadChildren: () => import('./@features/features.module').then((m) => m.FeaturesModule)},
   { path: '',  component: ChatComponent },
 
 

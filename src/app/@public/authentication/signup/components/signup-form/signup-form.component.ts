@@ -118,4 +118,8 @@ export class SignupFormComponent implements OnInit {
       }
     }
   }
+
+  redirectLogin(){
+    this.router.navigate(['/public/auth/login']);
+  }
 }
