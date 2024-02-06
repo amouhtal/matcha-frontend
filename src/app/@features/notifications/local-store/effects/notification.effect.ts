@@ -12,7 +12,7 @@ export class NotificationEffects {
     private notificationService: NotificationService,
   ) {}
 
-  loadNotifications$ = createEffect(() => {
+  loadNotifications$ = createEffect((): Actions => {
     return this.actions$.pipe(
       ofType(notificationActions.getNotification),
       switchMap(() =>

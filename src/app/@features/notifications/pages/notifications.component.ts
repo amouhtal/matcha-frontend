@@ -3,7 +3,6 @@ import {
   Input,
   OnChanges,
   OnInit,
-  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -22,7 +21,8 @@ export class NotificationsComponent implements OnInit, OnChanges {
     private store: Store<{
       // notificationState: any;
     }>,
-  ) {}
+  ) {
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['notificationBarState'].currentValue === true) {
