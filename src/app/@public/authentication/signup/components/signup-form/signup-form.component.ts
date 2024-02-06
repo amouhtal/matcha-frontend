@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { SignupFormHelper } from './helpers/signup-form.helper';
 
 @Component({
@@ -65,8 +65,12 @@ export class SignupFormComponent implements OnInit {
     console.log(data);
     this.http.post('http://localhost:3000/user/signup', data,{withCredentials : true}).subscribe({
       next: (ret) => {
+        const queryParams: NavigationExtras = {
+          queryParams: { username: data.username } 
+        };
+      
         console.log(ret);
-        this.router.navigate(['/public/auth/verify']);
+        this.router.navigate(['/public/auth/verify'], queryParams);
       },
       error: (error) => {
         console.log(error.error);

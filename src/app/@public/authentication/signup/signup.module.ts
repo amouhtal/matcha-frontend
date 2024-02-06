@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 import { NgOptimizedImage } from '@angular/common'
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     SignupPageComponent,
@@ -19,7 +20,8 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     HttpClientModule,
     FormsModule,
     NgOptimizedImage,
-    NgxTypedJsModule
+    NgxTypedJsModule,
+    RouterModule
   ]
 })
 export class SignupModule { }
