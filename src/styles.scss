@@ -4,10 +4,66 @@
 @tailwind utilities;
 
 
-*,::after,::before{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  
+}
+
+body {
+  overflow: hidden;
+  max-width: 100vw;
+  height: 100vh;
+  position: relative;
+  // height: 100vh;
+  // width: 100vw;
+}
+
+.circle {
+  background: #d4b6d9;
+  filter: blur(161.1999969482422px);
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  position: absolute;
+  ;
+  // z-index: 100;
+}
+.circle1 {
+  
+  left: -10%;
+  top: -10%;
+}
+
+.circle2 {
+  left: 30%;
+  top: -10%;
+}
+
+.circle3 {
+  left: 50%;
+  top: -5%;
+  // transform: translate(-50%, -50%);
+}
+
+.circle4 {
+  left: -10%;
+  bottom: -10%;
+}
+
+.circle5 {
+  left: 10%;
+  bottom: -10%;
+}
+.circle6 {
+ left: -10%;
+  bottom: -10%;
 }
 :root {
     --primary-color: #FF676E;

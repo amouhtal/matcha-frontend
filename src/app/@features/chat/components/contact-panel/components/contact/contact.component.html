@@ -1,0 +1,22 @@
+<div class="flex w-full items-center justify-center  ">
+  <!-- <div class="w-[80%]"> -->
+  <div
+    class="contact relative flex p-2 cursor-pointer items-center justify-start border-b border-slate-200 py-2 md:px-4"
+    (click)="switToConversation()"
+    [attr.notification-count]="8"
+  >
+    <img src="{{ contact.avatar }} " alt="" class="h-12 w-12 rounded-full" />
+    <div class="text relative ml-3 max-w-[70%]">
+      <h3 class="text-base font-medium">
+        <ng-content select="[name]"></ng-content>
+      </h3>
+      <ng-content select="[message]"></ng-content>
+    </div>
+    <span
+      *ngIf="contact.date"
+      class="absolute right-0 top-0 py-2 text-xs text-gray-400"
+      >{{ contact.date }}</span
+    >
+  </div>
+  <!-- </div> -->
+</div>

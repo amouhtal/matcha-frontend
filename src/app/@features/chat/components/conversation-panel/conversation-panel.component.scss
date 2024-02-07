@@ -1,0 +1,12 @@
+#matcha-messages {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 1023px) {
+  #matcha-messages {
+    width: 100%;
+  }
+  :host {
+    width: 100%;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="relative flex h-full flex-col overflow-hidden">
+  <matcha-friend-contact
+    [friendContact]="friendContact"
+  ></matcha-friend-contact>
+  <matcha-messages
+    *ngIf="friendContact"
+    [cnvId]="friendContact.id"
+    [message]="message"
+    id="matcha-messages"
+  ></matcha-messages>
+  <matcha-send-message
+    [friendId]="friendContact.user_id"
+    (addMessage)="addMessage($event)"
+  ></matcha-send-message>
+</div>

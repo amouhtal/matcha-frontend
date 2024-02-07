@@ -22,7 +22,9 @@ export class LoginFormComponent {
   onSubmit() {
     let data = this.loginForm.value;
     this.http
-      .post('http://localhost:3000/user/login', data, { withCredentials: true })
+      .post('http://localhost:3000/user/login', data, {
+        withCredentials: true,
+      })
       .subscribe({
         next: (ret: any) => {
           localStorage.setItem('session', JSON.stringify(ret.session));

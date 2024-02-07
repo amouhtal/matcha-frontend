@@ -1,0 +1,50 @@
+<div class="h-full overflow-hidden border-r">
+  <div class="settings flex h-16 justify-between rounded bg-rose-500 px-4 py-2">
+    <!-- <img
+      src="https://picsum.photos/200"
+      alt="profile picture"
+      class="profile-picture w-12 h-12 rounded-full"
+    /> -->
+    <div class="text flex items-center">
+      <i class="material-icons icons text-gray-800"> sync </i>
+      <i
+        class="material-icons icons block text-gray-800 lg:hidden"
+        (click)="switchToConversation()"
+      >
+        chat
+      </i>
+      <i class="material-icons icons text-gray-800"> menu </i>
+    </div>
+    <div class="logout text flex items-center">
+      <i class="material-icons icons text-gray-800"> logout </i>
+    </div>
+  </div>
+  <div class="search-box flex h-12 justify-center text-gray-800 px-2 py-1">
+    <div
+      class="flex-start relative flex w-3/4 items-center overflow-hidden rounded-lg"
+    >
+      <i class="material-icons search-icon absolute ml-2 rounded-lg">
+        search
+      </i>
+      <!-- <i class="material-icons icons"> more_vert </i> -->
+      <input
+        type="text"
+        placeholder="Search a contact"
+        class="w-full rounded-lg p-1 indent-7"
+      />
+    </div>
+  </div>
+  <div class="contacts h-[85%] overflow-y-auto">
+    <matcha-contact
+      *ngFor="let contact of contacts"
+      [contact]="contact"
+      (selectedContact)="selectContact($event)"
+      class="contact"
+    >
+      <span name class="md:block">{{ contact.name }}</span>
+      <p message class="overflow-hidden truncate whitespace-nowrap">
+        {{ contact.lastMessage }}
+      </p>
+    </matcha-contact>
+  </div>
+</div>

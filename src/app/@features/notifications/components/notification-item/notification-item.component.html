@@ -1,0 +1,23 @@
+<div class="notification flex items-center justify-evenly rounded border-b p-2">
+  <div class="user_avatar">
+    <img
+      src="https://img.freepik.com/premium-photo/woman-with-her-eyes-closed-abstract-photo_893012-158685.jpg?w=1380"
+      alt=""
+      class="h-12 w-12 rounded-full"
+    />
+  </div>
+  <h3 class="user_name font-semibold">user X</h3>
+  <div class="notificaion_details flex flex-col">
+    <div class="notification_description">
+      <p class="content text-lg">
+        {{ notification.text }}
+      </p>
+    </div>
+    <div class="flex justify-between">
+      <i class="material-icons text-teal-300">mood</i>
+      <span class="notification_time text-sm font-light">{{
+        notification.created_at
+      }}</span>
+    </div>
+  </div>
+</div>

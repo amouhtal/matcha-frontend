@@ -1,0 +1,31 @@
+.icons {
+  // color: rgb(87, 84, 84);
+  cursor: pointer;
+  &:hover {
+    color: rgb(63, 154, 224);
+  }
+}
+
+.search-icon {
+  color: #6b6969;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+input {
+  outline: none;
+  color: #6b6969;
+}
+
+:host {
+  width: 300px;
+}
+
+@media screen and (max-width: 1023px) {
+  :host {
+    width: 100%;
+  }
+}
+.contacts {
+  background: #f9faff;
+}
