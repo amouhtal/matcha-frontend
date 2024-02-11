@@ -3,6 +3,6 @@
     class="relative flex h-screen w-full flex-col items-center overflow-hidden lg:flex-row-reverse lg:items-start lg:justify-between lg:py-4"
   >
     <router-outlet></router-outlet>
-    <matcha-navbar></matcha-navbar>
+    <matcha-navbar *ngIf="!hideNavBar"></matcha-navbar>
   </div>
 </div>
