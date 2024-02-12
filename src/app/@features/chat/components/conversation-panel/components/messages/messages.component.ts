@@ -58,7 +58,6 @@ export class MessagesComponent
 
     this.loadConversation(this.cnvId);
     this.chatStreamService.receiveMessage().subscribe((msg: any) => {
-      // console.log('msg received', msg);
       this.addMessage(msg);
     });
     // this.chatStreamService.receiveNotification().subscribe((msg: any) => {
@@ -69,11 +68,9 @@ export class MessagesComponent
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['cnvId']?.currentValue) {
       this.cnvId = changes['cnvId'].currentValue;
-      console.log('cnvId', this.cnvId);
       this.loadConversation(this.cnvId);
     }
     if (changes['message']?.currentValue) {
-      console.log('new message');
       this.addMessage(changes['message'].currentValue);
     }
   }
@@ -84,8 +81,6 @@ export class MessagesComponent
       .getConversationMessages(cnvId)
       .subscribe((messages: any) => {
         this.messages = messages;
-        console.log(this.messages);
-        // console.log('result', messages);
       });
   }
 

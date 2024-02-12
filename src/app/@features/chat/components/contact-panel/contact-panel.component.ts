@@ -16,15 +16,10 @@ export class ContactPanelComponent implements OnChanges {
     private store: Store<{ clickContact: boolean }>,
     private contactsService: ContactsService
   ) {
-    // console.log(this.contactsService.getContacts(1).subscribe((contacts: any) => {
-    //   console.log(contacts);
-    //   this.contacts = contacts;
-    // }));
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log(changes);
-    console.log(changes);
   }
   selectContact(contact: ContactDTO) {
     this.changeContact.emit(contact);

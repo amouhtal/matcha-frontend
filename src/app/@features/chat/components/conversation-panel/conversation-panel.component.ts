@@ -21,7 +21,6 @@ export class ConversationPanelComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges(): void {
-    // console.log('friendContact', this.friendContact);
   }
 
   addMessage(message: MessageDTO) {

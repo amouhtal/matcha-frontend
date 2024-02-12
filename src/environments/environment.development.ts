@@ -1,3 +1,3 @@
 export const environment = {
-    socketUrl : 'http://localhost:3000'
+  socketUrl: 'http://localhost:3000',
 };

@@ -8,10 +8,9 @@ export class MessagesService {
   constructor(private http: HttpClient) {}
 
   getConversationMessages(cnvId: number) {
-    const userID: number = sessionStorage.getItem('session')
-      ? JSON.parse(sessionStorage.getItem('session') as string).user_id
+    const userID: number = localStorage.getItem('session')
+      ? JSON.parse(localStorage.getItem('session') as string).user_id
       : 0;
-    // console.log('id', cnvId);
     return this.http.get('http://localhost:3000/chat/messages', {
       params: {
         cnvId,

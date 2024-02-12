@@ -12,9 +12,7 @@ import { SendMessageComponent } from './components/conversation-panel/components
 import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
 import { CommunicationService } from './pages/chat/communication.service';
-import { StoreModule } from '@ngrx/store';
-import { clickContactReducer } from './local-store/reducers/chat.reducer';
-// import { ChatRoutingModule } from './chat-routing.module';
+import { PickerComponent, PickerModule } from '@ctrl/ngx-emoji-mart'
 
 // const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
 
@@ -34,7 +32,7 @@ import { clickContactReducer } from './local-store/reducers/chat.reducer';
     // ChatRoutingModule,
     FormsModule,
     SocketIoModule,
-    // StoreModule.forRoot({ clickContact: clickContactReducer, notification: notificationReducer } ),
+    PickerComponent,
   ],
   providers: [ChatStreamService, CommunicationService],
 })

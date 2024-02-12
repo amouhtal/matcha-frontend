@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
   declarations: [LoginPageComponent, LoginFormComponent],
@@ -13,6 +14,9 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     HttpClientModule,
     FormsModule,
     NgOptimizedImage,
+    NgxTypedJsModule,
+    
+
   ],
 })
 export class LoginModule {}

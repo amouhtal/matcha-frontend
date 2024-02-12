@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RouterModule } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
+import { NotificationsModule } from '../notifications/notifications.module';
+import { LogoutComponent } from 'src/app/@shared/logout/logout.component';
 
 @NgModule({
-  declarations: [NavbarComponent, ProfileComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    // StoreModule.forRoot({ messageNotification: notificationReducer }),
-  ],
+  declarations: [NavbarComponent, ProfileComponent, LogoutComponent],
+  imports: [CommonModule, RouterModule, NotificationsModule],
   exports: [NavbarComponent],
 })
 export class NavbarModule {}

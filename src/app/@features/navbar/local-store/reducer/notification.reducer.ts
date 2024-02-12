@@ -1,20 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as notificationActions from '../actions/notification.action';
+import { NotificationStateDTO } from '../../../notifications/models/notification-state.dto';
 
-interface NotificationState {
-  type: string;
-  text: string;
-  is_read: boolean;
-}
-
-export const initialState: NotificationState[] = [];
-
-export const notificationReducer = createReducer(
-  initialState,
-  on(notificationActions.notification, (state, { notifications }) => {
-    return notifications;
-  }),
-);
 const initialValue: number = 0;
 
 export const messageNotificationReducer = createReducer(

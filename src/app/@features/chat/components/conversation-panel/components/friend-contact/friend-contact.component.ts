@@ -21,11 +21,9 @@ export class FriendContactComponent implements AfterContentInit {
       date: '',
       user_id: 0,
     };
-    // console.log('object');
   }
 
   switchToContacts() {
-    // console.log('immited');
     this.store.dispatch(chatAction.switchToConversation());
   }
 }

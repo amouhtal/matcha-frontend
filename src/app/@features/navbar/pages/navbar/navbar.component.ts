@@ -3,17 +3,23 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { NotificationService } from 'src/app/@api/services/notification/notification.service';
+import * as notificationsSelectors from 'src/app/@features/notifications/local-store/selectors/notification.selector';
 @Component({
   selector: 'matcha-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
+  
 })
 export class NavbarComponent implements OnInit {
   notificationCount = 5;
+  notificationOn : boolean = true;
   // counter$: Observable<number> = this.store.select('notification');
   newNotification$ = this.store.select('messageNotification');
   chatIn$: Observable<boolean> = this.store.select('clickContact');
-  // messageNotificationReducer
+  unreadMessagesCount$ = this.store.select(
+    notificationsSelectors.unreadMessagesCountSelector,
+  );
+
   constructor(
     private store: Store<{
       notification: number;
@@ -43,10 +49,19 @@ export class NavbarComponent implements OnInit {
     });
   }
 
+  Navigate(prefix: string) {
+    this.router.navigate([`/features/${prefix}`]);
+  }
   Messages() {
     this.router.navigate(['/features/chat']);
   }
-
+  Browse() {
+    this.router.navigate(['/features/browse']);
+  }
+  Notifications() {
+    this.notificationOn = !this.notificationOn;
+    // this.router.navigate(['/features/notifications']);
+  }
   Likers() {
     this.router.navigate(['/features/']);
   }
