@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { CompleteSignupPageComponent } from './pages/complete-signup-page/complete-signup-page.component';
+import { MatIconModule } from '@angular/material/icon';
+import { CompleteSignupFormComponent } from './components/complete-signup-form/complete-signup-form.component';
+
 
 @NgModule({
-  declarations: [LoginPageComponent, LoginFormComponent],
+  declarations: [CompleteSignupPageComponent, CompleteSignupFormComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -15,8 +17,7 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     FormsModule,
     NgOptimizedImage,
     NgxTypedJsModule,
-    
-
+    MatIconModule,
   ],
 })
-export class LoginModule {}
+export class CompletePageModule {}

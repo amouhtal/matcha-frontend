@@ -1,9 +1,4 @@
-<!-- [ngClass]="{
-  'hidden lg:!flex': !(chatIn$ | async),
-  block: (chatIn$ | async)
-}" -->
 <div
-
   class="navbar lg:relative flex h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded lg:p-4"
 >
   <matcha-profile></matcha-profile>
@@ -46,9 +41,10 @@
       <h4 class="hidden w-full md:m-2 lg:block">Matches</h4>
     </div>
   </div>
-  <div class="flex cursor-pointer items-center justify-center lg:w-full">
-    <i class="material-icons icons text-gray-600"> logout </i>
-    <h4 class="hidden w-full md:m-2 lg:block">Logout</h4>
+  <div class="items-center justify-center lg:w-full">
+    <!-- <i class="material-icons icons text-gray-600"> logout </i>
+    <h4 class="hidden w-full md:m-2 lg:block">Logout</h4> -->
+    <matcha-logout></matcha-logout>
   </div>
   <matcha-notifications
     [ngClass]="{

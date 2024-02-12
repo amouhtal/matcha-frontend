@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
   userID!: number;
   constructor(private http: HttpClient) {
-    this.userID = sessionStorage.getItem('session')
-      ? JSON.parse(sessionStorage.getItem('session') as string).user_id
+    this.userID = localStorage.getItem('session')
+      ? JSON.parse(localStorage.getItem('session') as string).user_id
       : 0;
   }
 
