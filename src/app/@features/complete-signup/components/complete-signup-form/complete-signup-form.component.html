@@ -1,0 +1,182 @@
+<div class="completeSignupForm" [formGroup]="completeSingupForm">
+  <div *ngIf="progress == 0" class="section">
+    <h1 class="header personalInfoHeader">
+      Your profile is almost complete, please fill in the following details
+    </h1>
+    <div class="firstSection">
+      <div class="selectFileds">
+        <label class="text-primary-color">Gender</label>
+        <div class="selectBoxWrapper">
+          <input
+            class="chosen-value"
+            type="text"
+            value=""
+            [placeholder]="genderPlaceholder"
+            (focus)="openDropdown('gender')"
+            (blur)="openDropdown('gender')"
+          />
+          <ul
+            class="value-list"
+            [ngClass]="{ open: genderDropDownStatus === true }"
+          >
+            <li (click)="ChooseGender('male')">Male</li>
+            <li (click)="ChooseGender('female')">Fenale</li>
+          </ul>
+        </div>
+      </div>
+      <div class="selectFileds">
+        <label class="text-primary-color">Sexual Prefrence</label>
+        <div class="selectBoxWrapper">
+          <input
+            class="chosen-value"
+            type="text"
+            value=""
+            [placeholder]="sPPlaceholder"
+            (focus)="openDropdown('sp')"
+            (blur)="openDropdown('sp')"
+          />
+          <ul
+            class="value-list"
+            [ngClass]="{ open: sPDropDownStatus === true }"
+          >
+            <li (click)="ChooseSP('male')">Male</li>
+            <li (click)="ChooseSP('female')">Fenale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bioSection">
+      <label>Biogrpahy</label>
+      <textarea placeholder="tell us about yourself..." formControlName="bio">
+      </textarea>
+    </div>
+    <div class="birthdaySection">
+      <label>Date of birth</label>
+      <input
+        formControlName="birthDayDate"
+        type="date"
+        format="yyyy/MM/dd"
+        (change)="onBioChange()"
+      />
+    </div>
+    <div class="errorArea">
+      
+      <p class="errorMessage" *ngIf="birthDayErrorMesaage">
+        {{ birthDayErrorMesaage }}
+      </p>
+      <p class="errorMessage" *ngIf="bioErrorMesaage">{{ bioErrorMesaage }}</p>
+    </div>
+    <div class="buttons">
+      <button id="prev" disabled class="prevButton">Prev</button>
+      <button
+        id="next"
+        (click)="Next()"
+        class="nextButton"
+        [disabled]="
+          this.selectedGender == '' ||
+          this.selectedSP == '' ||
+          this.completeSingupForm.get('bio')?.valid == false ||
+          this.completeSingupForm.get('birthDayDate')?.valid == false ||
+          this.completeSingupForm.get('birthDayDate')?.touched == false
+            ? true
+            : false
+        "
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  <div *ngIf="progress == 1" class="section">
+    <h1 class="header">Choose Your Interests</h1>
+    <div class="tagSection">
+      <h2>Tags</h2>
+      <div class="tagsArea">
+        <div class="tag" *ngFor="let tag of tags">
+          <span
+            [ngClass]="this.tagsStatus.get(tag) ? 'active' : 'inactive'"
+            (click)="toggleTag(tag)"
+          >
+            {{ tag }}</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="prev" (click)="Prev()" class="prevButton">Prev</button>
+      <button
+        id="next"
+        (click)="Next()"
+        class="nextButton"
+        [disabled]="this.tagsValid == false ? true : false"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  <div *ngIf="progress == 2" class="section">
+    <h1 class="self-start text-primary-color">Upload your phots</h1>
+    <p class="self-start text-primary-color">Phots</p>
+
+    <div class="row">
+      <div class="wrapper" *ngFor="let number of [0, 1, 2, 3, 4]">
+        <div
+          class="firstImageHolder"
+          [style.background-image]="this.imagesData[number].imageBackgroundUrl"
+          (dblclick)="doubleClickFunction(number, $event)"
+          (contextmenu)="doubleClickFunction(number, $event)"
+          [ngClass]="{
+            profilePictureHover: !this.imagesData[number].addIconStatus,
+            profilePicture: profilePictureIndex == number
+          }"
+        >
+          <mat-icon class="removeIcon" (click)="removeImage(number)"
+            >close</mat-icon
+          >
+          <label
+            class="firstImageLabel btn btn-default p-0"
+            [style.background-color]="
+              this.imagesData[number].imageBackgroundColor
+            "
+          >
+            <mat-icon
+              class="addIcon"
+              [style.display]="
+                this.imagesData[number].addIconStatus ? 'block' : 'none'
+              "
+              >add</mat-icon
+            >
+            <input
+              class="firstImage"
+              type="file"
+              accept="image/*"
+              (change)="selectFile($event, number)"
+              *ngIf="this.imagesData[number].addIconStatus"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="note" [attr.data-text]="photosNote"></div>
+    </div>
+    <div class="buttons">
+      <button id="prev" (click)="Prev()" class="nextButton">Prev</button>
+      <button
+        id="next"
+        (click)="submit()"
+        class="prevButton"
+        [disabled]="
+          this.profilePictureIndex == -1 ||
+          this.selectedGender == '' ||
+          this.selectedSP == '' ||
+          this.completeSingupForm.get('bio')?.valid == false
+            ? true
+            : false
+        "
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+  <div *ngIf="progress == 3" class="section">
+    <h1>Thank you for signing up</h1>
+  </div>
+</div>

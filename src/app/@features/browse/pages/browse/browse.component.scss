@@ -1,0 +1,64 @@
+:host {
+  height: 100%;
+  width: 70%;
+}
+.browse {
+  background: #f9faff;
+}
+@media screen and (max-width: 1023px) {
+  :host {
+    width: 100%;
+    overflow: scroll;
+  }
+}
+
+.browse {
+  height: 100%;
+}
+
+.search {
+  margin-bottom: 12px;
+}
+
+
+.search_result {
+  max-height: 90%;
+  min-height: 90%;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.arrow{
+  font-size: 20px;
+}
+.rating {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.heart {
+  font-size: 20px;
+}
+
+.heart--active {
+  color: #f43f5e;
+  // color: gold;
+}
+
+.select-box-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  .select-age {
+    // background-color: #f43f5e;
+    font-size: 20px;
+  }
+  .arrow-down {
+    // color: white;
+  }
+  .arrow-up {
+    // color: white;
+    transform: rotate(180deg);
+  }
+}

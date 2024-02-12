@@ -1,0 +1,38 @@
+.LoginInput {
+  margin: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  background-color: var(--secondary-color);
+  padding: 1rem 1rem 1rem 0.8rem;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.LoginInput:focus {
+  outline: none;
+  border: 0.5px solid var(--primary-color-light);
+}
+
+.LoginInput::placeholder {
+  color: var(--primary-color);
+}
+
+.fields label {
+  position: absolute;
+  font-size: 0.8rem;
+  bottom: 35%;
+  left: 5%;
+  color: var(--primary-color);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.fields input:focus ~ label,
+.fields input:valid ~ label {
+  transform: translateY(-1.75rem);
+  background: linear-gradient(to bottom, white, var(--secondary-color));
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  padding: 0 0.2rem;
+  border-radius: 0.5rem;
+}

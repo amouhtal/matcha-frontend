@@ -1,0 +1,9 @@
+<div class="profile cursor-pointer max-w-fit rounded-xl border p-2 text-center">
+  <ng-content select="[profile_avatar]"></ng-content>
+
+  <ng-content select="[profile_name]"></ng-content>
+  <div class="location flex items-center justify-center">
+    <i class="material-icons">location_on</i>
+    <ng-content select="[profile_location]"></ng-content>
+  </div>
+</div>
