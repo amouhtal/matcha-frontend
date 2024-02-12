@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { BrowseService } from 'src/app/@api/services/browse/browse.service';
 
 interface Profile {
   profile_avatar: string;
@@ -10,14 +11,14 @@ interface Profile {
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.scss'],
 })
-export class BrowseComponent implements AfterViewInit {
+export class BrowseComponent implements AfterViewInit, OnInit {
   rating: boolean = false;
   rateValue: number = 0;
   minAge: number = 18;
   maxAge: number = 100;
   ageGape: string = '18 - 100';
   private clickInterval: any;
-  
+
   startDecrementing(symbol: string) {
     this.clickInterval = setInterval(() => {
       this.minAgeChange(symbol);
@@ -33,7 +34,7 @@ export class BrowseComponent implements AfterViewInit {
   stopIncrementing() {
     clearInterval(this.clickInterval);
   }
-  
+
   profiles: Array<Profile> = [
     {
       name: 'John Doe',
@@ -109,7 +110,16 @@ export class BrowseComponent implements AfterViewInit {
     },
   ];
   hearts!: any;
-  constructor(private starsElements: ElementRef) {}
+  constructor(
+    private starsElements: ElementRef,
+    private browseService: BrowseService,
+  ) {}
+
+  ngOnInit(): void {
+    this.browseService.getSuggestionList().subscribe((data) => {
+      console.log('browservice', data);
+    });
+  }
 
   showRating() {
     this.rating = !this.rating;
