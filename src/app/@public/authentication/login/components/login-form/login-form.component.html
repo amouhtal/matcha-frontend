@@ -1,0 +1,46 @@
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+  class="relative flex h-[80%] w-3/4 flex-col items-center justify-center gap-[2.5%] rounded-lg"
+>
+  <div class="mb-8 flex flex-col items-center">
+    <p class="text-3xl text-primary-color">Welcome To Matcha</p>
+    <p class="text-xs text-primary-color">Please enter your informations</p>
+  </div>
+  <div class="fields relative flex w-2/4 flex-col">
+    <input class="LoginInput" type="text" required formControlName="username" />
+    <label> USERNAME </label>
+  </div>
+  <div class="fields relative flex w-2/4 flex-col">
+    <input
+      class="LoginInput"
+      type="password"
+      required
+      formControlName="password"
+    />
+    <label> PASSWORD </label>
+  </div>
+  <p class="text-red-400" *ngIf="error">
+    {{ error }}
+  </p>
+  <div class="flex w-2/4 flex-col gap-3  items-center">
+    <button
+      class="w-[100%] mt-3 rounded-lg bg-primary-color px-3 py-2 text-white disabled:bg-primary-color-light"
+      type="submit"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+    <p class="text-text-color">
+      You don't have account yet !! ,
+
+      <span
+        (click)="redirectSignup()"
+        class=" cursor-pointer text-primary-color text-underline"
+      >
+        Sign Up
+      </span>
+    </p>
+  </div>
+</form>
+<!-- this button to refrech userLocation -->
