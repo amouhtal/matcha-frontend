@@ -12,7 +12,7 @@ export class NotificationEffects {
     private notificationService: NotificationService,
   ) {}
 
-  loadUsers$ = createEffect(() => {
+  loadNotifications$ = createEffect((): Actions => {
     return this.actions$.pipe(
       ofType(notificationActions.getNotification),
       switchMap(() =>
@@ -25,6 +25,22 @@ export class NotificationEffects {
           }),
           catchError((error) =>
             of(notificationActions.getNotificationFailure({ error })),
+          ),
+        ),
+      ),
+    );
+  });
+
+  resetNotifications$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(notificationActions.resetNotification),
+      switchMap(() =>
+        this.notificationService.resetNotifications().pipe(
+          map(() => {
+            return notificationActions.resetNotificationSuccess();
+          }),
+          catchError((error) =>
+            of(notificationActions.resetNotificationFailure({ error })),
           ),
         ),
       ),

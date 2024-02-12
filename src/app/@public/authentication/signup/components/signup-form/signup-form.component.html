@@ -1,65 +1,203 @@
 <form
   [formGroup]="signupForm"
   (ngSubmit)="onSubmit()"
-  class="relative flex h-[100%] flex-col items-center justify-center rounded-lg border-amber-50 bg-[#F2F2F0]"
+  class="relative flex h-[100%] flex-col items-center justify-center rounded-lg"
 >
-<div class="mb-2 flex items-center"> 
-  <img
-      class="pl-10"
-    ngSrc="../../../../../../assets/images/authIcon.png"
-    width="144"
-    height="144"
-  />
-</div>
-<div class="mb-8 flex flex-col items-center">
-  <p class="text-3xl">Welcome To Matcha</p>
-  <p class="text-xs text-slate-400">Please enter your informations</p>
-</div>
-  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
+  <div class="mb-8 flex flex-col items-center">
+    <p class="text-3xl text-primary-color">Welcome To Matcha</p>
+    <p class="text-xs text-primary-color">Please enter your informations</p>
+  </div>
+  <div
+    class="fields relative flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2"
+  >
     <input
+      required
+      (blur)="onBlur('email')"
       class="SignInput"
-      placeholder="Email address"
       formControlName="email"
+      [style.border]="
+        !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+          ? '1px solid red'
+          : signupForm.get('email')?.valid && signupForm.get('email')?.touched
+            ? '1px solid rgb(56, 218, 0)'
+            : '1px solid var(--text-color-light)'
+      "
     />
+    <label
+      [style.color]="
+        !signupForm.get('email')?.valid && signupForm.get('email')?.touched
+          ? 'red'
+          : signupForm.get('email')?.valid && signupForm.get('email')?.touched
+            ? 'rgb(56, 218, 0)'
+            : 'var(--text-color-light)'
+      "
+    >
+      EMAIL
+    </label>
   </div>
-  <div class="flex w-[80%] gap-4 sm:w-[70%] md:w-[60%] lg:w-1/2">
+  <p class="errorMessage text-red-400" *ngIf="emailError">
+    {{ emailError }}
+  </p>
+  <div
+    class="fields relative flex w-[80%] gap-4 sm:w-[70%] md:w-[60%] lg:w-1/2"
+  >
     <input
+      required
+      (blur)="onBlur('first_name')"
       class="SignInput"
-      placeholder="First name"
       formControlName="first_name"
+      [style.border]="
+        !signupForm.get('first_name')?.valid &&
+        signupForm.get('first_name')?.touched
+          ? '1px solid red'
+          : signupForm.get('first_name')?.valid &&
+              signupForm.get('first_name')?.touched
+            ? '1px solid rgb(56, 218, 0)'
+            : '1px solid var(--text-color-light)'
+      "
     />
+    <label
+      [style.color]="
+        !signupForm.get('first_name')?.valid &&
+        signupForm.get('first_name')?.touched
+          ? 'red'
+          : signupForm.get('first_name')?.valid &&
+              signupForm.get('first_name')?.touched
+            ? 'rgb(56, 218, 0)'
+            : 'var(--text-color-light)'
+      "
+    >
+      FIRST NAME
+    </label>
+  </div>
+  <p class="errorMessage text-red-400" *ngIf="firstNameError">
+    {{ firstNameError }}
+  </p>
+  <div
+    class="fields relative flex w-[80%] gap-4 sm:w-[70%] md:w-[60%] lg:w-1/2"
+  >
     <input
+      required
+      (blur)="onBlur('last_name')"
       class="SignInput"
-      placeholder="Last name"
       formControlName="last_name"
+      [style.border]="
+        !signupForm.get('last_name')?.valid &&
+        signupForm.get('last_name')?.touched
+          ? '1px solid red'
+          : signupForm.get('last_name')?.valid &&
+              signupForm.get('last_name')?.touched
+            ? '1px solid rgb(56, 218, 0)'
+            : '1px solid var(--text-color-light)'
+      "
     />
+    <label
+      [style.color]="
+        !signupForm.get('last_name')?.valid &&
+        signupForm.get('last_name')?.touched
+          ? 'red'
+          : signupForm.get('last_name')?.valid &&
+              signupForm.get('last_name')?.touched
+            ? 'rgb(56, 218, 0)'
+            : 'var(--text-color-light)'
+      "
+    >
+      LAST NAME
+    </label>
   </div>
-  <!-- <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
-  </div> -->
-  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
+  <p class="errorMessage text-red-400" *ngIf="lastNameError">
+    {{ lastNameError }}
+  </p>
+  <div
+    class="fields relative flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2"
+  >
     <input
+      required
+      (blur)="onBlur('username')"
       class="SignInput"
-      placeholder="Username"
       formControlName="username"
+      [style.border]="
+        !signupForm.get('username')?.valid &&
+        signupForm.get('username')?.touched
+          ? '1px solid red'
+          : signupForm.get('username')?.valid &&
+              signupForm.get('username')?.touched
+            ? '1px solid rgb(56, 218, 0)'
+            : '1px solid var(--text-color-light)'
+      "
     />
+    <label
+      [style.color]="
+        !signupForm.get('username')?.valid &&
+        signupForm.get('username')?.touched
+          ? 'red'
+          : signupForm.get('username')?.valid &&
+              signupForm.get('username')?.touched
+            ? 'rgb(56, 218, 0)'
+            : 'var(--text-color-light)'
+      "
+    >
+      USERNAME
+    </label>
   </div>
-  <div class="flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2">
+  <p class="errorMessage text-red-400" *ngIf="usernameError">
+    {{ usernameError }}
+  </p>
+  <div
+    class="fields relative flex w-[80%] flex-col sm:w-[70%] md:w-[60%] lg:w-1/2"
+  >
     <input
+      required
+      (blur)="onBlur('password')"
       class="SignInput"
-      placeholder="Password"
       type="password"
       formControlName="password"
+      [style.border]="
+        !signupForm.get('password')?.valid &&
+        signupForm.get('password')?.touched
+          ? '1px solid red'
+          : signupForm.get('password')?.valid &&
+              signupForm.get('password')?.touched
+            ? '1px solid rgb(56, 218, 0)'
+            : '1px solid var(--text-color-light)'
+      "
     />
+    <label
+      [style.color]="
+        !signupForm.get('password')?.valid &&
+        signupForm.get('password')?.touched
+          ? 'red'
+          : signupForm.get('password')?.valid &&
+              signupForm.get('password')?.touched
+            ? 'rgb(56, 218, 0)'
+            : 'var(--text-color-light)'
+      "
+    >
+      PASSWORD
+    </label>
   </div>
-  <p class="text-red-400" *ngIf="error">
+  <p class="errorMessage text-red-400" *ngIf="passwordError">
+    {{ passwordError }}
+  </p>
+  <div class="flex flex-col items-center w-1/2 gap-3">
+    <button
+      class="mt-3 w-[100%] rounded-lg bg-primary-color px-3 py-[10px] text-[#F2F2F0] disabled:bg-primary-color-light"
+      type="submit"
+      [disabled]="!signupForm.valid"
+    >
+      Sign up
+    </button>
+    <p class="text-text-color">
+      You already have account ?,
+
+      <span
+        (click)="redirectLogin()"
+        class=" cursor-pointer text-primary-color text-underline"
+      >
+        Login nowfire
+      </span>
+  </div>
+  <p class="errorMessage text-red-400" *ngIf="error">
     {{ error }}
   </p>
-  <button
-    class="mt-3 rounded-lg bg-black px-3 py-[10px] text-[#F2F2F0] disabled:bg-slate-400 w-1/2"
-    type="submit"
-    [disabled]="!signupForm.valid"
-  >
-    Sign up
-  </button>
 </form>
-<!-- this button to refrech userLocation -->

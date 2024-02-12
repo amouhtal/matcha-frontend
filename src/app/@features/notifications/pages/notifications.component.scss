@@ -6,17 +6,13 @@
   overflow-x: hidden;
   // left: 100%;
   top: 0;
+
   background-color: #fff;
 }
 
-@media screen and (max-width: 1023px) {
-  :host {
-    width: 100%;
-    height: 90vh;
-    left: 0;
-    top: 0;
-  }
-}
+
+
+
 
 .notifications__header {
   background-color: #ff676e;

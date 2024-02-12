@@ -73,8 +73,8 @@ export class SendMessageComponent implements OnChanges {
   sendMessage() {
     if (this.friendId !== undefined) {
       let message = {
-        sender_id: sessionStorage.getItem('session')
-          ? JSON.parse(sessionStorage.getItem('session') as string).user_id
+        sender_id: localStorage.getItem('session')
+          ? JSON.parse(localStorage.getItem('session') as string).user_id
           : 0,
         receiver_id: this.friendId,
         message: this.message,

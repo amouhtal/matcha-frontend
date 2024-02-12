@@ -10,8 +10,9 @@ export class VerifiedGuardService {
     private http: HttpClient,
   ) {}
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
-    if (sessionStorage.getItem('session') != null) {
-      let session = JSON.parse(sessionStorage.getItem('session') || '{}');
+    console.log(localStorage.getItem('session'));
+    if (localStorage.getItem('session') != null) {
+      let session = JSON.parse(localStorage.getItem('session') || '{}');
       return this.http
         .post(
           'http://localhost:3000/user/getVerification',
