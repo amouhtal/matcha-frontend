@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { notificationDTO } from '../../models/notification.dto';
 
 @Component({
   selector: 'matcha-notification-item',
@@ -6,8 +7,10 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./notification-item.component.scss'],
 })
 export class NotificationItemComponent implements OnChanges {
-  @Input() notification: any;
+  @Input('notification') notification!: notificationDTO;
   constructor() {}
 
-  ngOnChanges(): void {}
+  ngOnChanges( changes: SimpleChanges ): void {
+    console.log(changes['notification'].currentValue);
+  }
 }

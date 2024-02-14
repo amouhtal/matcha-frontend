@@ -16,6 +16,7 @@ export const notificationReducer = createReducer(
   on(
     notificationActions.getNotification,
     (state: NotificationState): NotificationState => {
+      
       return {
         ...state,
         loading: true,
@@ -34,7 +35,6 @@ export const notificationReducer = createReducer(
           unreadMessageCount++;
         }
       });
-      console.log('notificationMessageCount', unreadMessageCount);
       return {
         ...state,
         loading: false,
