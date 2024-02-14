@@ -106,12 +106,14 @@
         profile_avatar
       >
         <img
-          src="{{ profile.profile_avatar }}"
+          src="{{ profile.images[0] }}"
           class="h-64 w-40 rounded-xl"
           alt=""
         />
       </div>
-      <span class="profile_name text-lg" profile_name>{{ profile.name }} </span>
+      <span class="profile_name text-lg" profile_name
+        >{{ profile.first_name }}
+      </span>
       <span class="location_text text-xs" profile_location
         >{{ profile.profile_location }}
       </span>

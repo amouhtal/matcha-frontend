@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { userProfileDTO } from 'src/app/@features/browse/pages/browse/browse.component';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +15,8 @@ export class BrowseService {
       : 0;
   }
 
-  getSuggestionList() {
-    return this.http.get('http://localhost:3000/browse/suggestions', {
+  getSuggestionList(): Observable<Array<userProfileDTO>> {
+    return this.http.get<Array<userProfileDTO>>('http://localhost:3000/browse/suggestions', {
       params: {
         userId: this.userID,
       },
