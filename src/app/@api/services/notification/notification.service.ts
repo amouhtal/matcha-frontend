@@ -46,7 +46,6 @@ export class NotificationService {
   }
 
   resetNotifications() {
-    console.log('this.userID', this.userID);
     return this.http.put('http://localhost:3000/notification/resetAllRead', {
       params: {
         userId: this.userID,

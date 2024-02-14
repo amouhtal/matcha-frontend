@@ -1,4 +1,4 @@
-<div  class="notifications absolute z-50 h-full w-full rounded">
+<div class="notifications absolute z-50 h-full w-full rounded">
   <div
     class="notifications__header flex h-12 items-center justify-center rounded-t-sm font-mono"
   >
@@ -6,11 +6,22 @@
   </div>
   <div class="notifications__body">
     <div class="notifications__list">
-      <matcha-notification-item
+      <!-- <matcha-notification-item
         *ngFor="let notification of notifications"
-        [notification]="unreadNotificationCount$"
+        [notification]="notification"
       >
-      </matcha-notification-item>
+      </matcha-notification-item> -->
+      <ng-container *ngFor="let notification of notifications">
+        <ng-container
+          *ngIf="
+            notification.type === notificationType || notificationType === 'all'
+          "
+        >
+          <matcha-notification-item
+            [notification]="notification"
+          ></matcha-notification-item>
+        </ng-container>
+      </ng-container>
       <!-- <div class="notifications__item">
         <div class="notifications__item__icon">
           <i class="material-icons">notifications</i>
