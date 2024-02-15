@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './@shared/page-not-found/page-not-found.c
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [MatchaComponent, PageNotFoundComponent],
@@ -29,7 +30,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         
     }),
     BrowserAnimationsModule,
-    CompletePageModule
+    CompletePageModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [MatchaComponent],
