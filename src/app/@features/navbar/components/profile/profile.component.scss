@@ -1,0 +1,29 @@
+#profile_img {
+  border: 3px solid #2b5557;
+  height: 68px;
+  width: 68px;
+}
+
+#user_name {
+  color: #2b5557;
+  font-size: 16px;
+  // font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+// media screen and (max-width: 1023px) {
+
+@media screen and (max-width: 1023px) {
+  #profile {
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    // width: 30%;
+    // background-color: #2b5557;
+  }
+  #profile_img {
+    height: 48px;
+    width: 48px;
+  }
+  
+}

@@ -1,5 +1,17 @@
-:host{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#logout_icon {
+  transform: rotate(-180deg);
+  color: white;
+}
+
+@media screen and (max-width: 1023px) {
+  #logout_icon {
+    color: #2b5557;
+  }
 }
