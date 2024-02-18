@@ -12,7 +12,7 @@ import * as notificationsSelectors from 'src/app/@features/notifications/local-s
 })
 export class NavbarComponent implements OnInit {
   notificationCount = 5;
-  notificationOn : boolean = true;
+  notificationOn : boolean = false;
   // counter$: Observable<number> = this.store.select('notification');
   newNotification$ = this.store.select('messageNotification');
   chatIn$: Observable<boolean> = this.store.select('clickContact');

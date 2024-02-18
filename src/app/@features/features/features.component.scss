@@ -1,0 +1,50 @@
+.main {
+  height: 95vh;
+  position: relative;
+  bottom: 0;
+}
+
+.footer{
+    height: 5vh;;
+    width: 100%;
+}
+
+.circle {
+  background: #7ba7b0;
+  filter: blur(161.1999969482422px);
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  position: absolute;
+  // z-index: 100;
+}
+
+.circle1 {
+  left: -10%;
+  top: 10%;
+}
+
+.circle2 {
+  left: 30%;
+  top: -10%;
+}
+
+.circle3 {
+  left: 60%;
+  top: -5%;
+  // transform: translate(-50%, -50%);
+}
+
+.circle4 {
+  left: -10%;
+  bottom: -10%;
+}
+
+.circle5 {
+  left: 30%;
+  bottom: -10%;
+}
+.circle6 {
+  left: 60%;
+  bottom: 10%;
+}
