@@ -3,6 +3,19 @@
   z-index: 600;
 }
 
+#logout {
+  background-color: #2b5557;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_icon {
+  color: #2b5557;
+  font-size: 24px;
+  margin: 0 10px;
+  cursor: pointer;
+}
 @media screen and (max-width: 1023px) {
   :host {
     width: 100%;
@@ -19,14 +32,19 @@
 // .ttblock {
 //   display: block;
 // }
+.messagesNotification {
+  // background-color: burlywood;
+}
 
-.messagesNotification::after {
+
+.notification_count::after {
   content: attr(notification-count);
+  z-index: 2;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -12px;
+  left: -12px;
   font-size: 12px;
-  background: #ff0000;
+  background: #3e747d;
   color: #fff;
   width: 20px;
   height: 20px;
@@ -61,5 +79,8 @@
     // top: -100%;
     width: 100%;
     height: 100%;
+  }
+  #logout {
+    background-color: transparent;
   }
 }
