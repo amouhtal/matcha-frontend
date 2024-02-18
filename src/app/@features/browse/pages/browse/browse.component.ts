@@ -41,13 +41,11 @@ export interface userProfileDTO {
 })
 export class BrowseComponent implements AfterViewInit, OnInit {
   rating: boolean = false;
-  rateValue: number = 0;
 
 
   profiles: Array<userProfileDTO> = [];
-  hearts!: any;
   constructor(
-    private starsElements: ElementRef,
+   
     private browseService: BrowseService,
   ) {}
 
@@ -67,15 +65,6 @@ export class BrowseComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.hearts = this.starsElements.nativeElement.querySelectorAll('.heart');
   }
-  rate(index: number) {
-    this.hearts.forEach((heart: any) => {
-      heart.classList.remove('heart--active');
-    });
-    for (let i = 0; i < index; i++) {
-      this.hearts[i].classList.add('heart--active');
-    }
-    this.rateValue = index;
-  }
+
 }

@@ -1,0 +1,81 @@
+<div class="mybgcolor1 flex w-36 flex-col">
+  <div
+    class="mybgcolor1 z-50 flex h-10 cursor-pointer items-center justify-between rounded-t-md border pl-2 shadow-sm"
+  >
+    <p>Fame Rating</p>
+    <!-- <label for="">{{ lowRate }} </label>
+    <label for="">{{ highRate }} </label> -->
+
+    <i
+      (click)="switchDisplayFameRating()"
+      class="material-icons arrow arrow-up cursor-pointer text-primary-color"
+      >arrow_drop_down</i
+    >
+  </div>
+  <div
+    [ngClass]="displayFameRating ? 'dispayFameRating' : 'hideFameRating'"
+    class="select-box-container mybgcolor1 select-box-container select-age-container mybgcolor absolute flex h-10 flex-col items-center justify-between rounded-b-md"
+  >
+    <div class="flex h-5 items-center justify-center">
+      <div class="rating flex w-36 items-center rounded">
+        <label>from: </label>
+        <i
+          class="material-icons heart-min cursor-pointer hover:text-primary-color"
+          (click)="rate(1, true)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-min cursor-pointer hover:text-primary-color"
+          (click)="rate(2, true)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-min cursor-pointer hover:text-primary-color"
+          (click)="rate(3, true)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-min cursor-pointer hover:text-primary-color"
+          (click)="rate(4, true)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-min cursor-pointer hover:text-primary-color"
+          (click)="rate(5, true)"
+          >favorite</i
+        >
+      </div>
+    </div>
+    <div class="flex h-5 items-center justify-center">
+      <div class="rating flex w-36 items-center rounded">
+        <label>To: </label>
+
+        <i
+          class="material-icons heart-max cursor-pointer hover:text-primary-color"
+          (click)="rate(1, false)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-max cursor-pointer hover:text-primary-color"
+          (click)="rate(2, false)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-max cursor-pointer hover:text-primary-color"
+          (click)="rate(3, false)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-max cursor-pointer hover:text-primary-color"
+          (click)="rate(4, false)"
+          >favorite</i
+        >
+        <i
+          class="material-icons heart-max cursor-pointer hover:text-primary-color"
+          (click)="rate(5, false)"
+          >favorite</i
+        >
+      </div>
+    </div>
+  </div>
+</div>

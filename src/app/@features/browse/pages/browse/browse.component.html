@@ -1,37 +1,7 @@
 <div class="browse relative w-full rounded">
   <div class="search flex h-16 items-center justify-evenly shadow">
     <matcha-age-gap-selector></matcha-age-gap-selector>
-    <div class="flex items-center justify-center">
-      <label for="">Rating: </label>
-
-      <div class="rating flex w-36 items-center rounded p-2">
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(1)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(2)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(3)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(4)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(5)"
-          >favorite</i
-        >
-      </div>
-    </div>
+    <matcha-fame-rating></matcha-fame-rating>
     <select>
       <option value="" disabled selected>interest tags</option>
       <option value="18-30">Volvo</option>
