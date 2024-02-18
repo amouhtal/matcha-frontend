@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'matcha-age-gap-selector',
@@ -6,9 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./age-gap-selector.component.scss'],
 })
 export class AgeGapSelectorComponent {
-  minAge: number = 18;
+  private minAge: number = 18;
   maxAge: number = 100;
   ageGape: string = '18 - 100';
+  displayAgeGap: boolean = false;
 
   private clickInterval: any;
 
@@ -18,6 +20,9 @@ export class AgeGapSelectorComponent {
     }, 50); // Adjust the interval as needed
   }
 
+  switchDisplayAgeGap() {
+    this.displayAgeGap = !this.displayAgeGap;
+  }
   startIncrementingMax(symbol: string) {
     this.clickInterval = setInterval(() => {
       this.maxAgeChange(symbol);
