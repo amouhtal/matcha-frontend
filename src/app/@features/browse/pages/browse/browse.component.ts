@@ -42,30 +42,9 @@ export interface userProfileDTO {
 export class BrowseComponent implements AfterViewInit, OnInit {
   rating: boolean = false;
   rateValue: number = 0;
-  minAge: number = 18;
-  maxAge: number = 100;
-  ageGape: string = '18 - 100';
-  private clickInterval: any;
 
-  startDecrementing(symbol: string) {
-    this.clickInterval = setInterval(() => {
-      this.minAgeChange(symbol);
-    }, 50); // Adjust the interval as needed
-  }
 
-  startIncrementingMax(symbol: string) {
-    this.clickInterval = setInterval(() => {
-      this.maxAgeChange(symbol);
-    }, 50); // Adjust the interval as needed
-  }
-
-  stopIncrementing() {
-    clearInterval(this.clickInterval);
-  }
-
-  profiles: Array<userProfileDTO> = [
-
-  ];
+  profiles: Array<userProfileDTO> = [];
   hearts!: any;
   constructor(
     private starsElements: ElementRef,
@@ -77,6 +56,7 @@ export class BrowseComponent implements AfterViewInit, OnInit {
       .getSuggestionList()
       .subscribe((data: Array<userProfileDTO>) => {
         this.profiles = data;
+        console.log('browservice', this.profiles);
       });
   }
 
@@ -97,34 +77,5 @@ export class BrowseComponent implements AfterViewInit, OnInit {
       this.hearts[i].classList.add('heart--active');
     }
     this.rateValue = index;
-  }
-
-  maxAgeChange(symbol: string) {
-    // other function name than ageFilter because it's not a filter example: ageChange,
-    if (symbol === '-') {
-      if (this.maxAge > 18) {
-        this.maxAge--;
-        this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-      }
-    } else {
-      if (this.maxAge < 100) {
-        this.maxAge++;
-        this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-      }
-    }
-  }
-  minAgeChange(symbol: string) {
-    // other function name than ageFilter because it's not a filter example: ageChange,
-    if (symbol === '-') {
-      if (this.minAge > 18) {
-        this.minAge--;
-        this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-      }
-    } else {
-      if (this.minAge < 100) {
-        this.minAge++;
-        this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-      }
-    }
   }
 }
