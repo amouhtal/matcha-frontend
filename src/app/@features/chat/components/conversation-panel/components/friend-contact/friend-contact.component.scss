@@ -1,9 +1,13 @@
+#friend-contact {
+  background-color: rgb(227, 233, 233);
+}
 
-
-.icons{
-    // color: #fff;
-    cursor: pointer;
-    &:hover{
-        color: rgb(63, 154, 224);
-    }
+.icons {
+  transition: 0.3s;
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #3e747d;
+  &:hover {
+    color: #3e747d;
+    scale: 1.1;
   }
+}
