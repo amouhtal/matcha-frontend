@@ -7,11 +7,10 @@
   background: #f9faff;
 }
 
-.show-button{
+.show-button {
   // background-color: #2b5557;
   box-shadow: 0 0 5px #2b5557;
 }
-
 
 @media screen and (max-width: 1023px) {
   :host {
@@ -28,7 +27,6 @@
   margin-bottom: 12px;
 }
 
-
 .search_result {
   max-height: 90%;
   min-height: 90%;
@@ -36,38 +34,6 @@
   padding: 10px;
 }
 
-.arrow{
+.arrow {
   font-size: 20px;
 }
-.rating {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.heart {
-  font-size: 20px;
-}
-
-.heart--active {
-  color: #f43f5e;
-  // color: gold;
-}
-
-.select-box-container {
-  display: flex;
-  justify-content: space-evenly;
-
-  .select-age {
-    // background-color: #f43f5e;
-    font-size: 20px;
-  }
-  .arrow-down {
-    // color: white;
-  }
-  .arrow-up {
-    // color: white;
-    transform: rotate(180deg);
-  }
-}
-

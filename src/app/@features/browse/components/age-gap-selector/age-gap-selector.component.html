@@ -1,0 +1,66 @@
+<div class="flex w-32 flex-col">
+  <div
+    class="mybgcolor1 z-50 flex h-10 cursor-pointer items-center justify-between rounded-t-md border pl-2 shadow-sm"
+  >
+    <p>Age</p>
+    <i
+      (click)="switchDisplayAgeGap()"
+      class="material-icons arrow arrow-up cursor-pointer text-primary-color"
+      >arrow_drop_down</i
+    >
+  </div>
+  <div
+    [ngClass]="displayAgeGap ? 'dispayAgeGap' : 'hideAgeGap'"
+    class="mybgcolor2 select-box-container select-age-container mybgcolor absolute flex h-10 items-center rounded-b-md"
+  >
+    <div class="flex items-center justify-between">
+      <div class="right-0 flex flex-col items-center justify-center">
+        <i
+          class="material-icons arrow arrow-up cursor-pointer text-primary-color"
+          (mousedown)="startDecrementing('+')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startDecrementing('+')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+        <i
+          class="material-icons arrow arrow-down cursor-pointer "
+          (mousedown)="startDecrementing('-')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startDecrementing('-')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+      </div>
+
+      <span
+        class="max-age select-age flex w-20 items-center justify-center text-gray-800"
+      >
+        {{ ageGape }}
+      </span>
+
+      <div class="right-0 flex flex-col items-center justify-evenly">
+        <i
+          class="material-icons arrow arrow-up cursor-pointer text-primary-color"
+          (mousedown)="startIncrementingMax('+')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startIncrementingMax('+')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+        <i
+          class="material-icons arrow arrow-down cursor-pointer text-primary-color"
+          (mousedown)="startIncrementingMax('-')"
+          (mouseup)="stopIncrementing()"
+          (mouseleave)="stopIncrementing()"
+          (touchstart)="startIncrementingMax('-')"
+          (touchend)="stopIncrementing()"
+          >arrow_drop_down</i
+        >
+      </div>
+    </div>
+  </div>
+</div>
