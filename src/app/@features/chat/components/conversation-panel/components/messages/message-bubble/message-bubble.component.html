@@ -1,5 +1,11 @@
-<div [ngClass]="message.isMe ? 'user-message ' : 'friend-message'" class="font-mono text-gray-800">
-  <p [ngClass]="message.isMe ? 'bubble-message--right' : 'bubble-message--left'" class="bubble-message break-all w-[50%]">
+<div
+  [ngClass]="message.isMe ? 'user-message ' : 'friend-message'"
+  class="font-mono text-gray-800"
+>
+  <p
+    [ngClass]="message.isMe ? 'bubble-message--right' : 'bubble-message--left'"
+    class="bubble-message w-[50%] break-all bg-primary-color"
+  >
     {{ message.message }}
   </p>
 </div>

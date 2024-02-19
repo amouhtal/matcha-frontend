@@ -1,98 +1,10 @@
 <div class="browse relative w-full rounded">
   <div class="search flex h-16 items-center justify-evenly shadow">
-    <div
-      class="select-box-container flex w-60 items-center justify-between rounded"
-    >
-      <label for="">Age: </label>
-      <div class="flex items-center justify-between">
-        <div class="right-0 flex flex-col items-center justify-center">
-          <i
-            class="material-icons arrow arrow-up cursor-pointer text-gray-800"
-            (mousedown)="startDecrementing('+')"
-            (mouseup)="stopIncrementing()"
-            (mouseleave)="stopIncrementing()"
-            (touchstart)="startDecrementing('+')"
-            (touchend)="stopIncrementing()"
-            >arrow_drop_down</i
-          >
-          <i
-            class="material-icons arrow arrow-down cursor-pointer"
-            (mousedown)="startDecrementing('-')"
-            (mouseup)="stopIncrementing()"
-            (mouseleave)="stopIncrementing()"
-            (touchstart)="startDecrementing('-')"
-            (touchend)="stopIncrementing()"
-            >arrow_drop_down</i
-          >
-        </div>
-
-        <span
-          class="max-age select-age flex w-20 items-center justify-center text-gray-800"
-        >
-          {{ ageGape }}
-        </span>
-
-        <div class="right-0 flex flex-col items-center justify-evenly">
-          <i
-            class="material-icons arrow arrow-up cursor-pointer"
-            (mousedown)="startIncrementingMax('+')"
-            (mouseup)="stopIncrementing()"
-            (mouseleave)="stopIncrementing()"
-            (touchstart)="startIncrementingMax('+')"
-            (touchend)="stopIncrementing()"
-            >arrow_drop_down</i
-          >
-          <i
-            class="material-icons arrow arrow-down cursor-pointer"
-            (mousedown)="startIncrementingMax('-')"
-            (mouseup)="stopIncrementing()"
-            (mouseleave)="stopIncrementing()"
-            (touchstart)="startIncrementingMax('-')"
-            (touchend)="stopIncrementing()"
-            >arrow_drop_down</i
-          >
-        </div>
-      </div>
-    </div>
-    <div class="flex items-center justify-center">
-      <label for="">Rating: </label>
-
-      <div class="rating flex w-36 items-center rounded p-2">
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(1)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(2)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(3)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(4)"
-          >favorite</i
-        >
-        <i
-          class="material-icons heart cursor-pointer hover:text-rose-500"
-          (click)="rate(5)"
-          >favorite</i
-        >
-      </div>
-    </div>
-    <select>
-      <option value="" disabled selected>interest tags</option>
-      <option value="18-30">Volvo</option>
-      <option value="30-42">Saab</option>
-      <option value="42>">Saab</option>
-    </select>
+    <matcha-age-gap-selector></matcha-age-gap-selector>
+    <matcha-fame-rating></matcha-fame-rating>
+    <matcha-common-tags></matcha-common-tags>
     <button
-      class="show-button rounded bg-rose-400 px-4 py-2 font-medium text-white shadow-lg hover:bg-rose-500 hover:shadow-rose-500/50"
+      class="show-button rounded bg-primary-color px-4 py-2 font-medium text-white shadow-lg hover:bg-primary-color-light"
     >
       Show
     </button>
@@ -106,12 +18,14 @@
         profile_avatar
       >
         <img
-          src="{{ profile.profile_avatar }}"
+          src="{{ profile.images[0] }}"
           class="h-64 w-40 rounded-xl"
           alt=""
         />
       </div>
-      <span class="profile_name text-lg" profile_name>{{ profile.name }} </span>
+      <span class="profile_name text-lg" profile_name
+        >{{ profile.first_name }}
+      </span>
       <span class="location_text text-xs" profile_location
         >{{ profile.profile_location }}
       </span>
