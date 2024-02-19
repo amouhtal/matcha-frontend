@@ -12,6 +12,9 @@ module.exports = {
         'text-color' : '#3e747d',
         'text-color-light' : '#3e747d',
       },
+      screens: {
+        'ssm': '440px',
+      },
     },
   },
   plugins: [],

@@ -10,20 +10,21 @@
     </button>
   </div>
   <div
-    class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0 lg:grid-cols-3 xl:grid-cols-4"
+    class="search_result grid grid-cols-1 place-items-center gap-3  sm:grid-cols-2 md:grid-cols-3  
+    ssm:grid-cols-2
+    lg:grid-cols-3 xl:grid-cols-4"
   >
     <matcha-profile *ngFor="let profile of profiles" class="bg-white">
-      <div
-        class="profile_avatar flex justify-center rounded-xl bg-white"
-        profile_avatar
-      >
+      <div class="profile_avatar bg-white" profile_avatar>
         <img
           src="{{ profile.images[0] }}"
-          class="h-64 w-40 rounded-xl"
+          class="h-72 w-52 rounded-xl 
+          ssm:w-40 ssm:h-72  sm:h-60 sm:w-52 xl:w-64 xl:h-72"
+          
           alt=""
         />
       </div>
-      <span class="profile_name text-lg" profile_name
+      <span class="profile_name t text-lg" profile_name
         >{{ profile.first_name }}
       </span>
       <span class="location_text text-xs" profile_location

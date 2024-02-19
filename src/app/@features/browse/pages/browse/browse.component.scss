@@ -7,8 +7,11 @@
   background: #f9faff;
 }
 
+.profile_name {
+  text-transform: capitalize;
+}
+
 .show-button {
-  // background-color: #2b5557;
   box-shadow: 0 0 5px #2b5557;
 }
 
