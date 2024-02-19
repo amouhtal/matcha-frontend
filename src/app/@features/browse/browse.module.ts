@@ -4,6 +4,8 @@ import { BrowseComponent } from './pages/browse/browse.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BrowseRoutingModule } from './browse-routing.module';
 import { AgeGapSelectorComponent } from './components/age-gap-selector/age-gap-selector.component';
+import { FameRatingComponent } from './components/fame-rating/fame-rating.component';
+import { CommonTagsComponent } from './components/common-tags/common-tags.component';
 
 
 
@@ -11,7 +13,9 @@ import { AgeGapSelectorComponent } from './components/age-gap-selector/age-gap-s
   declarations: [
     BrowseComponent,
     ProfileComponent,
-    AgeGapSelectorComponent
+    AgeGapSelectorComponent,
+    FameRatingComponent,
+    CommonTagsComponent
   ],
   imports: [
     CommonModule,
