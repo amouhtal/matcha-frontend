@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./complete-signup-page.component.scss'],
 })
 export class CompleteSignupPageComponent {
-  progress = 2;
+  progress = 1;
   progressHight = this.progress * 50 + 10 + '%';
 
   Next(event: number) {

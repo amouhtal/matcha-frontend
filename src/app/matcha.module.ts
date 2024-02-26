@@ -14,7 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
-  declarations: [MatchaComponent, PageNotFoundComponent],
+  declarations: [MatchaComponent, PageNotFoundComponent, ],
   imports: [
     BrowserModule,
     MatchaRoutingModule,

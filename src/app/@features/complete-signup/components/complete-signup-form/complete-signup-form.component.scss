@@ -269,11 +269,11 @@
 
 .tagsArea {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  height: 90%;
+  // height: 90%;
   gap: 10px;
   padding: 10px;
   background-color: var(--secondary-color);
@@ -429,11 +429,30 @@
 ////////////////////////////////////////////////////////////
 ///////////////// Media Queries ////////////////////////////
 ////////////////////////////////////////////////////////////
-
-@media only screen and (width > 1440px) {
+// @media only screen and (width > 2060px) {
+//   .wrapper {
+//     width: 200px;
+//     height: 280px;
+//     background-color: blue;
+//   }
+//   // .buttons .nextButton,
+//   // .buttons .prevButton {
+//   //   min-width: 200px;
+//   //   font-size: 1.5rem;
+//   //   height: 60px;
+//   // }
+// }
+@media only screen and (width > 2060px) {
   .wrapper {
     width: 200px;
     height: 280px;
+  }
+}
+
+@media only screen and (width < 2060px) {
+  .wrapper {
+    width: 180px;
+    height: 220px;
   }
   .buttons .nextButton,
   .buttons .prevButton {
@@ -441,7 +460,12 @@
     font-size: 1.5rem;
     height: 60px;
   }
+  .tagsArea .tag span {
+    padding: 10px 35px;
+    width: fit-content;
+  }
 }
+
 @media only screen and (width = 1440px) {
   .tagsArea .tag span {
     padding: 20px 60px;
@@ -462,7 +486,7 @@
   }
   .wrapper {
     width: 120px;
-    height: 200px;
+    height: 180px;
   }
   .row {
     width: 100%;
@@ -477,7 +501,10 @@
   }
   .wrapper {
     width: 100px;
-    height: 150px;
+    height: 140px;
+  }
+  .tagsArea .tag span {
+    padding: 10px 20px;
   }
 }
 
@@ -526,12 +553,16 @@
     padding: 5px 20px;
     margin: 5px 0px;
   }
+  .wrapper {
+    width: 85px;
+    height: 120px;
+  }
 }
 
 @media only screen and (width <= 425px) {
   .wrapper {
     width: 85px;
-    height: 130px;
+    height: 100px;
   }
 }
 
