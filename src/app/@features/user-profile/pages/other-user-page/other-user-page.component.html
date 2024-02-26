@@ -2,22 +2,18 @@
   <div class="pictureBox">
     <div class="mainPictureBox">
       <div class="actionBox absolute">
-        <span class="cancelButton">
-          <mat-icon
-            class="cancelImg"
-          >close</mat-icon>
+        <span class="cancelButton desiableButton">
+          <mat-icon class="cancelImg">close</mat-icon>
         </span>
-        <div class="messageBox">
+        <div class="messageBox desiableButton">
           <img
             src="./../../../../../assets/images/Message Icon.svg"
             alt="message"
           />
           <p>Message</p>
         </div>
-        <span class="likeButton">
-          <mat-icon
-            class="likeImg "
-          >favorite</mat-icon>
+        <span class="likeButton" (click)="match()">
+          <mat-icon class="likeImg">favorite</mat-icon>
         </span>
       </div>
       <img [src]="mainPicture" alt="Avatar" class="mainPicture" />

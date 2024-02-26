@@ -70,4 +70,7 @@ export class OtherUserPageComponent implements OnInit {
     this.mainPicture = event.target['src'];
   
   }
+  match() {
+    console.log('match');
+  }
 }
