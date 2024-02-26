@@ -16,10 +16,14 @@ export class BrowseService {
   }
 
   getSuggestionList(): Observable<Array<userProfileDTO>> {
-    return this.http.get<Array<userProfileDTO>>('http://localhost:3000/browse/suggestions', {
-      params: {
-        userId: this.userID,
+    return this.http.get<Array<userProfileDTO>>(
+      'http://localhost:3000/browse/suggestions',
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
       },
-    });
+    );
   }
 }

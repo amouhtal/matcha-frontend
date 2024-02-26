@@ -17,6 +17,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
