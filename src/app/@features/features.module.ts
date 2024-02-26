@@ -11,6 +11,7 @@ import { messageNotificationReducer } from './navbar/local-store/reducer/notific
 import { notificationReducer } from './notifications/local-store/reducer/notification.reducer';
 import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
 import { BrowseModule } from './browse/browse.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { RouterModule } from '@angular/router';
 import { UserProfileModule } from './user-profile/user-profile.module';
 
@@ -23,6 +24,7 @@ import { UserProfileModule } from './user-profile/user-profile.module';
     ChatModule,
     NavbarModule,
     BrowseModule,
+    FontAwesomeModule,
     RouterModule,
     UserProfileModule,
     // NotificationsModule,
@@ -32,11 +34,11 @@ import { UserProfileModule } from './user-profile/user-profile.module';
     //   notificationState: notificationReducer,
     //   // notification: notificationReducer,
     // }),
-
     StoreModule.forFeature('clickContact', clickContactReducer),
     StoreModule.forFeature('messageNotification', messageNotificationReducer),
     StoreModule.forFeature('notificationState', notificationReducer),
     EffectsModule.forFeature([NotificationEffects]),
   ],
+  
 })
 export class FeaturesModule {}

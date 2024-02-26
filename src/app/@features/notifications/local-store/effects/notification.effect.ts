@@ -18,7 +18,6 @@ export class NotificationEffects {
       switchMap(() =>
         this.notificationService.getNotifications().pipe(
           map((notification) => {
-            console.log('notification', notification);
             return notificationActions.getNotificationSuccess({
               notifications: notification as NotificationStateDTO[],
             });

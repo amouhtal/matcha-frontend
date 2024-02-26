@@ -8,6 +8,7 @@ import {
 import { Store } from '@ngrx/store';
 import * as notificationActions from '../local-store/actions/notification.action';
 import * as notificationsSelectors from '../local-store/selectors/notification.selector';
+import { notificationDTO } from '../models/notification.dto';
 
 @Component({
   selector: 'matcha-notifications',
@@ -15,18 +16,24 @@ import * as notificationsSelectors from '../local-store/selectors/notification.s
   styleUrls: ['./notifications.component.scss'],
 })
 export class NotificationsComponent implements OnInit, OnChanges {
-  notifications = [];
-  @Input() notificationBarState: boolean = false;
+  notifications: Array<notificationDTO> = [];
+  notificationType = 'like';
+  // // key value array
+  // notificationTypeMap = {
+  //   like: 'Like History',
+  //   view: 'View History',
+  //   message: 'Message History',
+  //   all: 'Notification',
+  // };
+  @Input() notificationBarState: boolean = true;
   constructor(
     private store: Store<{
       // notificationState: any;
     }>,
-  ) {
-  }
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['notificationBarState'].currentValue === true) {
-      console.log('notificationBarState', changes['notificationBarState']);
       this.store.dispatch(notificationActions.resetNotification());
     }
   }
@@ -58,6 +65,7 @@ export class NotificationsComponent implements OnInit, OnChanges {
     this.notificationState$.subscribe({
       next: (notificationState: any) => {
         this.notifications = notificationState.notificationState;
+        console.log(this.notifications);
       },
     });
   }

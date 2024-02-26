@@ -1,8 +1,41 @@
-<div class="lg:px-4">
+<div class="relative z-10 h-screen">
   <div
-    class="relative flex h-screen w-full flex-col items-center overflow-hidden lg:flex-row-reverse lg:items-center lg:justify-between lg:py-4 "
+    class="main relative flex w-full flex-col items-center overflow-hidden lg:flex-row-reverse lg:items-start lg:justify-between lg:px-4 lg:py-4"
   >
     <router-outlet></router-outlet>
     <matcha-navbar *ngIf="!hideNavBar"></matcha-navbar>
   </div>
+  <div class="footer relative bottom-0 h-20 w-full rounded-md bg-white">
+    <div class="flex h-full items-center justify-around">
+      <!-- <i class="material-icons">facebook</i>
+        <fa-icon [icon]="faCoffee"></fa-icon> -->
+      <ul class="flex w-16 justify-between">
+        <li>
+          <fa-icon [icon]="faFacebookF" class="cursor-pointer text-primary-color"></fa-icon>
+        </li>
+        <li>
+          <fa-icon [icon]="faInstagramSquare" class="cursor-pointer text-primary-color"></fa-icon>
+        </li>
+        <li>
+          <fa-icon [icon]="faTwitter" class="cursor-pointer text-primary-color"></fa-icon>
+        </li>
+      </ul>
+      <div class="adress">
+        <p class="text-sm text-gray-500">
+          Mail central, Bâtiment B 25000 Khouribga Morocco
+        </p>
+        <p class="text-sm text-gray-500">+000 000 0000</p>
+        <p class="text-sm text-gray-500"></p>
+      </div>
+      <p class="text-sm text-gray-500">
+        &copy; 2024 Matcha. All rights reserved.
+      </p>
+    </div>
+  </div>
 </div>
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+<div class="circle circle4"></div>
+<div class="circle circle5"></div>
+<div class="circle circle6"></div>

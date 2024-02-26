@@ -1,0 +1,35 @@
+:host {
+  max-height: 100%;
+}
+
+.select-box-container {
+  transition: 1s ease;
+  .select-age {
+    // background-color: #f43f5e;
+    font-size: 20px;
+  }
+  .arrow-down {
+    // color: white;
+  }
+  .arrow-up {
+    // color: white;
+    transform: rotate(180deg);
+  }
+}
+
+// name for age gap drop down list is
+
+.dispayAgeGap {
+  transform: translateY(2.5rem);
+}
+
+.hideAgeGap {
+  transform: translateY(0rem);
+}
+
+.mybgcolor1 {
+  background-color: rgba(227, 233, 233, 1);
+}
+.mybgcolor2 {
+  background-color: rgba(227, 233, 233, 1);
+}
