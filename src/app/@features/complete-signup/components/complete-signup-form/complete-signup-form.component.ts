@@ -48,7 +48,7 @@ export class CompleteSignupFormComponent implements OnInit {
     'Cooking',
     'Photography',
     'DIY',
-    'Wine',
+    'Tea',
     'Coffee',
     'Board Games',
     'Hiking',
@@ -171,7 +171,7 @@ export class CompleteSignupFormComponent implements OnInit {
 
     if (this.imagesData[number].selectedFiles) {
       const file: File | null = this.imagesData[number].selectedFiles!.item(0);
-      console.log('file : ', file?.size);
+      console.log('file : ', this.imagesData[number].selectedFiles);
       if (file) {
         if (file.size > 2000000) {
           this.imageErrorMesaage = 'Invalid image : max size is 2MB';
@@ -183,7 +183,6 @@ export class CompleteSignupFormComponent implements OnInit {
         this.imagesData[number].currentFile = file;
 
         const reader = new FileReader();
-
         reader.onload = (e: any) => {
           this.imagesData[number].imageBackgroundUrl =
             `url(${e.target.result})`;

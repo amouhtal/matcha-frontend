@@ -1,0 +1,166 @@
+.otherProfilePage {
+  align-self: center;
+  width: 75vw;
+  height: 85vh;
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+  border: 1px solid var(--primary-color-light);
+  padding: 10px 20px;
+  // Picture Box Styling
+  .pictureBox {
+    // background-color: aquamarine;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    .mainPictureBox {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 75%;
+      .mainPicture {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+      .actionBox {
+        width: 90%;
+        height: 12%;
+        position: absolute;
+        bottom: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 10px 5px;
+        background-color: var(--secondary-color);
+        border-radius: 20px;
+        .messageBox {
+          width: 60%;
+          height: 40px;
+          padding: 5px 10px;
+          background-color: var(--primary-color);
+          color: var(--text-color);
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          gap: 15px;
+        }
+        .messageBoxDisabled {
+          background-color: #71959b;
+          color: var(--text-color--light);
+          cursor: not-allowed;
+          img {
+            filter: invert(0.9);
+          }
+        }
+        .likeButton,.cancelButton {
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          background-color: var(--primary-color);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .cancelImg {
+            color: #fff;
+          }
+          .likeImg {
+            color: #fff;
+          }
+        }
+      }
+    }
+    .previewImages {
+      height: 20%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      .previewPicture {
+        width: 16%;
+        height: 125px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // User Info Box Styling
+  .infoBox {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .twoFieldSection {
+      // background-color: aquamarine;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .field {
+        width: 48%;
+        gap: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    }
+    .singleFieldsection {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .valueField {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border-radius: 5px;
+      background-color: var(--secondary-color);
+      // background-color: antiquewhite;
+      color: var(--primary-color);
+      max-height: 100px;
+      overflow: auto;
+    }
+    .bioValueField {
+      font-size: 1rem;
+    }
+    .tagsArea {
+      background-color: var(--secondary-color);
+      // background-color: wheat;
+      border-radius: 5px;
+      height: fit-content;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+      .tag {
+        background-color: white;
+        border: 1px solid var(--primary-color);
+        color: var(--primary-color);
+        padding: 5px 15px;
+        border-radius: 5px;
+      }
+    }
+    .label {
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+  }
+}

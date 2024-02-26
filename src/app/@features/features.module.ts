@@ -12,6 +12,7 @@ import { notificationReducer } from './notifications/local-store/reducer/notific
 import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
 import { BrowseModule } from './browse/browse.module';
 import { RouterModule } from '@angular/router';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 @NgModule({
   declarations: [FeaturesComponent],
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     NavbarModule,
     BrowseModule,
     RouterModule,
+    UserProfileModule,
     // NotificationsModule,
     // StoreModule.forRoot({
     //   clickContact: clickContactReducer,
