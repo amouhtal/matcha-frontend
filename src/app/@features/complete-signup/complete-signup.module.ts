@@ -1,12 +1,12 @@
+
 import { NgModule } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxTypedJsModule } from 'ngx-typed-js';
+import { MatIconModule } from '@angular/material/icon'; // Import MatIconModule from Angular Material
 import { CompleteSignupPageComponent } from './pages/complete-signup-page/complete-signup-page.component';
-import { MatIconModule } from '@angular/material/icon';
 import { CompleteSignupFormComponent } from './components/complete-signup-form/complete-signup-form.component';
-
 
 @NgModule({
   declarations: [CompleteSignupPageComponent, CompleteSignupFormComponent],
@@ -15,9 +15,8 @@ import { CompleteSignupFormComponent } from './components/complete-signup-form/c
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgOptimizedImage,
     NgxTypedJsModule,
-    MatIconModule,
+    MatIconModule, // Add MatIconModule to the imports array
   ],
 })
 export class CompletePageModule {}

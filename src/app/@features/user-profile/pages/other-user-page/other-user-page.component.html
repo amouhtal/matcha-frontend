@@ -1,0 +1,80 @@
+<div class="otherProfilePage">
+  <div class="pictureBox">
+    <div class="mainPictureBox">
+      <div class="actionBox absolute">
+        <span class="cancelButton">
+          <mat-icon
+            class="cancelImg"
+          >close</mat-icon>
+        </span>
+        <div class="messageBox">
+          <img
+            src="./../../../../../assets/images/Message Icon.svg"
+            alt="message"
+          />
+          <p>Message</p>
+        </div>
+        <span class="likeButton">
+          <mat-icon
+            class="likeImg "
+          >favorite</mat-icon>
+        </span>
+      </div>
+      <img [src]="mainPicture" alt="Avatar" class="mainPicture" />
+    </div>
+    <div class="previewImages">
+      <img
+        *ngFor="let index of [0, 1, 2, 3, 4]"
+        [src]="images[index]"
+        class="previewPicture"
+        (click)="changePicture($event, index)"
+      />
+    </div>
+  </div>
+  <div class="infoBox">
+    <div class="twoFieldSection">
+      <div class="field">
+        <label class="label"> First Name </label>
+        <span class="valueField">{{ user.first_name }}</span>
+      </div>
+      <div class="field">
+        <label class="label"> Last Name </label>
+        <span class="valueField">{{ user.last_name }}</span>
+      </div>
+    </div>
+    <div class="twoFieldSection">
+      <div class="field">
+        <label class="label"> City</label>
+        <span class="valueField">{{ user.city }}</span>
+      </div>
+      <div class="field">
+        <label class="label"> Country</label>
+        <span class="valueField">{{ user.country }}</span>
+      </div>
+    </div>
+    <div class="twoFieldSection">
+      <div class="field">
+        <label class="label"> Gender</label>
+        <span class="valueField"> {{ user.gender }}</span>
+      </div>
+      <div class="field">
+        <label class="label">Sexual Preference</label>
+        <span class="valueField"> {{ user.sexual_preference }}</span>
+      </div>
+    </div>
+    <div class="singleFieldsection">
+      <label class="label">Biography</label>
+      <span class="bioValueField valueField">{{ user.biography }}</span>
+    </div>
+    <div class="singleFieldsection">
+      <label class="label">Birthdate</label>
+      <span class="valueField">{{ user.birthdate.toLocaleDateString() }}</span>
+    </div>
+    <div class="singleFieldsection">
+      <label class="label">Tags</label>
+      <div class="tagsArea">
+        <span class="tag" *ngFor="let tag of user.tags">{{ tag }}</span>
+      </div>
+    </div>
+  </div>
+</div>

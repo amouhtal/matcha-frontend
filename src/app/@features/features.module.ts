@@ -11,6 +11,8 @@ import { messageNotificationReducer } from './navbar/local-store/reducer/notific
 import { notificationReducer } from './notifications/local-store/reducer/notification.reducer';
 import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
 import { BrowseModule } from './browse/browse.module';
+import { RouterModule } from '@angular/router';
+import { UserProfileModule } from './user-profile/user-profile.module';
 
 @NgModule({
   declarations: [FeaturesComponent],
@@ -21,6 +23,8 @@ import { BrowseModule } from './browse/browse.module';
     ChatModule,
     NavbarModule,
     BrowseModule,
+    RouterModule,
+    UserProfileModule,
     // NotificationsModule,
     // StoreModule.forRoot({
     //   clickContact: clickContactReducer,
