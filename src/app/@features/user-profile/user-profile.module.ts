@@ -5,13 +5,14 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common'
 import { MatIconModule } from '@angular/material/icon';
+import { UserApiService } from 'src/app/@api/services/user/user-api.service';
 
 @NgModule({
   declarations: [
     OtherUserPageComponent,
     
   ],
-  providers: [],
+  providers: [UserApiService],
   imports: [
     CommonModule,
     UserProfileRoutingModule,

@@ -24,7 +24,22 @@
         [src]="images[index]"
         class="previewPicture"
         (click)="changePicture($event, index)"
+        alt="Avatar"
+        loading="lazy"
       />
+    </div>
+    <div class="rateProfile flex items-center justify-center gap-2 w-[90%] text-primary-color-light bg-secondary-color py-3 px-5 rounded-md">
+      <p>Rate This Profile :</p>
+      <div class="flex items-center justify-center">
+        <mat-icon
+        *ngFor="let index of [0, 1, 2, 3, 4]"
+        [ngStyle]="{ color: index < hearthHover ? 'var(--primary-color)' : '#77AFB1' }"
+        class="ratingHearth"
+        (mouseenter)="ratingHover(index + 1)"
+        (mouseleave)="ratingHover(0)"
+        (click)="rateProfile(index + 1)"
+        >favorite</mat-icon>
+      </div>
     </div>
   </div>
   <div class="infoBox">
@@ -58,13 +73,29 @@
         <span class="valueField"> {{ user.sexual_preference }}</span>
       </div>
     </div>
+    <div class="twoFieldSection">
+      <div class="field">
+        <label class="label">Birthdate</label>
+        <span class="valueField">{{
+          user.birthdate.toLocaleDateString().replaceAll("/", "-")
+        }}</span>
+      </div>
+
+      <div class="field">
+        <label class="label">Fame Rating</label>
+        <div class="valueField">
+          <mat-icon
+          *ngFor="let index of [0, 1, 2, 3, 4]"
+            [ngStyle]="{ color: index < user.rating ? 'var(--primary-color)' : '#77AFB1' }"
+            class="ratingHearth"
+            >favorite</mat-icon
+          >
+        </div>
+      </div>
+    </div>
     <div class="singleFieldsection">
       <label class="label">Biography</label>
       <span class="bioValueField valueField">{{ user.biography }}</span>
-    </div>
-    <div class="singleFieldsection">
-      <label class="label">Birthdate</label>
-      <span class="valueField">{{ user.birthdate.toLocaleDateString() }}</span>
     </div>
     <div class="singleFieldsection">
       <label class="label">Tags</label>

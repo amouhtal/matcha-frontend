@@ -3,11 +3,11 @@ export class OtherUserDto {
   first_name: string = 'Loading...';
   last_name: string = 'Loading...';
   images: string[] = [
-    '../../../../../assets/images/missing picture4.png',
-    '../../../../../assets/images/missing picture4.png',
-    '../../../../../assets/images/missing picture4.png',
-    '../../../../../assets/images/missing picture4.png',
-    '../../../../../assets/images/missing picture4.png',
+    '../../../../assets/images/missing picture4.png',
+    '../../../../assets/images/missing picture4.png',
+    '../../../../assets/images/missing picture4.png',
+    '../../../../assets/images/missing picture4.png',
+    '../../../../assets/images/missing picture4.png',
   ];
   gender: string = 'Loading...';
   sexual_preference: string = 'Loading...';
@@ -17,4 +17,5 @@ export class OtherUserDto {
   city: string = 'Loading...';
   country: string = 'Loading...';
   birthdate: Date = new Date();
+  rating  : number = 4;
 }
