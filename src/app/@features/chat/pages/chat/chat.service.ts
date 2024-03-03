@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CommunicationService } from './communication.service';
+import { CommunicationService } from '../../../real-time-service/communication.service';
 import { Store } from '@ngrx/store';
 import * as NotificationAction from 'src/app/@features/navbar/local-store/actions/notification.action';
 // import { NotificationAction } from '../../local-store/actions/notification.action';
@@ -27,18 +27,4 @@ export class ChatStreamService {
     });
     return message$;
   }
-
-  // receiveNotification() {
-  //   const notification$ = new Observable<{ notification: number }>(
-  //     (observer) => {
-  //       this.communicationService.on('newNotification', (msg: any) => {
-  //         observer.next(msg);
-  //       });
-  //       return () => {
-  //         this.communicationService.disconnect();
-  //       };
-  //     },
-  //   );
-  //   return notification$;
-  // }
 }

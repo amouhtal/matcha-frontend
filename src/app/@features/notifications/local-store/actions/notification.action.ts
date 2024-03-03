@@ -23,3 +23,15 @@ export const resetNotificationFailure = createAction(
   '[RESET_NOTIFICATION_FAILURE]',
   props<{ error: any }>(),
 );
+
+export const newNotificationMessage = createAction(
+  '[NEW_NOTIFICATION_MESSAGE]',
+);
+
+export const newNotificationViewProfile = createAction(
+  '[NEW_NOTIFICATION_VIEW_PROFILE]',
+);
+
+export const newNotificationLikeProfile = createAction(
+  '[NEW_NOTIFICATION_LIKE_PROFILE]',
+);

@@ -11,10 +11,7 @@ import { MessageBubbleComponent } from './components/conversation-panel/componen
 import { SendMessageComponent } from './components/conversation-panel/components/send-message/send-message.component';
 import { ChatStreamService } from './pages/chat/chat.service';
 import { FormsModule } from '@angular/forms';
-import { CommunicationService } from './pages/chat/communication.service';
-import { PickerComponent, PickerModule } from '@ctrl/ngx-emoji-mart'
-
-// const config: SocketIoConfig = { url: environment.socketUrl + '?roomID=1', options: {} };
+import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 
 @NgModule({
   declarations: [
@@ -29,11 +26,10 @@ import { PickerComponent, PickerModule } from '@ctrl/ngx-emoji-mart'
   ],
   imports: [
     CommonModule,
-    // ChatRoutingModule,
     FormsModule,
     SocketIoModule,
     PickerComponent,
   ],
-  providers: [ChatStreamService, CommunicationService],
+  providers: [ChatStreamService],
 })
 export class ChatModule {}

@@ -26,6 +26,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
@@ -34,6 +35,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
@@ -43,6 +45,7 @@ export class NotificationService {
         userId: this.userID,
         notificationId: notificationId,
       },
+      withCredentials: true,
     });
   }
 
@@ -51,6 +54,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 }
