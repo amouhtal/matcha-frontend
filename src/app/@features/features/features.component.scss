@@ -3,12 +3,21 @@
   position: relative;
   bottom: 0;
 }
-p{
+p {
   color: rgb(135, 152, 173);
 }
-.footer{
-    height: 5vh;;
-    width: 100%;
+.footer {
+  height: 5vh;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 .circle {

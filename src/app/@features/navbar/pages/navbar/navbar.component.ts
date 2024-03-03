@@ -8,16 +8,19 @@ import * as notificationsSelectors from 'src/app/@features/notifications/local-s
   selector: 'matcha-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  
 })
 export class NavbarComponent implements OnInit {
   notificationCount = 5;
-  notificationOn : boolean = false;
+  notificationOn: boolean = false;
+
   // counter$: Observable<number> = this.store.select('notification');
   newNotification$ = this.store.select('messageNotification');
   chatIn$: Observable<boolean> = this.store.select('clickContact');
   unreadMessagesCount$ = this.store.select(
     notificationsSelectors.unreadMessagesCountSelector,
+  );
+  unreadViewsCount$ = this.store.select(
+    notificationsSelectors.unreadViewProfileCountSelector,
   );
 
   constructor(
@@ -52,12 +55,15 @@ export class NavbarComponent implements OnInit {
   Navigate(prefix: string) {
     this.router.navigate([`/features/${prefix}`]);
   }
+
   Messages() {
     this.router.navigate(['/features/chat']);
   }
+
   Browse() {
     this.router.navigate(['/features/browse']);
   }
+
   Notifications() {
     this.notificationOn = !this.notificationOn;
     // this.router.navigate(['/features/notifications']);

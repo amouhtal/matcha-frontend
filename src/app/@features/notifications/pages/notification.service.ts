@@ -3,26 +3,34 @@ import { Socket } from 'ngx-socket-io';
 import { CommunicationService } from '../../real-time-service/communication.service';
 import { Store } from '@ngrx/store';
 import { NotificationState } from '../models/notification-state';
+import * as NotificationActions from '../local-store/actions/notification.action';
 
 interface RealTimeNotification {
-  listenForProfileVisits(): void;
+  listenForProfileViews(): void;
   listenForProfileLikes(): void;
 }
 
 @Injectable()
-export class NotificationService implements RealTimeNotification {
+export class RealTimeNotificationService implements RealTimeNotification {
   constructor(
     private communicationService: CommunicationService,
-    // this is the store that will be used to dispatch the notification action
-    private store: Store<{ notificationState : NotificationState  }>,
-  ) {}
+    private store: Store<{ notificationState: NotificationState }>,
+  ) {
+    this.listenForProfileViews();
+    this.listenForProfileLikes();
+  }
 
-  listenForProfileVisits(): void {
-    this.communicationService.on('visitFriendProfile', (msg: any) => {
-      this.store.dispatch({ type: 'NEW_NOTIFICATION' });
+  listenForProfileViews(): void {
+    console.log('profile viewed');
+    this.communicationService.on('profileViwed', (data: string) => {
+      console.log('profile viewed', data);
+      this.store.dispatch(NotificationActions.newNotificationViewProfile());
     });
   }
 
-  listenForProfileLikes(): void {}
-
+  listenForProfileLikes(): void {
+    this.communicationService.on('likeFriendProfile', () => {
+      this.store.dispatch(NotificationActions.newNotificationLikeProfile());
+    });
+  }
 }

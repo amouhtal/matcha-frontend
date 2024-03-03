@@ -1,4 +1,5 @@
 export class OtherUserDto {
+  id: number = -1;
   username: string = 'Loading...';
   first_name: string = 'Loading...';
   last_name: string = 'Loading...';

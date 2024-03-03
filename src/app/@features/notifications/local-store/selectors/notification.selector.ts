@@ -18,6 +18,17 @@ export const unreadMessagesCountSelector = createSelector(
   notificationState,
   (state) => state.unreadMessageCount,
 );
+
+export const unreadViewProfileCountSelector = createSelector(
+  notificationState,
+  (state) => state.unreadViewProfileCount,
+);
+
+export const unreadLikeProfileCountSelector = createSelector(
+  notificationState,
+  (state) => state.unreadLikeProfileCount,
+);
+
 export const notificationsLoadingSelector = createSelector(
   notificationState,
   (state: NotificationState) => state.loading,

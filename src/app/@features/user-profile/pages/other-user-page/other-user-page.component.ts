@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OtherUserDto } from '../../DTO/other-user.dto';
+import { CommunicationService } from 'src/app/@features/real-time-service/communication.service';
 
 @Component({
   selector: 'matcha-other-user-page',
@@ -9,7 +10,6 @@ import { OtherUserDto } from '../../DTO/other-user.dto';
   styleUrls: ['./other-user-page.component.scss'],
 })
 export class OtherUserPageComponent implements OnInit {
-  
   mainPicture = '';
   images: string[] = [];
   user: OtherUserDto = new OtherUserDto();
@@ -18,6 +18,7 @@ export class OtherUserPageComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
+    private communicationService: CommunicationService,
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params['username']) {
@@ -38,24 +39,29 @@ export class OtherUserPageComponent implements OnInit {
       .subscribe({
         next: (ret) => {
           this.user = ret;
+          console.log(this.user);
           if (this.user && Object.keys(this.user).length > 0) {
-            this.mainPicture = this.user.images[0] ;
+            this.mainPicture = this.user.images[0];
             this.user.birthdate = new Date(this.user.birthdate);
             let i = 0;
-            for (i ; i < this.user.images.length ; i++) {
+            for (i; i < this.user.images.length; i++) {
               this.images.push(this.user.images[i]);
             }
-            if(i < 5) {
+            if (i < 5) {
               for (i; i < 5; i++) {
-                this.images.push('../../../../../assets/images/missing picture4.png');
+                this.images.push(
+                  '../../../../../assets/images/missing picture4.png',
+                );
               }
             }
           }
+          this.userVisited();
         },
         error: (error) => {
           console.log(error.error);
         },
       });
+
     // .subscribe((data: OtherUserDto) => {
     //   console.log(data);
     //   if (Object.keys(data).length > 0) {
@@ -65,9 +71,17 @@ export class OtherUserPageComponent implements OnInit {
     //   // this.mainPicture = data['picture'];
     // })
   }
-  changePicture(event: any , index: number){
-    if(index < this.user.images.length)
-    this.mainPicture = event.target['src'];
-  
+
+  // function for visiting a user
+  userVisited() {
+    console.log('userVisited', this.user.id);
+    this.communicationService.emit('userVisited', {
+      userId: this.user.id,
+      userName: this.user.username,
+    });
+  }
+
+  changePicture(event: any, index: number) {
+    if (index < this.user.images.length) this.mainPicture = event.target['src'];
   }
 }

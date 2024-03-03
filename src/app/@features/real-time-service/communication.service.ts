@@ -11,5 +11,10 @@ export class CommunicationService extends Socket {
     super({ url: environment.socketUrl + `?roomID=${roomID}&userId=${userId}`, options: {
       withCredentials: true,
     } });
+
+    // on error 
+    this.ioSocket.on('error', (error: any) => {
+      console.log('error', error);
+    });
   }
 }

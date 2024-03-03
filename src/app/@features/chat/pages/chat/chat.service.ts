@@ -9,7 +9,9 @@ export class ChatStreamService {
   constructor(
     private communicationService: CommunicationService,
     private store: Store<{ notification: number }>,
-  ) {}
+  ) {
+    console.log('chat stream service');
+  }
 
   sendMessage(msg: any) {
     this.communicationService.emit('sendFriendMessage', msg);

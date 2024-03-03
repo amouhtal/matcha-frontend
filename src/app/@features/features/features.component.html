@@ -5,19 +5,30 @@
     <router-outlet></router-outlet>
     <matcha-navbar *ngIf="!hideNavBar"></matcha-navbar>
   </div>
-  <div class="footer relative bottom-0 h-20 w-full rounded-md bg-white">
+  <div
+    class="footer relative bottom-0 h-20 w-full rounded-md bg-white md:hidden"
+  >
     <div class="flex h-full items-center justify-around">
       <!-- <i class="material-icons">facebook</i>
         <fa-icon [icon]="faCoffee"></fa-icon> -->
       <ul class="flex w-16 justify-between">
         <li>
-          <fa-icon [icon]="faFacebookF" class="cursor-pointer text-primary-color"></fa-icon>
+          <fa-icon
+            [icon]="faFacebookF"
+            class="cursor-pointer text-primary-color"
+          ></fa-icon>
         </li>
         <li>
-          <fa-icon [icon]="faInstagramSquare" class="cursor-pointer text-primary-color"></fa-icon>
+          <fa-icon
+            [icon]="faInstagramSquare"
+            class="cursor-pointer text-primary-color"
+          ></fa-icon>
         </li>
         <li>
-          <fa-icon [icon]="faTwitter" class="cursor-pointer text-primary-color"></fa-icon>
+          <fa-icon
+            [icon]="faTwitter"
+            class="cursor-pointer text-primary-color"
+          ></fa-icon>
         </li>
       </ul>
       <div class="adress">

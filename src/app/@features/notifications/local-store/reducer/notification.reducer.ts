@@ -31,7 +31,7 @@ export const notificationReducer = createReducer(
       let unreadMessageCount = state.unreadMessageCount;
       let unreadViewProfileCount = state.unreadViewProfileCount;
       let unreadLikeProfileCount = state.unreadLikeProfileCount;
-      notifications.map((notification) => {
+      notifications.forEach((notification) => {
         unreadNotificationCount++;
         console.log(notification.type);
         if (notification.type === 'message') {
