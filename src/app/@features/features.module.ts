@@ -18,7 +18,7 @@ import { CommunicationService } from './real-time-service/communication.service'
 
 @NgModule({
   declarations: [FeaturesComponent],
-  providers: [NotificationEffects, CommunicationService],
+  providers: [NotificationEffects, CommunicationService, ],
   imports: [
     CommonModule,
     FeaturesRoutingModule,

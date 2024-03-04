@@ -26,6 +26,7 @@ export class NotificationsComponent implements OnInit, OnChanges {
   //   all: 'Notification',
   // };
   @Input() notificationBarState: boolean = true;
+  // @Input() notificationType: string = 'like';
   constructor(
     private store: Store<{
       // notificationState: any;
@@ -59,13 +60,23 @@ export class NotificationsComponent implements OnInit, OnChanges {
     notificationsSelectors.notificationsErrorSelector,
   );
 
+  notificationTypeLikeProfileDTO$ = this.store.select(
+    notificationsSelectors.likeProfileStateSelector,
+  );
+
+  notificationTypeViewProfileDTO$ = this.store.select(
+    notificationsSelectors.viewProfileStateSelector,
+  );
+
   ngOnInit(): void {
     this.store.dispatch(notificationActions.getNotification());
 
     this.notificationState$.subscribe({
       next: (notificationState: any) => {
         this.notifications = notificationState.notificationState;
-        console.log(this.notifications);
+
+
+        // console.log(this.notifications);
       },
     });
   }

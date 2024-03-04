@@ -1,9 +1,9 @@
 <div
-  class="navbar relative flex h-16 w-full flex-row-reverse items-center justify-evenly divide-slate-200 border-y bg-white p-4 lg:relative lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded"
+  class="navbar relative flex h-16 w-full flex-row-reverse items-center justify-evenly divide-slate-200 border-y p-4 lg:relative lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded"
 >
   <matcha-profile></matcha-profile>
   <div
-    class="flex w-[60%] flex-grow flex-row-reverse justify-between lg:h-[60%] lg:w-full lg:flex-grow-0 lg:flex-col"
+    class="navbar__body flex w-[60%] flex-grow flex-row-reverse justify-between lg:h-[60%] lg:w-full lg:flex-grow-0 lg:flex-col"
   >
     <div
       class="messagesNotification relative flex cursor-pointer items-center"
@@ -17,9 +17,9 @@
       </i>
       <h4 class="hidden md:m-2 lg:block">Messages</h4>
     </div>
-    <div
+    <!-- <div
       class="messagesNotification relative flex cursor-pointer items-center"
-      (click)="Notifications()"
+      (click)="ToggleNotification()"
     >
       <i
         [attr.notification-count]="notificationCount"
@@ -28,20 +28,34 @@
         notifications
       </i>
       <h4 class="hidden w-full md:m-2 lg:block">Notifications</h4>
-    </div>
+    </div> -->
     <div class="flex cursor-pointer items-center" (click)="Browse()">
       <i class="navbar_icon material-symbols-outlined text-gray-600"
         >volunteer_activism</i
       >
       <h4 class="hidden w-full md:m-2 lg:block">Browse</h4>
     </div>
-    <div class="flex cursor-pointer items-center" (click)="Likers()">
+    <div
+      class="flex cursor-pointer items-center"
+      (click)="ToggleNotification()"
+    >
       <i
         [attr.notification-count]="unreadViewsCount$ | async"
         class="navbar_icon notification_count material-symbols-outlined relative text-gray-600"
         >heart_plus</i
       >
       <h4 class="hidden w-full md:m-2 lg:block">Likers</h4>
+    </div>
+    <div
+      class="flex cursor-pointer items-center"
+      (click)="ToggleNotification()"
+    >
+      <i
+        [attr.notification-count]="unreadViewsCount$ | async"
+        class="navbar_icon notification_count material-symbols-outlined relative text-gray-600"
+        >visibility</i
+      >
+      <h4 class="hidden w-full md:m-2 lg:block">Views</h4>
     </div>
     <div class="flex cursor-pointer items-center" (click)="Messages()">
       <i class="navbar_icon material-symbols-outlined text-gray-600"
@@ -58,13 +72,21 @@
       <matcha-logout></matcha-logout>
     </div>
   </div>
-  <matcha-notifications
+  <!-- <matcha-notifications
     *ngIf="notificationOn"
     [ngClass]="{
       'desinimated-box ': !notificationOn,
       'animated-box': notificationOn
     }"
     [notificationBarState]="notificationOn"
-    class="notification rounded border-l shadow-xl"
-  ></matcha-notifications>
+    class="notification rounded border-l lg:shadow"
+    ></matcha-notifications> -->
 </div>
+<matcha-notifications
+  [ngClass]="{
+    'desinimated-box ': !notificationOn,
+    'animated-box': notificationOn
+  }"
+  [notificationBarState]="notificationOn"
+  class="notification rounded border-l lg:shadow"
+></matcha-notifications>

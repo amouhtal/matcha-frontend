@@ -1,5 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { NotificationState } from '../../models/notification-state';
+import {
+  NotificationTypeLikeProfileDTO,
+  NotificationTypeViewProfileDTO,
+} from '../../models/notification-state.dto';
 
 export const notificationState =
   createFeatureSelector<NotificationState>('notificationState');
@@ -22,6 +26,17 @@ export const unreadMessagesCountSelector = createSelector(
 export const unreadViewProfileCountSelector = createSelector(
   notificationState,
   (state) => state.unreadViewProfileCount,
+);
+
+// array of view profile notifications
+export const viewProfileStateSelector = createSelector(
+  notificationState,
+  (state): Array<NotificationTypeViewProfileDTO> => state.viewProfileState,
+);
+
+export const likeProfileStateSelector = createSelector(
+  notificationState,
+  (state): Array<NotificationTypeLikeProfileDTO> => state.likeProfileState,
 );
 
 export const unreadLikeProfileCountSelector = createSelector(

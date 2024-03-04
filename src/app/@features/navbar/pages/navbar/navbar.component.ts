@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/features/browse']);
   }
 
-  Notifications() {
+  ToggleNotification() {
     this.notificationOn = !this.notificationOn;
     // this.router.navigate(['/features/notifications']);
   }

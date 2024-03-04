@@ -74,10 +74,12 @@ export class OtherUserPageComponent implements OnInit {
 
   // function for visiting a user
   userVisited() {
-    console.log('userVisited', this.user.id);
+    const session = JSON.parse(localStorage.getItem('session') || '');
+    
+    console.log('userVisited', session);
     this.communicationService.emit('userVisited', {
       userId: this.user.id,
-      userName: this.user.username,
+      userName: session.username,
     });
   }
 

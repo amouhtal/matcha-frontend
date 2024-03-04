@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
 import { CommunicationService } from '../../real-time-service/communication.service';
 import { Store } from '@ngrx/store';
 import { NotificationState } from '../models/notification-state';
@@ -10,14 +9,15 @@ interface RealTimeNotification {
   listenForProfileLikes(): void;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class RealTimeNotificationService implements RealTimeNotification {
   constructor(
     private communicationService: CommunicationService,
     private store: Store<{ notificationState: NotificationState }>,
   ) {
-    this.listenForProfileViews();
-    this.listenForProfileLikes();
+    console.log('notificationn service created');
   }
 
   listenForProfileViews(): void {
