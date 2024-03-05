@@ -29,15 +29,15 @@ export const unreadViewProfileCountSelector = createSelector(
 );
 
 // array of view profile notifications
-export const viewProfileStateSelector = createSelector(
-  notificationState,
-  (state): Array<NotificationTypeViewProfileDTO> => state.viewProfileState,
-);
+// export const viewProfileStateSelector = createSelector(
+//   notificationState,
+//   (state): Array<NotificationTypeViewProfileDTO> => state.viewProfileState,
+// );
 
-export const likeProfileStateSelector = createSelector(
-  notificationState,
-  (state): Array<NotificationTypeLikeProfileDTO> => state.likeProfileState,
-);
+// export const likeProfileStateSelector = createSelector(
+//   notificationState,
+//   (state): Array<NotificationTypeLikeProfileDTO> => state.likeProfileState,
+// );
 
 export const unreadLikeProfileCountSelector = createSelector(
   notificationState,

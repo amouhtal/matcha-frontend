@@ -19,10 +19,10 @@ export interface NotificationState {
   notificationState: NotificationStateDTO[];
   unreadNotificationCount: number;
   unreadMessageCount: number;
-  viewProfileState: NotificationTypeViewProfileDTO[];
   unreadViewProfileCount: number;
-  likeProfileState: NotificationTypeLikeProfileDTO[];
   unreadLikeProfileCount: number;
+  // viewProfileState: NotificationTypeViewProfileDTO[];
+  // likeProfileState: NotificationTypeLikeProfileDTO[];
   loading: boolean;
   loaded: boolean;
   error: null;

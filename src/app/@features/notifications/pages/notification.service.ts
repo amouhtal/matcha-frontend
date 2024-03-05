@@ -16,14 +16,10 @@ export class RealTimeNotificationService implements RealTimeNotification {
   constructor(
     private communicationService: CommunicationService,
     private store: Store<{ notificationState: NotificationState }>,
-  ) {
-    console.log('notificationn service created');
-  }
+  ) {}
 
   listenForProfileViews(): void {
-    console.log('profile viewed');
     this.communicationService.on('profileViwed', (data: string) => {
-      console.log('profile viewed', data);
       this.store.dispatch(NotificationActions.newNotificationViewProfile());
     });
   }

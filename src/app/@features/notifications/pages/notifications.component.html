@@ -1,8 +1,9 @@
-<div class="notifications absolute z-50 h-full w-full rounded">
+<div class="notifications relative z-50 h-full w-full rounded">
   <div
-    class="notifications__header bg-primary-color flex h-12 items-center justify-center rounded-t-sm font-mono"
+    class="notifications__header flex h-12 items-center justify-center rounded-t-sm bg-primary-color font-mono"
   >
     <h2 class="notifications__title">Notifications</h2>
+    <i class="material-icons notifications__close">notifications</i>
   </div>
   <div class="notifications__body">
     <div class="notifications__list">
@@ -16,6 +17,7 @@
           *ngIf="
             notification.type === notificationType || notificationType === 'all'
           "
+          class="shadow-2xl"
         >
           <matcha-notification-item
             [notification]="notification"

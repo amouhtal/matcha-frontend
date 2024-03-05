@@ -11,16 +11,22 @@ import * as notificationsSelectors from 'src/app/@features/notifications/local-s
 })
 export class NavbarComponent implements OnInit {
   notificationCount = 5;
-  notificationOn: boolean = false;
-
+  notificationOn: boolean = true;
+  notificationType = 'visited_profile';
   // counter$: Observable<number> = this.store.select('notification');
   newNotification$ = this.store.select('messageNotification');
   chatIn$: Observable<boolean> = this.store.select('clickContact');
+
   unreadMessagesCount$ = this.store.select(
     notificationsSelectors.unreadMessagesCountSelector,
   );
+
   unreadViewsCount$ = this.store.select(
     notificationsSelectors.unreadViewProfileCountSelector,
+  );
+
+  unreadLikesCount$ = this.store.select(
+    notificationsSelectors.unreadLikeProfileCountSelector,
   );
 
   constructor(
@@ -64,10 +70,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/features/browse']);
   }
 
-  ToggleNotification() {
+  toggleNotification(notificationType: string) {
     this.notificationOn = !this.notificationOn;
+    if (this.notificationOn) {
+      this.notificationType = notificationType;
+    }
     // this.router.navigate(['/features/notifications']);
   }
+
   Likers() {
     this.router.navigate(['/features/']);
   }

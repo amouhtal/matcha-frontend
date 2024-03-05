@@ -1,4 +1,5 @@
 export interface NotificationStateDTO {
+  id: number;
   type: string;
   text: string;
   created_at: string;

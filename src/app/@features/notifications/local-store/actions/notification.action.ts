@@ -13,6 +13,20 @@ export const getNotificationFailure = createAction(
   props<{ error: any }>(),
 );
 
+export const deleteNotifications = createAction(
+  '[DELETE_NOTIFICATION]',
+  props<{ notificationsId: number[] }>(),
+);
+
+export const deleteNotificationsSuccess = createAction(
+  '[DELETE_NOTIFICATION_SUCCESS]',
+);
+
+export const deleteNotificationsFailure = createAction(
+  '[DELETE_NOTIFICATION_FAILURE]',
+  props<{ error: any }>(),
+);
+
 export const resetNotification = createAction('[RESET_NOTIFICATION]');
 
 export const resetNotificationSuccess = createAction(

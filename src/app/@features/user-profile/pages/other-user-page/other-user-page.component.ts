@@ -39,7 +39,6 @@ export class OtherUserPageComponent implements OnInit {
       .subscribe({
         next: (ret) => {
           this.user = ret;
-          console.log(this.user);
           if (this.user && Object.keys(this.user).length > 0) {
             this.mainPicture = this.user.images[0];
             this.user.birthdate = new Date(this.user.birthdate);
@@ -76,7 +75,6 @@ export class OtherUserPageComponent implements OnInit {
   userVisited() {
     const session = JSON.parse(localStorage.getItem('session') || '');
     
-    console.log('userVisited', session);
     this.communicationService.emit('userVisited', {
       userId: this.user.id,
       userName: session.username,

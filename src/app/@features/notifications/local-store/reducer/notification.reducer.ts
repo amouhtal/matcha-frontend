@@ -16,15 +16,12 @@ export const initialState: NotificationState = {
   notificationState: [],
   unreadNotificationCount: 0,
   unreadMessageCount: 0,
-  viewProfileState: [],
   unreadViewProfileCount: 0,
-  likeProfileState: [],
   unreadLikeProfileCount: 0,
   loading: false,
   loaded: false,
   error: null,
 };
-
 
 export const notificationReducer = createReducer(
   initialState,
@@ -44,18 +41,20 @@ export const notificationReducer = createReducer(
       let unreadMessageCount = state.unreadMessageCount;
       let unreadViewProfileCount = state.unreadViewProfileCount;
       let unreadLikeProfileCount = state.unreadLikeProfileCount;
-      let viewProfileState: any = [];
-      let likeProfileState: any = [];
+      // let viewProfileState: any = [];
+      // let likeProfileState: any = [];
+
+      // console.log(state);
       notifications.forEach((notification) => {
         unreadNotificationCount++;
         console.log(notification.type);
         if (notification.type === 'message') {
           unreadMessageCount++;
         } else if (notification.type === 'view_profile') {
-          viewProfileState.push(notification);
+          // viewProfileState.push(notification);
           unreadViewProfileCount++;
         } else if (notification.type === 'like_profile') {
-          likeProfileState.push(notification);
+          // likeProfileState.push(notification);
           unreadLikeProfileCount++;
         }
       });
@@ -65,7 +64,7 @@ export const notificationReducer = createReducer(
         loaded: true,
         unreadNotificationCount: unreadNotificationCount,
         unreadMessageCount: unreadMessageCount,
-        viewProfileState: viewProfileState,
+        // viewProfileState: viewProfileState,
         unreadViewProfileCount: unreadViewProfileCount,
         unreadLikeProfileCount: unreadLikeProfileCount,
         notificationState: notifications,
@@ -74,6 +73,36 @@ export const notificationReducer = createReducer(
   ),
   on(
     notificationActions.getNotificationFailure,
+    (state: NotificationState, { error }) => {
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: error,
+      };
+    },
+  ),
+  on(
+    notificationActions.deleteNotifications,
+    (state: NotificationState): NotificationState => {
+      return {
+        ...state,
+        loading: true,
+      };
+    },
+  ),
+  on(
+    notificationActions.deleteNotificationsSuccess,
+    (state: NotificationState) => {
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+      };
+    },
+  ),
+  on(
+    notificationActions.deleteNotificationsFailure,
     (state: NotificationState, { error }) => {
       return {
         ...state,

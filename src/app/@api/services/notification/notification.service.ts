@@ -49,12 +49,30 @@ export class NotificationService {
     });
   }
 
-  resetNotifications() {
-    return this.http.put('http://localhost:3000/notification/resetAllRead', {
-      params: {
-        userId: this.userID,
+  deleteNotifications(notificationsId: any) {
+    return this.http.put(
+      'http://localhost:3000/notification/delete',
+      {
+        notificationsId,
       },
-      withCredentials: true,
-    });
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
+  }
+  resetNotifications() {
+    return this.http.put(
+      'http://localhost:3000/notification/resetAllRead',
+      {},
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
   }
 }

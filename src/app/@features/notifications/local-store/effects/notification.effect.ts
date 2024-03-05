@@ -30,6 +30,36 @@ export class NotificationEffects {
     );
   });
 
+  delteNotifications$ = createEffect((): Actions => {
+    return this.actions$.pipe(
+      ofType(notificationActions.deleteNotifications),
+      switchMap(({ notificationsId }) =>
+        this.notificationService.deleteNotifications(notificationsId).pipe(
+          map(() => {
+            return notificationActions.deleteNotificationsSuccess();
+          }),
+          catchError((error) =>
+            of(notificationActions.deleteNotificationsFailure({ error })),
+          ),
+        ),
+      ),
+    );
+  });
+  // updateNotification$ = createEffect((): Actions => {
+  //   return this.actions$.pipe(
+  //     ofType(notificationActions.updateNotification),
+  //     switchMap(({ notification }) =>
+  //       this.notificationService.updateNotification(notification).pipe(
+  //         map(() => {
+  //           return notificationActions.updateNotificationSuccess();
+  //         }),
+  //         catchError((error) =>
+  //           of(notificationActions.updateNotificationFailure({ error })),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // });
   resetNotifications$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(notificationActions.resetNotification),

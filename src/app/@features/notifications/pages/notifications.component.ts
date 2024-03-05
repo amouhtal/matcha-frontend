@@ -17,16 +17,9 @@ import { notificationDTO } from '../models/notification.dto';
 })
 export class NotificationsComponent implements OnInit, OnChanges {
   notifications: Array<notificationDTO> = [];
-  notificationType = 'like';
-  // // key value array
-  // notificationTypeMap = {
-  //   like: 'Like History',
-  //   view: 'View History',
-  //   message: 'Message History',
-  //   all: 'Notification',
-  // };
+
   @Input() notificationBarState: boolean = true;
-  // @Input() notificationType: string = 'like';
+  @Input() notificationType: string = '';
   constructor(
     private store: Store<{
       // notificationState: any;
@@ -60,13 +53,13 @@ export class NotificationsComponent implements OnInit, OnChanges {
     notificationsSelectors.notificationsErrorSelector,
   );
 
-  notificationTypeLikeProfileDTO$ = this.store.select(
-    notificationsSelectors.likeProfileStateSelector,
-  );
+  // notificationTypeLikeProfileDTO$ = this.store.select(
+  //   notificationsSelectors.likeProfileStateSelector,
+  // );
 
-  notificationTypeViewProfileDTO$ = this.store.select(
-    notificationsSelectors.viewProfileStateSelector,
-  );
+  // notificationTypeViewProfileDTO$ = this.store.select(
+  //   notificationsSelectors.viewProfileStateSelector,
+  // );
 
   ngOnInit(): void {
     this.store.dispatch(notificationActions.getNotification());
@@ -74,9 +67,13 @@ export class NotificationsComponent implements OnInit, OnChanges {
     this.notificationState$.subscribe({
       next: (notificationState: any) => {
         this.notifications = notificationState.notificationState;
+        console.log('notifi ', this.notifications);
+      },
+    });
 
-
-        // console.log(this.notifications);
+    this.notificationsLoaded$.subscribe({
+      next: (loading: any) => {
+        console.log('loading ', loading);
       },
     });
   }
