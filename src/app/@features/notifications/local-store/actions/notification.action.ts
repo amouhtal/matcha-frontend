@@ -49,3 +49,20 @@ export const newNotificationViewProfile = createAction(
 export const newNotificationLikeProfile = createAction(
   '[NEW_NOTIFICATION_LIKE_PROFILE]',
 );
+
+// delete notification
+export const deleteNotification = createAction(
+  '[DELETE_NOTIFICATION]',
+  props<{ notificationId: number }>(),
+);
+
+export const deleteNotificationSuccess = createAction(
+  '[DELETE_NOTIFICATION_SUCCESS]',
+  props<{ notificationId: number }>(),
+
+);
+
+export const deleteNotificationFailure = createAction(
+  '[DELETE_NOTIFICATION_FAILURE]',
+  props<{ error: any }>(),
+);

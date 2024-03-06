@@ -1,7 +1,5 @@
 import {
   NotificationStateDTO,
-  NotificationTypeLikeProfileDTO,
-  NotificationTypeViewProfileDTO,
 } from './notification-state.dto';
 
 // export interface NotificationState {

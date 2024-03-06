@@ -39,6 +39,21 @@ export class NotificationService {
     });
   }
 
+  deleteNotification(notificationId: number) {
+    const re = this.http.delete('http://localhost:3000/notification', {
+      params: {
+        userId: this.userID,
+        notificationId: notificationId,
+      },
+
+      withCredentials: true,
+    });
+    re.subscribe((data) => {
+      console.log('notification data$', data);
+    })
+    return re;
+  }
+
   updateNotification(notificationId: any) {
     return this.http.put('http://localhost:3000/notification', {
       params: {

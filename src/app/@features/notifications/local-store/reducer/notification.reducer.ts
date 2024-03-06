@@ -83,6 +83,29 @@ export const notificationReducer = createReducer(
     },
   ),
   on(
+    notificationActions.deleteNotification,
+    (state: NotificationState): NotificationState => {
+      return {
+        ...state,
+        loading: true,
+      };
+    },
+  ),
+  on(
+    notificationActions.deleteNotificationSuccess,
+    (state: NotificationState, { notificationId }) => {
+      const notificationState = state.notificationState.filter(
+        (notification) => notification.id !== notificationId,
+      );
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        notificationState: notificationState,
+      };
+    },
+  ),
+  on(
     notificationActions.deleteNotifications,
     (state: NotificationState): NotificationState => {
       return {

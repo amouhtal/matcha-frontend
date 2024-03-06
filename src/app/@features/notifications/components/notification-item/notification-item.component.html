@@ -1,6 +1,9 @@
 <div
+  [ngClass]="[
+    deleted ? 'delete_notification' : '',
+    notification.is_read ? '' : 'unread_notification'
+  ]"
   class="notification flex items-center justify-evenly rounded border-b p-2"
-  [ngClass]="notification.is_read ? '' : 'unread_notification'"
 >
   <div class="user_avatar relative h-12 w-12 rounded-full bg-lime-400">
     <img
@@ -25,29 +28,30 @@
       }}</span>
     </div>
   </div>
-  <div
-    *ngIf="!pending_delete"
-    (click)="deleteNotification(notification.id)"
-    class="notification_actions flex items-center"
-  >
-    <i class="material-icons text-gray-400">delete</i>
-  </div>
-  <div *ngIf="pending_delete" class="notification_actions flex items-center">
-    <i class="material-icons text-gray-400">auto_delete</i>
+  <div class="notification_actions flex items-center">
+    <i  class="cursor-pointer material-icons text-green-900"
+      >explore</i
+    >
   </div>
   <div class="notification_actions flex items-center">
-    <i
-      *ngIf="is_read && !pending_delete"
-      class="material-icons text-primary-color-light"
+    <i *ngIf="is_read" class="material-icons text-primary-color-light"
       >mark_email_read</i
     >
   </div>
   <div (click)="markAsRead()" class="notification_actions flex items-center">
-    <i
-      *ngIf="!is_read && !pending_delete"
-      class="material-icons text-primary-color-light"
+    <i *ngIf="!is_read" class="material-icons cursor-pointer text-primary-color-light fa-shake"
       >mark_email_unread</i
     >
+  </div>
+  <div
+    *ngIf="!pending_delete"
+    (click)="deleteNotification(notification.id)"
+    class="delete_notification notification_actions flex items-center cursor-pointer"
+  >
+    <i class="material-icons text-gray-400">close</i>
+  </div>
+  <div *ngIf="pending_delete" class="notification_actions flex items-center">
+    <i class="material-icons text-gray-400">auto_delete</i>
   </div>
   <!-- <div
     *ngIf="!notification.is_read"

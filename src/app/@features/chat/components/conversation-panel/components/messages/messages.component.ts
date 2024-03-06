@@ -13,7 +13,6 @@ import { MessagesService } from 'src/app/@api/services/chat/messages.service';
 import { ChatStreamService } from 'src/app/@features/chat/pages/chat/chat.service';
 import { Title } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
-import * as notificationActions from 'src/app/@features/navbar/local-store/actions/notification.action';
 
 export interface MessageDTO {
   id: number;

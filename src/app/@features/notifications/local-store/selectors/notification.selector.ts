@@ -1,9 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { NotificationState } from '../../models/notification-state';
-import {
-  NotificationTypeLikeProfileDTO,
-  NotificationTypeViewProfileDTO,
-} from '../../models/notification-state.dto';
 
 export const notificationState =
   createFeatureSelector<NotificationState>('notificationState');

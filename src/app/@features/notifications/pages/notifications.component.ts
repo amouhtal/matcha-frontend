@@ -18,6 +18,8 @@ import { notificationDTO } from '../models/notification.dto';
 export class NotificationsComponent implements OnInit, OnChanges {
   notifications: Array<notificationDTO> = [];
 
+  checkboxUnread: boolean = false;
+  checkboxRead: boolean = false;
   @Input() notificationBarState: boolean = true;
   @Input() notificationType: string = '';
   constructor(

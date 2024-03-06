@@ -5,10 +5,10 @@ import { NotificationItemComponent } from './components/notification-item/notifi
 import { NotificationsComponent } from './pages/notifications.component';
 import { NotificationService } from 'src/app/@api/services/notification/notification.service';
 import { RealTimeNotificationService } from './pages/notification.service';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [NotificationsComponent, NotificationItemComponent],
-  imports: [CommonModule, NotificationsRoutingModule],
+  imports: [CommonModule, NotificationsRoutingModule, FormsModule],
   exports: [NotificationsComponent],
   providers: [NotificationService, RealTimeNotificationService],
 })
