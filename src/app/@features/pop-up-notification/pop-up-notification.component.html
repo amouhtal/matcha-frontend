@@ -1,0 +1,16 @@
+<div
+  *ngIf="showNotificationMessage !== ''"
+  [ngClass]="showNotificationMessage !== '' ? 'apply-animation' : 'remove-animation'"
+  id="notification"
+  class="notification absolute bottom-0 left-0 mb-20 h-24 w-48 rounded bg-white"
+>
+  <div class="flex justify-center bg-primary-color">
+    <i class="material-icons fa-shake mx-auto h-[20%] text-white"
+      >notifications</i
+    >
+  </div>
+  <div class="flex h-[80%] w-full items-center justify-between px-2">
+    <i class="material-icons text-yellow-500">warning</i>
+    <p class="text-sm text-gray-500">{{ this.showNotificationMessage }}</p>
+  </div>
+</div>

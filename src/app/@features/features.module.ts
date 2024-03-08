@@ -15,9 +15,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { CommunicationService } from './real-time-service/communication.service';
+import { PopUpNotificationComponent } from './pop-up-notification/pop-up-notification.component';
 
 @NgModule({
-  declarations: [FeaturesComponent],
+  declarations: [FeaturesComponent, PopUpNotificationComponent],
   providers: [NotificationEffects, CommunicationService, ],
   imports: [
     CommonModule,

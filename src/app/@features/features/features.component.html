@@ -1,12 +1,13 @@
-<div class="relative z-10 mx-auto flex flex-col h-screen items-center">
+<div class="relative z-10 mx-auto flex h-screen flex-col items-center">
   <div
     class="main b relative flex w-full flex-col items-center overflow-hidden lg:w-[90%] lg:flex-row-reverse lg:items-start lg:justify-between lg:py-4"
   >
     <router-outlet></router-outlet>
     <matcha-navbar *ngIf="!hideNavBar"></matcha-navbar>
+    <matcha-pop-up-notification></matcha-pop-up-notification>
   </div>
   <div
-    class="footer relative bottom-0 h-20 w-full rounded-md bg-white hidden lg:block"
+    class="footer relative bottom-0 hidden h-20 w-full rounded-md bg-white lg:block"
   >
     <div class="flex h-full items-center justify-around">
       <!-- <i class="material-icons">facebook</i>
