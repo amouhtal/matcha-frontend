@@ -61,7 +61,6 @@ export class NotificationEffects {
         this.notificationService.deleteNotification(notificationId).pipe(
           delay(1000),
           map((notificationId) => {
-            console.log('notificationId', notificationId);
             return notificationActions.deleteNotificationSuccess({
               notificationId: notificationId as number,
             });

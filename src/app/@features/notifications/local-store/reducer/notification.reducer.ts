@@ -47,7 +47,6 @@ export const notificationReducer = createReducer(
       // console.log(state);
       notifications.forEach((notification) => {
         unreadNotificationCount++;
-        console.log(notification.type);
         if (notification.type === 'message') {
           unreadMessageCount++;
         } else if (notification.type === 'view_profile') {

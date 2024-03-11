@@ -16,6 +16,7 @@ export class ConversationPanelComponent implements OnChanges {
     avatar: '',
     date: '',
     user_id: 0,
+    timeAgo: '',
   };
 
   constructor() {}

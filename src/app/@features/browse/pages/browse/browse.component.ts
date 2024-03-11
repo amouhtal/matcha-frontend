@@ -54,7 +54,6 @@ export class BrowseComponent implements AfterViewInit, OnInit {
       .getSuggestionList()
       .subscribe((data: Array<userProfileDTO>) => {
         this.profiles = data;
-        console.log('browservice', this.profiles);
       });
   }
 

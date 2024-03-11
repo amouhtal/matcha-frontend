@@ -10,7 +10,6 @@ export class ChatStreamService {
     private communicationService: CommunicationService,
     private store: Store<{ notification: number }>,
   ) {
-    console.log('chat stream service');
   }
 
   sendMessage(msg: any) {

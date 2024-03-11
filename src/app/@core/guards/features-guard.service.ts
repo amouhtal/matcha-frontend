@@ -20,7 +20,6 @@ export class FeaturesGuardService {
         localStorage.removeItem('session');
         return this.router.navigate(['/public/auth/login']);
       });
-      console.log(finalResult);
       if(finalResult == false){
         localStorage.removeItem('session');
         return this.router.navigate(['/public/auth/login']);

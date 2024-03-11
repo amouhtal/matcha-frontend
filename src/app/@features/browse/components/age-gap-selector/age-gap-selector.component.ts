@@ -38,15 +38,12 @@ export class AgeGapSelectorComponent {
     if (symbol === '-') {
       if (this.maxAge > 18) {
         this.maxAge--;
-        console.log('change age', this.maxAge);
         this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-        console.log(this.ageGape);
       }
     } else {
       if (this.maxAge < 100) {
         this.maxAge++;
         this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-        console.log(this.ageGape);
       }
     }
   }
@@ -55,15 +52,12 @@ export class AgeGapSelectorComponent {
     if (symbol === '-') {
       if (this.minAge > 18) {
         this.minAge--;
-        console.log('change age', this.minAge);
         this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-        console.log(this.ageGape);
       }
     } else {
       if (this.minAge < 100) {
         this.minAge++;
         this.ageGape = this.minAge.toString() + '-' + this.maxAge.toString();
-        console.log(this.ageGape);
       }
     }
   }

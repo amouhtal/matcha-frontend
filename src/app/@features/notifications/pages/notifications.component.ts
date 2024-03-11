@@ -20,7 +20,7 @@ export class NotificationsComponent implements OnInit, OnChanges {
 
   checkboxUnread: boolean = false;
   checkboxRead: boolean = false;
-  @Input() notificationBarState: boolean = true;
+  @Input() notificationBarState: boolean = false;
   @Input() notificationType: string = '';
   constructor(
     private store: Store<{
@@ -69,13 +69,11 @@ export class NotificationsComponent implements OnInit, OnChanges {
     this.notificationState$.subscribe({
       next: (notificationState: any) => {
         this.notifications = notificationState.notificationState;
-        console.log('notifi ', this.notifications);
       },
     });
 
     this.notificationsLoaded$.subscribe({
       next: (loading: any) => {
-        console.log('loading ', loading);
       },
     });
   }
