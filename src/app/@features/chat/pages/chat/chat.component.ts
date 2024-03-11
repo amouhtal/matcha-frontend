@@ -18,22 +18,14 @@ export class ChatComponent implements OnInit, AfterContentInit {
     date: '',
     user_id: 0,
   };
-  contacts: any = [];
   switch = false;
   windowWidth = window;
   switchToConversation$: Observable<boolean> =
     this.store.select('clickContact');
-  constructor(
-    private store: Store<{ clickContact: boolean }>,
-    private contactsService: ContactsService
-  ) {}
 
-  ngOnInit(): void {
-    this.contactsService.getContacts().subscribe((contacts: any) => {
-      this.contacts = contacts;
-      this.changeContact(contacts[0]);
-    });
-  }
+  constructor(private store: Store<{ clickContact: boolean }>) {}
+
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {}
 

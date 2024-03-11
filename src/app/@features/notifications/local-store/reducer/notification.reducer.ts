@@ -43,7 +43,6 @@ export const notificationReducer = createReducer(
       let unreadLikeProfileCount = state.unreadLikeProfileCount;
       // let viewProfileState: any = [];
       // let likeProfileState: any = [];
-
       // console.log(state);
       notifications.forEach((notification) => {
         unreadNotificationCount++;

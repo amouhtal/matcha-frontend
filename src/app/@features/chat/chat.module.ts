@@ -28,7 +28,8 @@ import { PickerComponent } from '@ctrl/ngx-emoji-mart';
     CommonModule,
     FormsModule,
     SocketIoModule,
-    PickerComponent
+    PickerComponent,
+
   ],
   providers: [ChatStreamService],
 })

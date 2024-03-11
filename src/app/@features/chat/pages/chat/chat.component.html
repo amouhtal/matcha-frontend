@@ -1,8 +1,16 @@
-<div class="chat relative h-full w-full shadow-s">
+<div class="chat shadow-s relative h-full w-full">
   <div class="flex h-full rounded-2xl">
-    <matcha-contact-panel
+    <!-- <matcha-contact-panel
       (changeContact)="changeContact($event)"
       [contacts]="contacts"
+      [ngClass]="{
+        'hide-panel': !(switchToConversation$ | async),
+        'show-panel': (switchToConversation$ | async)
+      }"
+      class="hidden h-full lg:!block lg:w-3/12"
+    > -->
+    <matcha-contact-panel
+      (changeContact)="changeContact($event)"
       [ngClass]="{
         'hide-panel': !(switchToConversation$ | async),
         'show-panel': (switchToConversation$ | async)

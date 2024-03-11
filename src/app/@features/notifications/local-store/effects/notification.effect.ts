@@ -5,11 +5,9 @@ import { NotificationService } from 'src/app/@api/services/notification/notifica
 import {
   catchError,
   delay,
-  interval,
   map,
   of,
   switchMap,
-  throttle,
 } from 'rxjs';
 import { NotificationStateDTO } from '../../models/notification-state.dto';
 
