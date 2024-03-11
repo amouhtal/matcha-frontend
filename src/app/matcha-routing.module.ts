@@ -8,7 +8,7 @@ import { FeaturesGuardService } from './@core/guards/features-guard.service';
 const routes: Routes = [
   { path : "public" ,loadChildren : () => import('./@public/public.module').then((m)=> m.PublicModule) },
   { path: "features", canActivate : [FeaturesGuardService] ,loadChildren: () => import('./@features/features.module').then((m) => m.FeaturesModule)},
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent }, 
+  // { path: '**', pathMatch: 'full', component: PageNotFoundComponent }, 
   // { path: '**', redirectTo: '/chat', pathMatch: 'full' }  { path: "features",canActivate : [FeaturesGuardService] ,loadChildren: () => import('./@features/features.module').then((m) => m.FeaturesModule)},
 
 

@@ -9,7 +9,6 @@ import { SignupFormHelper } from './helpers/signup-form.helper';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss'],
 })
-
 export class SignupFormComponent implements OnInit {
   signupForm: FormGroup = new FormGroup({
     email: new FormControl('', [
@@ -35,7 +34,7 @@ export class SignupFormComponent implements OnInit {
       ),
     ]),
   });
-  userLocation?: { latitude: number; longitude: number };
+  userLocation?: { latitude: number; longitude: number , city  : string, country: string};
   result: any;
   error: string = '';
   emailError: string = '';
@@ -44,7 +43,11 @@ export class SignupFormComponent implements OnInit {
   usernameError: string = '';
   passwordError: string = '';
 
-  constructor(private http: HttpClient, private router: Router,private signupFormHelper : SignupFormHelper) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private signupFormHelper: SignupFormHelper,
+  ) {}
 
   ngOnInit(): void {
     this.signupForm.statusChanges.subscribe();
@@ -53,7 +56,21 @@ export class SignupFormComponent implements OnInit {
         this.userLocation = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
+          city: '',
+          country: '',
         };
+        const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${this.userLocation.latitude}&lon=${this.userLocation.longitude}`;
+        this.http.get(url).subscribe((response: any) => {
+          console.log(response.address.city, response.address.country);
+          if (response.display_name) {
+            const addressComponents = response.display_name.split(', ');
+            const city = addressComponents[addressComponents.length - 3];
+            const country = addressComponents[addressComponents.length - 1];
+            // console.log(city, country);
+          } else {
+            console.error('Geocoding failed');
+          }
+        });;
       });
     }
   }
@@ -62,68 +79,64 @@ export class SignupFormComponent implements OnInit {
     let data = this.signupForm.value;
     data.latitude = this.userLocation?.latitude;
     data.longitude = this.userLocation?.longitude;
+    data.city = this.userLocation?.city;
+    data.country = this.userLocation?.country;
     console.log(data);
-    this.http.post('http://localhost:3000/user/signup', data,{withCredentials : true}).subscribe({
-      next: (ret) => {
-        const queryParams: NavigationExtras = {
-          queryParams: { username: data.username } 
-        };
-      
-        console.log(ret);
-        this.router.navigate(['/public/auth/verify'], queryParams);
-      },
-      error: (error) => {
-        console.log(error.error);
-        this.error = error.error;
-      },
-    });
+    this.http
+      .post('http://localhost:3000/user/signup', data, {
+        withCredentials: true,
+      })
+      .subscribe({
+        next: (ret) => {
+          const queryParams: NavigationExtras = {
+            queryParams: { username: data.username },
+          };
+
+          this.router.navigate(['/public/auth/verify'], queryParams);
+        },
+        error: (error) => {
+          this.error = error.error;
+        },
+      });
   }
 
-  onFocus(fieldname : string){
-    console.log('focus : ',fieldname);
+  onFocus(fieldname: string) {
+    console.log('focus : ', fieldname);
     this.signupForm.get('email')?.getError('required');
-    this.signupForm.get('email')?.getError
-
+    this.signupForm.get('email')?.getError;
   }
-  onBlur(fieldname : string){ 
-    if(this.signupForm.get(fieldname)?.invalid && this.signupForm.get(fieldname)?.dirty){
-      if(fieldname == 'email'){
+  onBlur(fieldname: string) {
+    if (
+      this.signupForm.get(fieldname)?.invalid &&
+      this.signupForm.get(fieldname)?.dirty
+    ) {
+      if (fieldname == 'email') {
         this.emailError = this.signupFormHelper.setErrorMessage(fieldname);
-      }
-      else if(fieldname == 'first_name' ){
+      } else if (fieldname == 'first_name') {
         this.firstNameError = this.signupFormHelper.setErrorMessage(fieldname);
-      }
-      else if(fieldname == 'last_name'){
+      } else if (fieldname == 'last_name') {
         this.lastNameError = this.signupFormHelper.setErrorMessage(fieldname);
-      }
-      else if(fieldname == 'username'){
+      } else if (fieldname == 'username') {
         this.usernameError = this.signupFormHelper.setErrorMessage(fieldname);
-      }
-      else if(fieldname == 'password'){
+      } else if (fieldname == 'password') {
         this.passwordError = this.signupFormHelper.setErrorMessage(fieldname);
       }
-    }
-    else{
-        
-      if(fieldname == 'email'){
-        this.emailError = ''
-      }
-      else if(fieldname == 'first_name' ){
-        this.firstNameError = ''
-      }
-      else if(fieldname == 'last_name'){
-        this.lastNameError = ''
-      }
-      else if(fieldname == 'username'){
-        this.usernameError = ''
-      }
-      else if(fieldname == 'password'){
-        this.passwordError = ''
+    } else {
+      if (fieldname == 'email') {
+        this.emailError = '';
+      } else if (fieldname == 'first_name') {
+        this.firstNameError = '';
+      } else if (fieldname == 'last_name') {
+        this.lastNameError = '';
+      } else if (fieldname == 'username') {
+        this.usernameError = '';
+      } else if (fieldname == 'password') {
+        this.passwordError = '';
       }
     }
   }
 
-  redirectLogin(){
+  redirectLogin() {
     this.router.navigate(['/public/auth/login']);
   }
 }

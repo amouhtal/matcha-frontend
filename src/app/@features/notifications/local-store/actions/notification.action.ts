@@ -13,6 +13,20 @@ export const getNotificationFailure = createAction(
   props<{ error: any }>(),
 );
 
+export const deleteNotifications = createAction(
+  '[DELETE_NOTIFICATION]',
+  props<{ notificationsId: number[] }>(),
+);
+
+export const deleteNotificationsSuccess = createAction(
+  '[DELETE_NOTIFICATION_SUCCESS]',
+);
+
+export const deleteNotificationsFailure = createAction(
+  '[DELETE_NOTIFICATION_FAILURE]',
+  props<{ error: any }>(),
+);
+
 export const resetNotification = createAction('[RESET_NOTIFICATION]');
 
 export const resetNotificationSuccess = createAction(
@@ -21,5 +35,34 @@ export const resetNotificationSuccess = createAction(
 
 export const resetNotificationFailure = createAction(
   '[RESET_NOTIFICATION_FAILURE]',
+  props<{ error: any }>(),
+);
+
+export const newNotificationMessage = createAction(
+  '[NEW_NOTIFICATION_MESSAGE]',
+);
+
+export const newNotificationViewProfile = createAction(
+  '[NEW_NOTIFICATION_VIEW_PROFILE]',
+);
+
+export const newNotificationLikeProfile = createAction(
+  '[NEW_NOTIFICATION_LIKE_PROFILE]',
+);
+
+// delete notification
+export const deleteNotification = createAction(
+  '[DELETE_NOTIFICATION]',
+  props<{ notificationId: number }>(),
+);
+
+export const deleteNotificationSuccess = createAction(
+  '[DELETE_NOTIFICATION_SUCCESS]',
+  props<{ notificationId: number }>(),
+
+);
+
+export const deleteNotificationFailure = createAction(
+  '[DELETE_NOTIFICATION_FAILURE]',
   props<{ error: any }>(),
 );

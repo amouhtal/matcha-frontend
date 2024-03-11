@@ -1,19 +1,22 @@
+#send-message {
+  background-color: rgb(227, 233, 233);
+}
+
 .icons {
-  color: rgb(87, 84, 84);
+  transition: 0.3s;
   cursor: pointer;
   &:hover {
-    color: rgb(63, 154, 224);
+    color: #3e747d;
+    scale: 1.1;
   }
 }
 
 .myTestClass > * {
-  
 }
 
 input {
   outline: none;
 }
 
-.emoji{
-    
+.emoji {
 }

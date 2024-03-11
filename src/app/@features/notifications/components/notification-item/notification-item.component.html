@@ -1,23 +1,62 @@
-<div class="notification flex items-center justify-evenly rounded border-b p-2">
-  <div class="user_avatar">
+<div
+  [ngClass]="[
+    deleted ? 'delete_notification' : '',
+    notification.is_read ? '' : 'unread_notification'
+  ]"
+  class="notification flex items-center justify-evenly rounded border-b p-2"
+>
+  <div class="user_avatar relative h-12 w-12 rounded-full bg-lime-400">
     <img
       src="https://img.freepik.com/premium-photo/woman-with-her-eyes-closed-abstract-photo_893012-158685.jpg?w=1380"
       alt=""
       class="h-12 w-12 rounded-full"
     />
+    <i class="notification__emoji material-icons rounded-full text-white"
+      >favorite</i
+    >
   </div>
-  <h3 class="user_name font-semibold">user X</h3>
+  <!-- <h3 class="user_name text-sm">{{ notification.text }}</h3> -->
   <div class="notificaion_details flex flex-col">
     <div class="notification_description">
-      <p class="content text-lg">
+      <p class="content text-sm">
         {{ notification.text }}
       </p>
     </div>
     <div class="flex justify-between">
-      <i class="material-icons text-teal-300">mood</i>
       <span class="notification_time text-sm font-light">{{
         notification.created_at
       }}</span>
     </div>
   </div>
+  <div class="notification_actions flex items-center">
+    <i  class="cursor-pointer material-icons text-green-900"
+      >explore</i
+    >
+  </div>
+  <div class="notification_actions flex items-center">
+    <i *ngIf="is_read" class="material-icons text-primary-color-light"
+      >mark_email_read</i
+    >
+  </div>
+  <div (click)="markAsRead()" class="notification_actions flex items-center">
+    <i *ngIf="!is_read" class="material-icons cursor-pointer text-primary-color-light "
+      >mark_email_unread</i
+    >
+  </div>
+  <div
+    *ngIf="!pending_delete"
+    (click)="deleteNotification(notification.id)"
+    class="delete_notification notification_actions flex items-center cursor-pointer"
+  >
+    <i class="material-icons text-gray-400">close</i>
+  </div>
+  <div *ngIf="pending_delete" class="notification_actions flex items-center">
+    <i class="material-icons text-gray-400">auto_delete</i>
+  </div>
+  <!-- <div
+    *ngIf="!notification.is_read"
+    class="notification_actions flex items-center"
+  >
+    <span class="h-2 w-2 rounded-full bg-primary-color-light"> </span>
+  </div> -->
 </div>

@@ -9,7 +9,6 @@
   justify-content: flex-start;
   max-width: 50%;
   float: left;
-  
 }
 .bubble-message {
   display: inline;
@@ -20,9 +19,9 @@
   margin: 10px 14px;
   position: relative;
   // font-size: 1.2rem;
-  ;
   &--right {
-    background-color: rgb(244, 150, 195);
+    color: white;
+    // background-color: rgb(62, 116, 125);
     &::after {
       content: "";
       position: absolute;
@@ -30,6 +29,7 @@
     }
   }
   &--left {
-    background-color: rgb(151, 175, 247);
+    background-color: rgb(64, 77, 126);
+    color: white;
   }
 }

@@ -4,8 +4,8 @@ import { MainComponent } from './main/pages/main/main.component';
 import { FeaturesComponent } from './features/features.component';
 import { ChatComponent } from './chat/pages/chat/chat.component';
 import { BrowseComponent } from './browse/pages/browse/browse.component';
-import { CompleteSignupPageComponent } from "./complete-signup/pages/complete-signup-page/complete-signup-page.component";
-import { CompleteSignupGuardService } from "../@core/guards/complete-signup-guard.service";
+import { CompleteSignupPageComponent } from './complete-signup/pages/complete-signup-page/complete-signup-page.component';
+import { CompleteSignupGuardService } from '../@core/guards/complete-signup-guard.service';
 // import { NotificationsComponent } from './notifications/pages/notifications.component';
 
 const routes: Routes = [
@@ -15,12 +15,20 @@ const routes: Routes = [
     children: [
       { path: 'home', component: MainComponent },
       { path: 'chat', component: ChatComponent },
-      {path: 'browse', component: BrowseComponent},
+      { path: 'browse', component: BrowseComponent },
       {
         path: 'complete-signup',
         component: CompleteSignupPageComponent,
         canActivate: [CompleteSignupGuardService],
       },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('./user-profile/user-profile.module').then(
+            (m) => m.UserProfileModule,
+          ),
+      },
+
       // { path: 'notifications', component: NotificationsComponent },
     ],
   },

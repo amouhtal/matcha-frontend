@@ -1,32 +1,35 @@
 :host {
   height: min(600px, 90vh);
   z-index: 600;
+  position: relative;
 }
 
-@media screen and (max-width: 1023px) {
-  :host {
-    width: 100%;
-    height: 64px;
-  }
+#logout {
+  background-color: #2b5557;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-// h4{
-//   transition: all 5s linear;
-// }
-// .tthidden {
-//   display: none;
-// }
-// .ttblock {
-//   display: block;
-// }
+.navbar_icon {
+  color: #2b5557;
+  font-size: 24px;
+  margin: 0 10px;
+  cursor: pointer;
+}
 
-.messagesNotification::after {
+.messagesNotification {
+  // background-color: burlywood;
+}
+
+.notification_count::after {
   content: attr(notification-count);
+  background: #3e747d;
+  z-index: 2;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: -12px;
+  left: -12px;
   font-size: 12px;
-  background: #ff0000;
   color: #fff;
   width: 20px;
   height: 20px;
@@ -35,31 +38,90 @@
   border-radius: 50%;
   box-shadow: 0 0 1px #333;
 }
-
+.zero::after {
+  display: none;
+}
+// .navbar_icon::after {
+//   content: attr(notification-count);
+//   z-index: 2;
+//   position: absolute;
+//   top: -12px;
+//   left: -12px;
+//   font-size: 12px;
+//   background: #3e747d;
+//   color: #fff;
+//   width: 20px;
+//   height: 20px;
+//   text-align: center;
+//   line-height: 20px;
+//   border-radius: 50%;
+//   box-shadow: 0 0 1px #333;
+// }
 // :host ::matcha-notifications {
 //   transform: translateX(-100%);
 // }
+.navbar {
+  z-index: 800;
+  background-color: white;
+}
+
+.navbar__body {
+}
 
 .notification {
   position: absolute;
   z-index: -100;
-  transition: 1.5s ease-in-out;
+  transition: 0.5s all ease-in-out;
+  right: 0;
 }
 
 .animated-box {
-  left: 100%;
+  // left: 100%;
+  transform: translateX(100%);
 }
 
 .desinimated-box {
-  left: -260%;
+  // left: -260%;
+  transform: translateX(-100%);
 }
 
+// medium screen
 @media screen and (max-width: 1023px) {
-  .animated-box {
+  :host {
+    width: 100%;
+    height: 7vh;
+  }
+  .notification {
     position: absolute;
     left: 0;
+    top: 0;
     // top: -100%;
+    transform: translateY(-100%);
+    box-shadow: 0;
     width: 100%;
-    height: 100%;
+    height: 93vh;
+  }
+  .animated-box {
+    transform: translateY(-100%);
+  }
+  .desinimated-box {
+    transform: translateY(0);
+  }
+  #logout {
+    background-color: transparent;
   }
 }
+
+// @media screen and (max-width: 1023px) {
+//   .animated-box {
+//     position: absolute;
+//     left: 0;
+//     // top: -100%;
+//     width: 100%;
+//     height: 100%;
+
+//   }
+//   #logout {
+//     background-color: transparent;
+//   }
+// }

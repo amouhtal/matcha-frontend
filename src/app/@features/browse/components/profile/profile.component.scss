@@ -1,5 +1,27 @@
-.profile:hover{
-    box-shadow: 0 0 10px #5c5b5b;
-    transition: 0.5s;
+.profile {
+  animation: fadeSearchResult 0.5s ease-in-out;
+  animation-timeline: view();
+}
 
+@keyframes fadeSearchResult {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.profile:hover {
+  box-shadow: 0 0 10px #5c5b5b;
+  transition: 0.5s;
 }

@@ -18,6 +18,28 @@ export const unreadMessagesCountSelector = createSelector(
   notificationState,
   (state) => state.unreadMessageCount,
 );
+
+export const unreadViewProfileCountSelector = createSelector(
+  notificationState,
+  (state) => state.unreadViewProfileCount,
+);
+
+// array of view profile notifications
+// export const viewProfileStateSelector = createSelector(
+//   notificationState,
+//   (state): Array<NotificationTypeViewProfileDTO> => state.viewProfileState,
+// );
+
+// export const likeProfileStateSelector = createSelector(
+//   notificationState,
+//   (state): Array<NotificationTypeLikeProfileDTO> => state.likeProfileState,
+// );
+
+export const unreadLikeProfileCountSelector = createSelector(
+  notificationState,
+  (state) => state.unreadLikeProfileCount,
+);
+
 export const notificationsLoadingSelector = createSelector(
   notificationState,
   (state: NotificationState) => state.loading,

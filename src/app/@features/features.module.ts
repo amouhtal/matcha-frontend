@@ -11,31 +11,28 @@ import { messageNotificationReducer } from './navbar/local-store/reducer/notific
 import { notificationReducer } from './notifications/local-store/reducer/notification.reducer';
 import { NotificationEffects } from './notifications/local-store/effects/notification.effect';
 import { BrowseModule } from './browse/browse.module';
-import { LogoutComponent } from '../@shared/logout/logout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { UserProfileModule } from './user-profile/user-profile.module';
+import { CommunicationService } from './real-time-service/communication.service';
+import { PopUpNotificationComponent } from './pop-up-notification/pop-up-notification.component';
 
 @NgModule({
-  declarations: [FeaturesComponent],
-  providers: [NotificationEffects],
+  declarations: [FeaturesComponent, PopUpNotificationComponent],
+  providers: [NotificationEffects, CommunicationService, ],
   imports: [
     CommonModule,
     FeaturesRoutingModule,
     ChatModule,
     NavbarModule,
     BrowseModule,
-    
-    // NotificationsModule,
-    // StoreModule.forRoot({
-    //   clickContact: clickContactReducer,
-    //   messageNotification: messageNotificationReducer,
-    //   notificationState: notificationReducer,
-    //   // notification: notificationReducer,
-    // }),
-
+    FontAwesomeModule,
+    RouterModule,
+    UserProfileModule,
     StoreModule.forFeature('clickContact', clickContactReducer),
     StoreModule.forFeature('messageNotification', messageNotificationReducer),
     StoreModule.forFeature('notificationState', notificationReducer),
     EffectsModule.forFeature([NotificationEffects]),
   ],
-  
 })
 export class FeaturesModule {}

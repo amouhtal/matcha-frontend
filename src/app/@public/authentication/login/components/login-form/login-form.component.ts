@@ -27,6 +27,7 @@ export class LoginFormComponent {
       })
       .subscribe({
         next: (ret: any) => {
+          console.log("Conneting user")
           localStorage.setItem('session', JSON.stringify(ret.session));
           console.log(ret);
           if (ret.session.signCompleteStatus) this.router.navigate(['/']);

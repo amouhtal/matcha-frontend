@@ -1,25 +1,22 @@
-<div class="h-full overflow-hidden border-r">
-  <div class="settings flex h-16 justify-between rounded bg-rose-500 px-4 py-2">
-    <!-- <img
-      src="https://picsum.photos/200"
-      alt="profile picture"
-      class="profile-picture w-12 h-12 rounded-full"
-    /> -->
+<div class="h-full overflow-hidden rounded-l-2xl border-r">
+  <div class="settings flex h-16 justify-between rounded bg-gray-200">
     <div class="text flex items-center">
-      <i class="material-icons icons text-gray-800"> sync </i>
+      <i class="material-icons icons text-primary-color"> sync </i>
       <i
-        class="material-icons icons block text-gray-800 lg:hidden"
+        class="material-icons icons block text-primary-color lg:hidden"
         (click)="switchToConversation()"
       >
         chat
       </i>
-      <i class="material-icons icons text-gray-800"> menu </i>
+      <i class="material-icons icons text-primary-color"> menu </i>
     </div>
     <div class="logout text flex items-center">
-      <i class="material-icons icons text-gray-800"> logout </i>
+      <i class="material-icons icons text-primary-color"> logout </i>
     </div>
   </div>
-  <div class="search-box flex h-12 justify-center text-gray-800 px-2 py-1">
+  <div
+    class="search-box flex h-12 justify-center bg-gray-100 px-2 py-1 text-gray-800"
+  >
     <div
       class="flex-start relative flex w-3/4 items-center overflow-hidden rounded-lg"
     >
@@ -34,7 +31,7 @@
       />
     </div>
   </div>
-  <div class="contacts h-[85%] overflow-y-auto">
+  <div class="contacts h-full overflow-y-auto">
     <matcha-contact
       *ngFor="let contact of contacts"
       [contact]="contact"

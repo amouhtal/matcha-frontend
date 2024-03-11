@@ -60,7 +60,6 @@
       />
     </div>
     <div class="errorArea">
-      
       <p class="errorMessage" *ngIf="birthDayErrorMesaage">
         {{ birthDayErrorMesaage }}
       </p>
@@ -156,6 +155,11 @@
         </div>
       </div>
       <div class="note" [attr.data-text]="photosNote"></div>
+      <div class="errorArea">
+        <p class="errorMessage" *ngIf="imageErrorMesaage">
+          {{ imageErrorMesaage }}
+        </p>
+      </div>
     </div>
     <div class="buttons">
       <button id="prev" (click)="Prev()" class="nextButton">Prev</button>

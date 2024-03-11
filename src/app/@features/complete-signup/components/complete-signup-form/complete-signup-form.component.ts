@@ -26,6 +26,7 @@ export class CompleteSignupFormComponent implements OnInit {
     ]),
   });
 
+  imageErrorMesaage: string = '';
   bioErrorMesaage: string = '';
   birthDayErrorMesaage: string = '';
   tagsStatus: Map<string, boolean> = new Map<string, boolean>();
@@ -47,7 +48,7 @@ export class CompleteSignupFormComponent implements OnInit {
     'Cooking',
     'Photography',
     'DIY',
-    'Wine',
+    'Tea',
     'Coffee',
     'Board Games',
     'Hiking',
@@ -170,11 +171,18 @@ export class CompleteSignupFormComponent implements OnInit {
 
     if (this.imagesData[number].selectedFiles) {
       const file: File | null = this.imagesData[number].selectedFiles!.item(0);
+      console.log('file : ', this.imagesData[number].selectedFiles);
       if (file) {
+        if (file.size > 2000000) {
+          this.imageErrorMesaage = 'Invalid image : max size is 2MB';
+          setTimeout(() => {
+            this.imageErrorMesaage = '';
+          }, 4000);
+          return;
+        }
         this.imagesData[number].currentFile = file;
 
         const reader = new FileReader();
-
         reader.onload = (e: any) => {
           this.imagesData[number].imageBackgroundUrl =
             `url(${e.target.result})`;
@@ -186,6 +194,7 @@ export class CompleteSignupFormComponent implements OnInit {
       }
     }
   }
+
   doubleClickFunction(number: any, event: any) {
     event.preventDefault();
     if (this.profilePictureIndex == number) {
