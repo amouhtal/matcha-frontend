@@ -12,7 +12,9 @@
   <div
     class="search_result grid grid-cols-1 place-items-center gap-y-3 md:grid-cols-2 md:gap-x-0 lg:grid-cols-3 xl:grid-cols-4"
   >
-    <matcha-profile *ngFor="let profile of profiles" class="bg-white">
+    <matcha-profile *ngFor="let profile of profiles" 
+    (click)="redirectToProfile(profile.username)"
+    class="bg-white">
       <div
         class="profile_avatar flex justify-center rounded-xl bg-white"
         profile_avatar

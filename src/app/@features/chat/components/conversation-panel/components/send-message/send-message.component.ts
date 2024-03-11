@@ -41,7 +41,6 @@ export class SendMessageComponent implements OnChanges {
   }
 
   emojiMart(): void {
-    console.log('emojiMart');
     // this.emojiList = true;
   }
 

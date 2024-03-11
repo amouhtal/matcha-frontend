@@ -26,6 +26,7 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
   }
 
@@ -34,7 +35,23 @@ export class NotificationService {
       params: {
         userId: this.userID,
       },
+      withCredentials: true,
     });
+  }
+
+  deleteNotification(notificationId: number) {
+    const re = this.http.delete('http://localhost:3000/notification', {
+      params: {
+        userId: this.userID,
+        notificationId: notificationId,
+      },
+
+      withCredentials: true,
+    });
+    re.subscribe((data) => {
+      console.log('notification data$', data);
+    })
+    return re;
   }
 
   updateNotification(notificationId: any) {
@@ -43,14 +60,34 @@ export class NotificationService {
         userId: this.userID,
         notificationId: notificationId,
       },
+      withCredentials: true,
     });
   }
 
-  resetNotifications() {
-    return this.http.put('http://localhost:3000/notification/resetAllRead', {
-      params: {
-        userId: this.userID,
+  deleteNotifications(notificationsId: any) {
+    return this.http.put(
+      'http://localhost:3000/notification/delete',
+      {
+        notificationsId,
       },
-    });
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
+  }
+  resetNotifications() {
+    return this.http.put(
+      'http://localhost:3000/notification/resetAllRead',
+      {},
+      {
+        params: {
+          userId: this.userID,
+        },
+        withCredentials: true,
+      },
+    );
   }
 }

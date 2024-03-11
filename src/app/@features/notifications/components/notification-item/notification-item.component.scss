@@ -1,7 +1,97 @@
-:host{
+:host {
 }
 
-
-.notification_time{
-    color: #C3A8A9;
+.notification {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+ 
 }
+
+.unread_notification {
+  // background-color: #dcf8cc;
+  // animation: shining__unread_notification .3s infinite;
+}
+
+.notification__emoji {
+  font-size: 15px;
+  border: 1px solid white;
+  // animation: shakeNotificationEmoji 1s infinite;
+}
+
+.notification__emoji {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+.notification:hover {
+  background-color: #99e3f4;
+}
+
+.notification_time {
+  color: #c3a8a9;
+}
+.delete_notification:hover {
+  transform: translateX(-10%);
+  opacity: 0.5;
+}
+.delete_notification {
+  animation: deleteNotification 1.3s ease-out;
+}
+
+// .listen_on_delete {
+//   transition: upNotification  0.3s;
+// }
+@keyframes shining__unread_notification {
+  0% {
+    background-color: #dcf8cc;
+  }
+  50% {
+    background-color: #e6f9d5;
+  }
+  100% {
+    background-color: #dcf8cc;
+  }
+}
+@keyframes shakeNotificationEmoji {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  // 50% { transform: translateX(2px); }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes deleteNotification {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+// @keyframes upNotification {
+//   0% {
+//     transform: translateY(0);
+//   }
+//   100% {
+//     transform: translateY(-100%);
+//   }
+// }

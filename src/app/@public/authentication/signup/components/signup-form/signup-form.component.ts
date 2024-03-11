@@ -92,11 +92,9 @@ export class SignupFormComponent implements OnInit {
             queryParams: { username: data.username },
           };
 
-          console.log(ret);
           this.router.navigate(['/public/auth/verify'], queryParams);
         },
         error: (error) => {
-          console.log(error.error);
           this.error = error.error;
         },
       });

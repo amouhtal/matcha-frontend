@@ -18,7 +18,6 @@ export class MatchaComponent {
           // console.log(ret);
         },
         error: (err) => {
-          console.log(err);
         },
       });
   }

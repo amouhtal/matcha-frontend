@@ -6,6 +6,7 @@ import {
   faFacebookF,
   faInstagramSquare,
 } from '@fortawesome/free-brands-svg-icons';
+import { RealTimeNotificationService } from '../notifications/pages/notification.service';
 
 @Component({
   selector: 'matcha-features',
@@ -18,13 +19,23 @@ export class FeaturesComponent implements OnInit {
   faInstagramSquare = faInstagramSquare;
   hideNavBar: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private realTimeNotificationService: RealTimeNotificationService,
+  ) {
+    this.realTimeNotificationService.listenForProfileViews();
+    this.realTimeNotificationService.listenForProfileLikes();
+  }
 
   ngOnInit() {
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.hideNavBar = event.url.includes('/complete-signup');
-    });
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd,
+        ),
+      )
+      .subscribe((event: NavigationEnd) => {
+        this.hideNavBar = event.url.includes('/complete-signup');
+      });
   }
 }
