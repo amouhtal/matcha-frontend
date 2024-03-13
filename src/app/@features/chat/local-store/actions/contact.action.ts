@@ -19,11 +19,17 @@ export const sortConversationsByDate = createAction(
 
 export const updateContact = createAction(
   '[Chat] Update Contact',
-  props<{ 
-    updateContact:{
+  props<{
+    updateContact: {
       cnvId: number | undefined;
       lastMessage: string;
       date: Date;
-    }
-   }>(),
+    };
+  }>(),
+);
+
+
+export const switchToConversation = createAction(
+  '[Chat] Switch To Conversation',
+  props<{ cnvId: number }>(),
 );

@@ -8,3 +8,8 @@ export const contactsSelector = createSelector(
   contactsStateSelector,
   (state: IContactsState) => state.contacts,
 );
+
+export const selectedContactSelector = createSelector(
+  contactsStateSelector,
+  (state: IContactsState) => state.selectedContact
+);

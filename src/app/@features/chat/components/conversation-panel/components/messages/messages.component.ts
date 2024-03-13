@@ -92,17 +92,17 @@ export class MessagesComponent
   addMessage(message: MessageDTO) {
     this.messages.push(message);
     console.log('cnvId', this.cnvId);
-    this.store.dispatch(contactActions.sortConversationsByDate());
     const updateContact = {
       cnvId: this.cnvId,
       lastMessage: message.message,
       date: message.date,
     };
-
+    
     if (this.cnvId !== undefined)
-      this.store.dispatch(
-        contactActions.updateContact({ updateContact: updateContact }),
-      );
+    this.store.dispatch(
+  contactActions.updateContact({ updateContact: updateContact }),
+  );
+  this.store.dispatch(contactActions.sortConversationsByDate());
     let showTitle = true;
     const pageTitle = this.titleService.getTitle();
     // this.titleUpdateInterval = setInterval(() => {

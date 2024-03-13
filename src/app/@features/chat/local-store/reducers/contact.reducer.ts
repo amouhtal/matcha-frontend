@@ -4,6 +4,7 @@ import * as contactActions from '../actions/contact.action';
 
 export interface IContactsState {
   contacts: ContactDTO[];
+  selectedContact: ContactDTO | undefined;
   loading: boolean;
   loaded: boolean;
   error: string | null;
@@ -11,6 +12,7 @@ export interface IContactsState {
 
 export const contactsInitialState: IContactsState = {
   contacts: [],
+  selectedContact: undefined,
   loading: false,
   loaded: false,
   error: null,
@@ -79,12 +81,24 @@ export const contactsReducer = createReducer(
           return contact;
         },
       );
+      console.log('updatedContacts', updatedContacts);
       const sorteContacts = updatedContacts.sort((a, b) => {
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
       return {
         ...contactsState,
         contacts: sorteContacts,
+      };
+    },
+  ),
+  on(
+    contactActions.switchToConversation,
+    (contactsState: IContactsState, { cnvId }): IContactsState => {
+      return {
+        ...contactsState,
+        selectedContact: contactsState.contacts.find(
+          (contact) => contact.id === cnvId,
+        ),
       };
     },
   ),
