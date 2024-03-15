@@ -15,12 +15,14 @@
     </div>
   </div>
   <div
-    class="search-box border-gray-4200 flex h-12 justify-center border-r bg-white px-2 py-1 text-gray-800"
+    class="search-box border-gray-4200 h-18 flex justify-center border-r bg-white px-2 py-1 text-gray-800"
   >
     <div
       class="flex-start relative flex w-3/4 items-center overflow-hidden rounded-lg"
     >
-      <i class="material-icons search-icon absolute ml-2 rounded-lg">
+      <i
+        class="search-icon material-icons absolute ml-2 rounded-lg bg-transparent text-gray-400"
+      >
         search
       </i>
       <!-- <i class="material-icons icons"> more_vert </i> -->
@@ -31,6 +33,7 @@
       />
     </div>
   </div>
+
   <div
     class="online__contacts border-gray-4200 flex border-r bg-white p-2 rtl:space-x-reverse"
   >
@@ -43,8 +46,10 @@
     />
   </div>
   <div class="contacts border-gray-4200 h-full overflow-y-auto border-r">
+    <label class="text-gray-400 px-2">conctas</label><br />
+
     <matcha-contact
-      class="contact "
+      class="contact"
       *ngFor="let contact of contacts"
       [contact]="contact"
       (click)="switToConversation(contact.id)"

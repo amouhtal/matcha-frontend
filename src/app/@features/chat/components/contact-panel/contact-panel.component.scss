@@ -10,8 +10,17 @@
 .settings {
   // background-color: rgb(227, 233, 233);
 }
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px 20px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #f5f7f9;
+  color: rgb(1, 1, 1);
+}
 .search-icon {
-  color: #6b6969;
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -31,9 +40,9 @@ input {
   }
 }
 .contacts {
-  background: #FFF;
+  background: #fff;
 }
 
-.contact{
-  background-color:#3e747d;
+.contact {
+  background-color: #3e747d !important;
 }
