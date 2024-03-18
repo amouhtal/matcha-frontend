@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { NgOptimizedImage } from '@angular/common'
 import { MatIconModule } from '@angular/material/icon';
 import { UserApiService } from 'src/app/@api/services/user/user-api.service';
+import { MatchsApiService } from 'src/app/@api/services/matchs/matchs-api.service';
 
 @NgModule({
   declarations: [
     OtherUserPageComponent,
     
   ],
-  providers: [UserApiService],
+  providers: [UserApiService,MatchsApiService],
   imports: [
     CommonModule,
     UserProfileRoutingModule,

@@ -2,17 +2,29 @@
   <div class="pictureBox">
     <div class="mainPictureBox">
       <div class="actionBox absolute">
-        <span class="cancelButton desiableButton">
+        <span
+          class="cancelButton"
+          [ngClass]="{ desiableButton: userStatus == 'unmatched' }"
+          (click)="cancelMatch()"
+
+        >
           <mat-icon class="cancelImg">close</mat-icon>
         </span>
-        <div class="messageBox desiableButton">
+        <div
+          class="messageBox"
+          [ngClass]="{ desiableButton: userStatus != 'matched' }"
+        >
           <img
             src="./../../../../../assets/images/Message Icon.svg"
             alt="message"
           />
           <p>Message</p>
         </div>
-        <span class="likeButton" (click)="match()">
+        <span
+          class="likeButton"
+          [ngClass]="{ desiableButton: userStatus != 'unmatched' }"
+          (click)="match()"
+        >
           <mat-icon class="likeImg">favorite</mat-icon>
         </span>
       </div>
@@ -28,17 +40,22 @@
         loading="lazy"
       />
     </div>
-    <div class="rateProfile flex items-center justify-center gap-2 w-[90%] text-primary-color-light bg-secondary-color py-3 px-5 rounded-md">
+    <div
+      class="rateProfile flex w-[90%] items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
+    >
       <p>Rate This Profile :</p>
       <div class="flex items-center justify-center">
         <mat-icon
-        *ngFor="let index of [0, 1, 2, 3, 4]"
-        [ngStyle]="{ color: index < hearthHover ? 'var(--primary-color)' : '#77AFB1' }"
-        class="ratingHearth"
-        (mouseenter)="ratingHover(index + 1)"
-        (mouseleave)="ratingHover(0)"
-        (click)="rateProfile(index + 1)"
-        >favorite</mat-icon>
+          *ngFor="let index of [0, 1, 2, 3, 4]"
+          [ngStyle]="{
+            color: index < hearthHover ? 'var(--primary-color)' : '#77AFB1'
+          }"
+          class="ratingHearth"
+          (mouseenter)="ratingHover(index + 1)"
+          (mouseleave)="ratingHover(0)"
+          (click)="rateProfile(index + 1)"
+          >favorite</mat-icon
+        >
       </div>
     </div>
   </div>
@@ -85,8 +102,10 @@
         <label class="label">Fame Rating</label>
         <div class="valueField">
           <mat-icon
-          *ngFor="let index of [0, 1, 2, 3, 4]"
-            [ngStyle]="{ color: index < user.rating ? 'var(--primary-color)' : '#77AFB1' }"
+            *ngFor="let index of [0, 1, 2, 3, 4]"
+            [ngStyle]="{
+              color: index < user.rating ? 'var(--primary-color)' : '#77AFB1'
+            }"
             class="ratingHearth"
             >favorite</mat-icon
           >

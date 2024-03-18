@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { SignupFormHelper } from './helpers/signup-form.helper';
+import { AuthApiService } from 'src/app/@api/services/auth/auth-api.service';
 
 @Component({
   selector: 'matcha-signup-form',
@@ -34,7 +35,12 @@ export class SignupFormComponent implements OnInit {
       ),
     ]),
   });
-  userLocation?: { latitude: number; longitude: number , city  : string, country: string};
+  userLocation?: {
+    latitude: number;
+    longitude: number;
+    city: string;
+    country: string;
+  } ={latitude: 0, longitude: 0, city: '', country: ''}
   result: any;
   error: string = '';
   emailError: string = '';
@@ -47,6 +53,7 @@ export class SignupFormComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private signupFormHelper: SignupFormHelper,
+    private authApiService: AuthApiService,
   ) {}
 
   ngOnInit(): void {
@@ -66,11 +73,15 @@ export class SignupFormComponent implements OnInit {
             const addressComponents = response.display_name.split(', ');
             const city = addressComponents[addressComponents.length - 3];
             const country = addressComponents[addressComponents.length - 1];
+            if (this.userLocation) {
+              this.userLocation.city = city;
+              this.userLocation.country = country;
+            }
             // console.log(city, country);
           } else {
             console.error('Geocoding failed');
           }
-        });;
+        });
       });
     }
   }
@@ -82,24 +93,19 @@ export class SignupFormComponent implements OnInit {
     data.city = this.userLocation?.city;
     data.country = this.userLocation?.country;
     console.log(data);
-    this.http
-      .post('http://localhost:3000/user/signup', data, {
-        withCredentials: true,
-      })
-      .subscribe({
-        next: (ret) => {
-          const queryParams: NavigationExtras = {
-            queryParams: { username: data.username },
-          };
-
-          console.log(ret);
-          this.router.navigate(['/public/auth/verify'], queryParams);
-        },
-        error: (error) => {
-          console.log(error.error);
-          this.error = error.error;
-        },
-      });
+    this.authApiService.signupUser(data).subscribe({
+      next: (ret) => {
+        const queryParams: NavigationExtras = {
+          queryParams: { username: data.username },
+        };
+        console.log(ret);
+        this.router.navigate(['/public/auth/verify'], queryParams);
+      },
+      error: (error) => {
+        console.log(error.error);
+        this.error = error.error;
+      },
+    });
   }
 
   onFocus(fieldname: string) {
@@ -107,6 +113,7 @@ export class SignupFormComponent implements OnInit {
     this.signupForm.get('email')?.getError('required');
     this.signupForm.get('email')?.getError;
   }
+
   onBlur(fieldname: string) {
     if (
       this.signupForm.get(fieldname)?.invalid &&

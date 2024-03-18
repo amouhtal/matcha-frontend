@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { OtherUserDto } from 'src/app/@features/user-profile/DTO/other-user.dto';
+import {  OtherUserResultDTO } from 'src/app/@features/user-profile/DTO/other-user.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserApiService {
+  baseURL = 'http://localhost:3000/user';
   constructor(private http: HttpClient) {
 
   }
@@ -14,9 +15,16 @@ export class UserApiService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append('username', username || '');
     return  this.http
-      .get<OtherUserDto>(`http://localhost:3000/user`, {
+      .get<OtherUserResultDTO>(this.baseURL, {
         params: queryParams,
         withCredentials: true,
       })
   }
+
+  rateUser(data: any) {
+    return this.http
+    .post(`${this.baseURL}/rate`, data, {
+      withCredentials: true,
+    })
+   }
 }
