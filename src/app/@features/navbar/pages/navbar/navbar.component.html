@@ -1,15 +1,16 @@
 <div
-  class="navbar relative flex flex-row-reverse h-16 w-full items-center justify-evenly divide-slate-200 border-y bg-white lg:relative lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded p-4"
+  class="navbar relative flex h-16 w-full flex-row-reverse items-center justify-evenly divide-slate-200 border-y p-4 lg:relative lg:left-0 lg:h-full lg:w-fit lg:flex-col lg:rounded"
 >
   <matcha-profile></matcha-profile>
   <div
-    class="flex flex-grow w-[60%]   justify-between lg:h-[60%] lg:w-full lg:flex-grow-0 lg:flex-col flex-row-reverse"
+    class="navbar__body flex w-[60%] flex-grow flex-row-reverse justify-between lg:h-[60%] lg:w-full lg:flex-grow-0 lg:flex-col"
   >
     <div
       class="messagesNotification relative flex cursor-pointer items-center"
       (click)="Navigate('chat')"
     >
       <i
+        [ngClass]="{ zero: (unreadViewsCount$ | async) === 0 }"
         [attr.notification-count]="unreadMessagesCount$ | async"
         class="notification_count navbar_icon material-symbols-outlined icons relative z-50 text-gray-600"
       >
@@ -17,9 +18,9 @@
       </i>
       <h4 class="hidden md:m-2 lg:block">Messages</h4>
     </div>
-    <div
+    <!-- <div
       class="messagesNotification relative flex cursor-pointer items-center"
-      (click)="Notifications()"
+      (click)="ToggleNotification()"
     >
       <i
         [attr.notification-count]="notificationCount"
@@ -28,18 +29,36 @@
         notifications
       </i>
       <h4 class="hidden w-full md:m-2 lg:block">Notifications</h4>
-    </div>
+    </div> -->
     <div class="flex cursor-pointer items-center" (click)="Browse()">
       <i class="navbar_icon material-symbols-outlined text-gray-600"
         >volunteer_activism</i
       >
       <h4 class="hidden w-full md:m-2 lg:block">Browse</h4>
     </div>
-    <div class="flex cursor-pointer items-center" (click)="Likers()">
-      <i class="navbar_icon material-symbols-outlined text-gray-600"
+    <div
+      class="flex cursor-pointer items-center"
+      (click)="toggleNotification('liked_profile')"
+    >
+      <i
+        [ngClass]="{ zero: (unreadViewsCount$ | async) === 0 }"
+        [attr.notification-count]="unreadLikesCount$ | async"
+        class="navbar_icon notification_count material-symbols-outlined relative text-gray-600"
         >heart_plus</i
       >
       <h4 class="hidden w-full md:m-2 lg:block">Likers</h4>
+    </div>
+    <div
+      class="flex cursor-pointer items-center"
+      (click)="toggleNotification('visited_profile')"
+    >
+      <i
+        [ngClass]="{ zero: (unreadViewsCount$ | async) === 0 }"
+        [attr.notification-count]="unreadViewsCount$ | async"
+        class="navbar_icon notification_count material-symbols-outlined relative text-gray-600"
+        >visibility</i
+      >
+      <h4 class="hidden w-full md:m-2 lg:block">Views</h4>
     </div>
     <div class="flex cursor-pointer items-center" (click)="Messages()">
       <i class="navbar_icon material-symbols-outlined text-gray-600"
@@ -48,22 +67,30 @@
       <h4 class="hidden w-full md:m-2 lg:block">Matches</h4>
     </div>
     <div
-    id="logout"
-      class="flex w-5 cursor-pointer items-center lg:w-full bg-cyan-400 lg:absolute lg:bottom-0 lg:left-0"
+      id="logout"
+      class="flex w-5 cursor-pointer items-center bg-cyan-400 lg:absolute lg:bottom-0 lg:left-0 lg:w-full"
     >
       <!-- <i class="material-icons icons text-gray-600"> logout </i>
       <h4 class="hidden w-full md:m-2 lg:block">Logout</h4> -->
       <matcha-logout></matcha-logout>
     </div>
   </div>
-  <matcha-notifications
-  *ngIf=false
-
+  <!-- <matcha-notifications
+    *ngIf="notificationOn"
     [ngClass]="{
       'desinimated-box ': !notificationOn,
       'animated-box': notificationOn
     }"
     [notificationBarState]="notificationOn"
-    class="notification rounded border-l shadow-xl"
-  ></matcha-notifications>
+    class="notification rounded border-l lg:shadow"
+    ></matcha-notifications> -->
 </div>
+<matcha-notifications
+  [ngClass]="{
+    'desinimated-box ': !notificationOn,
+    'animated-box': notificationOn
+  }"
+  [notificationBarState]="notificationOn"
+  [notificationType]="notificationType"
+  class="notification rounded border-l lg:shadow"
+></matcha-notifications>

@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BrowseService } from 'src/app/@api/services/browse/browse.service';
 
 // interface Profile {
@@ -42,10 +43,9 @@ export interface userProfileDTO {
 export class BrowseComponent implements AfterViewInit, OnInit {
   rating: boolean = false;
 
-
   profiles: Array<userProfileDTO> = [];
   constructor(
-   
+    private router: Router,
     private browseService: BrowseService,
   ) {}
 
@@ -54,7 +54,6 @@ export class BrowseComponent implements AfterViewInit, OnInit {
       .getSuggestionList()
       .subscribe((data: Array<userProfileDTO>) => {
         this.profiles = data;
-        console.log('browservice', this.profiles);
       });
   }
 
@@ -65,6 +64,12 @@ export class BrowseComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
+    // this.redirectToProfile()
   }
 
+  redirectToProfile(username: string) {
+    this.router.navigate(['/features/user/profile'], {
+      queryParams: { username: username },
+    });
+  }
 }

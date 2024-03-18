@@ -16,6 +16,7 @@ export class MessagesService {
         cnvId,
         userID,
       },
+      withCredentials: true,
     });
   }
 }

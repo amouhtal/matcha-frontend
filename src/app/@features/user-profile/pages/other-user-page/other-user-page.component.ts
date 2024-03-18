@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OtherUserDto } from '../../DTO/other-user.dto';
 import { UserApiService } from 'src/app/@api/services/user/user-api.service';
 import { MatchsApiService } from 'src/app/@api/services/matchs/matchs-api.service';
+import { CommunicationService } from 'src/app/@features/real-time-service/communication.service';
 
 @Component({
   selector: 'matcha-other-user-page',
@@ -20,6 +21,7 @@ export class OtherUserPageComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private communicationService: CommunicationService,
     private userApiService: UserApiService,
     private matchsApiService: MatchsApiService,
   ) {
@@ -65,6 +67,7 @@ export class OtherUserPageComponent implements OnInit {
               },
             });
         }
+        this.userVisited();
       },
       error: (error) => {
         console.log(error.error);
@@ -126,5 +129,13 @@ export class OtherUserPageComponent implements OnInit {
           console.log(error.error);
         },
       });
+  }
+  userVisited() {
+    const session = JSON.parse(localStorage.getItem('session') || '');
+    
+    this.communicationService.emit('userVisited', {
+      userId: this.user.id,
+      userName: session.username,
+    });
   }
 }

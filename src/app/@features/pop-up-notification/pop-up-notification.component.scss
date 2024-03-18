@@ -1,0 +1,32 @@
+:host {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.apply-animation {
+  animation: none;
+  animation: shaking 1s infinite;
+}
+
+.remove-animation {
+  animation: none;
+}
+
+@keyframes shaking {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

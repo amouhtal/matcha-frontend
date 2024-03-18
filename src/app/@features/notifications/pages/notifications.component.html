@@ -1,10 +1,24 @@
-<div class="notifications absolute z-50 h-full w-full rounded">
+<div class="notifications relative z-50 h-full w-full rounded">
   <div
-    class="notifications__header flex h-12 items-center justify-center rounded-t-sm font-mono"
+    class="notifications__header flex h-12 items-center justify-center rounded-t-sm bg-primary-color font-mono"
   >
     <h2 class="notifications__title">Notifications</h2>
+    <i class="material-icons notifications__close">notifications</i>
   </div>
   <div class="notifications__body">
+    <div class="notifications_filter">
+      <div class="flex h-8 items-center px-3">
+        <label class="container"
+          >unread
+          <input type="checkbox" [(ngModel)]="checkboxUnread" />
+        </label>
+        <label class="container"
+          >read
+          <input type="checkbox" [(ngModel)]="checkboxRead" />
+        </label>
+        <i class="material-icons cursor-pointer hover:scale-105">filter_list</i>
+      </div>
+    </div>
     <div class="notifications__list">
       <!-- <matcha-notification-item
         *ngFor="let notification of notifications"
@@ -14,8 +28,13 @@
       <ng-container *ngFor="let notification of notifications">
         <ng-container
           *ngIf="
-            notification.type === notificationType || notificationType === 'all'
+            (notification.type === notificationType &&
+              checkboxUnread &&
+              notification.is_read === false) ||
+            (checkboxRead && notification.is_read === true) ||
+            (!checkboxUnread && !checkboxRead)
           "
+          class="shadow-2xl"
         >
           <matcha-notification-item
             [notification]="notification"

@@ -5,4 +5,5 @@ export interface ContactDTO {
   lastMessage: string;
   avatar: string;
   date: string;
+  timeAgo: string;
 }

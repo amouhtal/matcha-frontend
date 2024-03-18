@@ -1,4 +1,23 @@
-<div class="relative flex h-full flex-col overflow-hidden rounded-r-2xl">
+<div
+  class="flex h-full w-full flex-col"
+  *ngIf="friendContact.id === 0"
+  id="matcha-conversation-panel"
+>
+  <div
+    class="flex h-full flex-col items-center justify-center rounded-r-2xl bg-white px-5"
+  >
+    <i class="material-icons icons text-9xl text-gray-400"> chat </i>
+    <h2 class="text-3xl text-gray-400">Start a conversation</h2>
+    <!-- <p class="text-gray-400">
+      Send private photos and messages to a matched user
+    </p> -->
+  </div>
+</div>
+
+<div
+  *ngIf="friendContact.id !== 0"
+  class="relative flex h-full flex-col overflow-hidden rounded-r-2xl"
+>
   <matcha-friend-contact
     [friendContact]="friendContact"
   ></matcha-friend-contact>

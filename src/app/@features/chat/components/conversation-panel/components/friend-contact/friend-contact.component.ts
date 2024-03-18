@@ -2,6 +2,7 @@ import { AfterContentInit, Component, Input } from '@angular/core';
 import { ContactDTO } from '../../../contact-panel/models/contact.dto';
 import { Store } from '@ngrx/store';
 import * as chatAction from '../../../../local-store/actions/chat.action';
+
 @Component({
   selector: 'matcha-friend-contact',
   templateUrl: './friend-contact.component.html',
@@ -20,6 +21,7 @@ export class FriendContactComponent implements AfterContentInit {
       avatar: '',
       date: '',
       user_id: 0,
+      timeAgo: '',
     };
   }
 

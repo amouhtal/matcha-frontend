@@ -1,6 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ContactDTO } from '../../models/contact.dto';
-import {Router} from '@angular/router'
 
 @Component({
   selector: 'matcha-contact',
@@ -9,10 +8,10 @@ import {Router} from '@angular/router'
 })
 export class ContactComponent {
   @Input() contact!: ContactDTO;
-  @Output() selectedContact = new EventEmitter<ContactDTO>();
-  constructor(private router: Router) {}
+  // @Output() selectedContact = new EventEmitter<ContactDTO>();
+  constructor() {}
 
   switToConversation() {
-    this.selectedContact.emit(this.contact);
+    // this.selectedContact.emit(this.contact);
   }
 }

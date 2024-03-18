@@ -10,7 +10,6 @@ export class FeaturesGuardService {
     private http: HttpClient,
   ) {}
   async canActivate(): Promise<boolean> {
-    console.log("checking session");
 
     let session = localStorage.getItem('session');
     if (session == null) return this.router.navigate(['/public/auth/login']);
@@ -21,7 +20,6 @@ export class FeaturesGuardService {
         localStorage.removeItem('session');
         return this.router.navigate(['/public/auth/login']);
       });
-      console.log(finalResult);
       if(finalResult == false){
         localStorage.removeItem('session');
         return this.router.navigate(['/public/auth/login']);
