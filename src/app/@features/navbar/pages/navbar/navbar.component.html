@@ -88,9 +88,9 @@
 <matcha-notifications
   [ngClass]="{
     'desinimated-box ': !notificationOn,
-    'animated-box': false
+    'animated-box': notificationOn
   }"
-  [notificationBarState]="false"
+  [notificationBarState]="notificationOn"
   [notificationType]="notificationType"
   class="notification rounded border-l lg:shadow"
 ></matcha-notifications>

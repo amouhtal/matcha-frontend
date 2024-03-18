@@ -6,9 +6,10 @@
   transition: 0.3s;
   cursor: pointer;
   &:hover {
-    color: #3e747d;
     scale: 1.1;
   }
+
+  
 }
 
 .myTestClass > * {

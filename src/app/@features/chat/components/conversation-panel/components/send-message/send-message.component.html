@@ -26,10 +26,14 @@
     [(ngModel)]="message"
   />
   <i class="material-icons icons m-2 text-primary-color"> mic </i>
-  <i
-    class="material-icons icons m-2 text-primary-color"
-    (click)="sendMessage()"
+  <div
+    class="flex items-center justify-center rounded-full bg-primary-color"
   >
-    send
-  </i>
+    <i
+      class="material-icons icons m-2 -rotate-45 text-white"
+      (click)="sendMessage()"
+    >
+      send
+    </i>
+  </div>
 </div>

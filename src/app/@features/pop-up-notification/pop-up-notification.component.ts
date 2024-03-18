@@ -13,7 +13,7 @@ const VIEW_NOTIFICATION = 'visits';
   templateUrl: './pop-up-notification.component.html',
   styleUrls: ['./pop-up-notification.component.scss'],
 })
-export class PopUpNotificationComponent implements OnDestroy, AfterViewInit {
+export class PopUpNotificationComponent implements OnDestroy {
   showNotificationMessage: string = '';
   timeOutID: any;
   unreadViewsCount$ = this.store.select(
@@ -38,8 +38,6 @@ export class PopUpNotificationComponent implements OnDestroy, AfterViewInit {
       window.clearTimeout(this.timeOutID);
     }, 4000);
   }
-
-  ngAfterViewInit(): void {}
 
   ngOnDestroy() {
     clearTimeout(this.timeOutID);
