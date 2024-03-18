@@ -1,11 +1,12 @@
 .otherProfilePage {
-  align-self: center;
+  align-self: flex-start;
   width: 75vw;
   height: 85vh;
+  min-height: 960px;
   border-radius: 20px;
   display: flex;
   gap: 30px;
-  border: 1px solid var(--primary-color-light);
+  // border: 1px solid var(--primary-color-light);
   padding: 10px 20px;
   // Picture Box Styling
   .pictureBox {
@@ -79,6 +80,11 @@
           .likeImg {
             color: #fff;
           }
+        }
+        .desiableButton{
+          cursor: not-allowed;
+          background-color: #77AFB1;
+          color: #FFF;
         }
       }
     }
