@@ -8,6 +8,7 @@ import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-a
 import { NgOptimizedImage } from '@angular/common'
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { RouterModule } from '@angular/router';
+import { AuthApiService } from 'src/app/@api/services/auth/auth-api.service';
 @NgModule({
   declarations: [
     SignupPageComponent,
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     NgOptimizedImage,
     NgxTypedJsModule,
     RouterModule
-  ]
+  ],
+  providers : [AuthApiService]
 })
 export class SignupModule { }

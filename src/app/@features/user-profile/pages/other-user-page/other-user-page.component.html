@@ -2,22 +2,30 @@
   <div class="pictureBox">
     <div class="mainPictureBox">
       <div class="actionBox absolute">
-        <span class="cancelButton">
-          <mat-icon
-            class="cancelImg"
-          >close</mat-icon>
+        <span
+          class="cancelButton"
+          [ngClass]="{ desiableButton: userStatus == 'unmatched' }"
+          (click)="cancelMatch()"
+
+        >
+          <mat-icon class="cancelImg">close</mat-icon>
         </span>
-        <div class="messageBox">
+        <div
+          class="messageBox"
+          [ngClass]="{ desiableButton: userStatus != 'matched' }"
+        >
           <img
             src="./../../../../../assets/images/Message Icon.svg"
             alt="message"
           />
           <p>Message</p>
         </div>
-        <span class="likeButton">
-          <mat-icon
-            class="likeImg "
-          >favorite</mat-icon>
+        <span
+          class="likeButton"
+          [ngClass]="{ desiableButton: userStatus != 'unmatched' }"
+          (click)="match()"
+        >
+          <mat-icon class="likeImg">favorite</mat-icon>
         </span>
       </div>
       <img [src]="mainPicture" alt="Avatar" class="mainPicture" />
@@ -28,7 +36,27 @@
         [src]="images[index]"
         class="previewPicture"
         (click)="changePicture($event, index)"
+        alt="Avatar"
+        loading="lazy"
       />
+    </div>
+    <div
+      class="rateProfile flex w-[90%] items-center justify-center gap-2 rounded-md bg-secondary-color px-5 py-3 text-primary-color-light"
+    >
+      <p>Rate This Profile :</p>
+      <div class="flex items-center justify-center">
+        <mat-icon
+          *ngFor="let index of [0, 1, 2, 3, 4]"
+          [ngStyle]="{
+            color: index < hearthHover ? 'var(--primary-color)' : '#77AFB1'
+          }"
+          class="ratingHearth"
+          (mouseenter)="ratingHover(index + 1)"
+          (mouseleave)="ratingHover(0)"
+          (click)="rateProfile(index + 1)"
+          >favorite</mat-icon
+        >
+      </div>
     </div>
   </div>
   <div class="infoBox">
@@ -62,13 +90,31 @@
         <span class="valueField"> {{ user.sexual_preference }}</span>
       </div>
     </div>
+    <div class="twoFieldSection">
+      <div class="field">
+        <label class="label">Birthdate</label>
+        <span class="valueField">{{
+          user.birthdate.toLocaleDateString().replaceAll("/", "-")
+        }}</span>
+      </div>
+
+      <div class="field">
+        <label class="label">Fame Rating</label>
+        <div class="valueField">
+          <mat-icon
+            *ngFor="let index of [0, 1, 2, 3, 4]"
+            [ngStyle]="{
+              color: index < user.rating ? 'var(--primary-color)' : '#77AFB1'
+            }"
+            class="ratingHearth"
+            >favorite</mat-icon
+          >
+        </div>
+      </div>
+    </div>
     <div class="singleFieldsection">
       <label class="label">Biography</label>
       <span class="bioValueField valueField">{{ user.biography }}</span>
-    </div>
-    <div class="singleFieldsection">
-      <label class="label">Birthdate</label>
-      <span class="valueField">{{ user.birthdate.toLocaleDateString() }}</span>
     </div>
     <div class="singleFieldsection">
       <label class="label">Tags</label>

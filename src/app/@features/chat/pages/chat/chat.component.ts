@@ -1,8 +1,8 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
-import * as chatAction from '../../local-store/actions/chat.action';
 import { Observable } from 'rxjs';
+import * as chatAction from '../../local-store/actions/chat.action';
+import * as contactSelectors from '../../local-store/selectors/contact.selector';
 
 @Component({
   selector: 'matcha-chat',
@@ -18,20 +18,22 @@ export class ChatComponent implements OnInit, AfterContentInit {
     date: '',
     user_id: 0,
   };
-  contacts: any = [];
-  switch = false;
-  windowWidth = window;
+  contact$ = this.store.select(contactSelectors.selectedContactSelector);
   switchToConversation$: Observable<boolean> =
     this.store.select('clickContact');
-  constructor(
-    private store: Store<{ clickContact: boolean }>,
-    private contactsService: ContactsService
-  ) {}
+
+  constructor(private store: Store<{ clickContact: boolean }>) {
+    console.log('contact:', this.contact);
+  }
 
   ngOnInit(): void {
-    this.contactsService.getContacts().subscribe((contacts: any) => {
-      this.contacts = contacts;
-      this.changeContact(contacts[0]);
+    this.contact$.subscribe((contact) => {
+      if (contact !== undefined) {
+        this.contact = contact;
+      }
+    });
+    this.switchToConversation$.subscribe((switchToConversation) => {
+      console.log(switchToConversation);
     });
   }
 

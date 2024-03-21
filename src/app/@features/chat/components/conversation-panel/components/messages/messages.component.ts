@@ -13,6 +13,8 @@ import { MessagesService } from 'src/app/@api/services/chat/messages.service';
 import { ChatStreamService } from 'src/app/@features/chat/pages/chat/chat.service';
 import { Title } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
+import { IContactsState } from 'src/app/@features/chat/local-store/reducers/contact.reducer';
+import * as contactActions from 'src/app/@features/chat/local-store/actions/contact.action';
 
 export interface MessageDTO {
   id: number;
@@ -40,7 +42,10 @@ export class MessagesComponent
     private messgesService: MessagesService,
     private chatStreamService: ChatStreamService,
     private titleService: Title,
-    private store: Store<{ messageNotification: number }>,
+    private store: Store<{
+      messageNotification: number;
+      contactState: IContactsState;
+    }>,
   ) {}
 
   ngAfterViewChecked(): void {
@@ -68,6 +73,7 @@ export class MessagesComponent
     if (changes['cnvId']?.currentValue) {
       this.cnvId = changes['cnvId'].currentValue;
       this.loadConversation(this.cnvId);
+      console.log('cnvId', this.cnvId);
     }
     if (changes['message']?.currentValue) {
       this.addMessage(changes['message'].currentValue);
@@ -85,6 +91,18 @@ export class MessagesComponent
 
   addMessage(message: MessageDTO) {
     this.messages.push(message);
+    console.log('cnvId', this.cnvId);
+    const updateContact = {
+      cnvId: this.cnvId,
+      lastMessage: message.message,
+      date: message.date,
+    };
+    
+    if (this.cnvId !== undefined)
+    this.store.dispatch(
+  contactActions.updateContact({ updateContact: updateContact }),
+  );
+  this.store.dispatch(contactActions.sortConversationsByDate());
     let showTitle = true;
     const pageTitle = this.titleService.getTitle();
     // this.titleUpdateInterval = setInterval(() => {

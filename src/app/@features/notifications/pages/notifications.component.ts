@@ -55,14 +55,6 @@ export class NotificationsComponent implements OnInit, OnChanges {
     notificationsSelectors.notificationsErrorSelector,
   );
 
-  // notificationTypeLikeProfileDTO$ = this.store.select(
-  //   notificationsSelectors.likeProfileStateSelector,
-  // );
-
-  // notificationTypeViewProfileDTO$ = this.store.select(
-  //   notificationsSelectors.viewProfileStateSelector,
-  // );
-
   ngOnInit(): void {
     this.store.dispatch(notificationActions.getNotification());
 

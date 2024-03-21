@@ -6,7 +6,7 @@ import {
   faFacebookF,
   faInstagramSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import { RealTimeNotificationService } from '../notifications/pages/notification.service';
+import { RealTimeNotificationService } from '../notifications/pages/real-time-notification.service';
 
 @Component({
   selector: 'matcha-features',
@@ -25,6 +25,8 @@ export class FeaturesComponent implements OnInit {
   ) {
     this.realTimeNotificationService.listenForProfileViews();
     this.realTimeNotificationService.listenForProfileLikes();
+    this.realTimeNotificationService.listenForLikeBacks();
+    this.realTimeNotificationService.listenForUnlikes();
   }
 
   ngOnInit() {

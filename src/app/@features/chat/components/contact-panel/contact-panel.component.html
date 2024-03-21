@@ -1,26 +1,28 @@
-<div class="h-full overflow-hidden rounded-l-2xl border-r">
-  <div class="settings flex h-16 justify-between rounded bg-gray-200">
+<div class="h-full overflow-hidden rounded-l-2xl">
+  <div class="settings flex h-16 justify-between rounded bg-primary-color">
     <div class="text flex items-center">
-      <i class="material-icons icons text-primary-color"> sync </i>
+      <i class="material-icons icons text-white"> sync </i>
       <i
-        class="material-icons icons block text-primary-color lg:hidden"
-        (click)="switchToConversation()"
+        class="material-icons icons block text-white lg:hidden"
+        (click)="showConversation()"
       >
         chat
       </i>
-      <i class="material-icons icons text-primary-color"> menu </i>
+      <i class="material-icons icons text-white"> menu </i>
     </div>
     <div class="logout text flex items-center">
-      <i class="material-icons icons text-primary-color"> logout </i>
+      <i class="material-icons icons text-white"> logout </i>
     </div>
   </div>
   <div
-    class="search-box flex h-12 justify-center bg-gray-100 px-2 py-1 text-gray-800"
+    class="search-box border-gray-4200 h-18 flex justify-center border-r bg-white px-2 py-1 text-gray-800"
   >
     <div
       class="flex-start relative flex w-3/4 items-center overflow-hidden rounded-lg"
     >
-      <i class="material-icons search-icon absolute ml-2 rounded-lg">
+      <i
+        class="search-icon material-icons absolute ml-2 rounded-lg bg-transparent text-gray-400"
+      >
         search
       </i>
       <!-- <i class="material-icons icons"> more_vert </i> -->
@@ -31,12 +33,26 @@
       />
     </div>
   </div>
-  <div class="contacts h-full overflow-y-auto">
+
+  <div
+    class="online__contacts border-gray-4200 flex border-r bg-white p-2 rtl:space-x-reverse"
+  >
+    <img
+      *ngFor="let contact of onlineContacts"
+      class="contact"
+      src="{{ contact.avatar }}"
+      alt="avatar"
+      class="h-10 w-10 rounded-full border-2 border-white"
+    />
+  </div>
+  <div class="contacts border-gray-4200 h-full overflow-y-auto border-r">
+    <label class="text-gray-400 px-2">conctas</label><br />
+
     <matcha-contact
+      class="contact"
       *ngFor="let contact of contacts"
       [contact]="contact"
-      (selectedContact)="selectContact($event)"
-      class="contact"
+      (click)="switToConversation(contact.id)"
     >
       <span name class="md:block">{{ contact.name }}</span>
       <p message class="overflow-hidden truncate whitespace-nowrap">

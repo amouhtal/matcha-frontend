@@ -10,8 +10,8 @@ import * as notificationsSelectors from 'src/app/@features/notifications/local-s
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  notificationCount = 5;
-  notificationOn: boolean = true;
+  notificationCount: number = 0;
+  notificationOn: boolean = false;
   notificationType = 'visited_profile';
   // counter$: Observable<number> = this.store.select('notification');
   newNotification$ = this.store.select('messageNotification');

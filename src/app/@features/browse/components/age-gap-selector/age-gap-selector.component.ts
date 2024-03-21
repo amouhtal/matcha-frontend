@@ -8,7 +8,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 })
 export class AgeGapSelectorComponent {
   private minAge: number = 18;
-  maxAge: number = 100;
+  private maxAge: number = 100;
   ageGape: string = '18 - 100';
   displayAgeGap: boolean = false;
 
@@ -47,6 +47,7 @@ export class AgeGapSelectorComponent {
       }
     }
   }
+
   minAgeChange(symbol: string) {
     // other function name than ageFilter because it's not a filter example: ageChange,
     if (symbol === '-') {

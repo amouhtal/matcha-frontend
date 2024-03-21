@@ -16,10 +16,12 @@ import { RouterModule } from '@angular/router';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { CommunicationService } from './real-time-service/communication.service';
 import { PopUpNotificationComponent } from './pop-up-notification/pop-up-notification.component';
+import { contactsReducer } from './chat/local-store/reducers/contact.reducer';
+import { ContactEffect } from './chat/local-store/effects/contact.effect';
 
 @NgModule({
   declarations: [FeaturesComponent, PopUpNotificationComponent],
-  providers: [NotificationEffects, CommunicationService, ],
+  providers: [NotificationEffects, CommunicationService],
   imports: [
     CommonModule,
     FeaturesRoutingModule,
@@ -30,9 +32,10 @@ import { PopUpNotificationComponent } from './pop-up-notification/pop-up-notific
     RouterModule,
     UserProfileModule,
     StoreModule.forFeature('clickContact', clickContactReducer),
+    StoreModule.forFeature('contactsState', contactsReducer),
     StoreModule.forFeature('messageNotification', messageNotificationReducer),
     StoreModule.forFeature('notificationState', notificationReducer),
-    EffectsModule.forFeature([NotificationEffects]),
+    EffectsModule.forFeature([NotificationEffects, ContactEffect]),
   ],
 })
 export class FeaturesModule {}
