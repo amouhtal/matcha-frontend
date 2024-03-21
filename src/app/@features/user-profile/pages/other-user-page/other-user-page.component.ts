@@ -5,6 +5,7 @@ import { OtherUserDto } from '../../DTO/other-user.dto';
 import { UserApiService } from 'src/app/@api/services/user/user-api.service';
 import { MatchsApiService } from 'src/app/@api/services/matchs/matchs-api.service';
 import { CommunicationService } from 'src/app/@features/real-time-service/communication.service';
+import { RealTimeNotificationService } from 'src/app/@features/notifications/pages/real-time-notification.service';
 
 @Component({
   selector: 'matcha-other-user-page',
@@ -24,6 +25,7 @@ export class OtherUserPageComponent implements OnInit {
     private communicationService: CommunicationService,
     private userApiService: UserApiService,
     private matchsApiService: MatchsApiService,
+    private realTimeNotificationService: RealTimeNotificationService,
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params['username']) {
@@ -35,7 +37,6 @@ export class OtherUserPageComponent implements OnInit {
   ngOnInit() {
     this.userApiService.getUser(this.user.username).subscribe({
       next: (ret) => {
-        console.log(ret);
         this.user = ret.user;
         if (this.user && Object.keys(this.user).length > 0) {
           this.mainPicture = this.user.images[0];
@@ -80,13 +81,22 @@ export class OtherUserPageComponent implements OnInit {
   }
 
   match() {
+    // send match request
     this.matchsApiService
       .sendMatchRequest({ reciverId: this.user.id })
       .subscribe({
         next: (ret: any) => {
           if (ret.message === 'user matched') {
+            this.realTimeNotificationService.emitLikeBackProfile({
+              userId: this.user.id,
+              userName: this.user.username,
+            });
             this.userStatus = 'matched';
           } else if (ret.message === 'match request sent') {
+            this.realTimeNotificationService.emitLikeProfile({
+              userId: this.user.id,
+              userName: this.user.username,
+            });
             this.userStatus = 'pending';
           }
           console.log(ret);
@@ -110,6 +120,7 @@ export class OtherUserPageComponent implements OnInit {
           console.log(error.error);
         },
       });
+    // send match request
   }
 
   ratingHover(rating: number) {
@@ -123,7 +134,7 @@ export class OtherUserPageComponent implements OnInit {
       .rateUser({ rated_user_id: this.user.id, rating })
       .subscribe({
         next: (result: any) => {
-          console.log('rate user called' , result);
+          console.log('rate user called', result);
         },
         error: (error) => {
           console.log(error.error);
@@ -132,8 +143,13 @@ export class OtherUserPageComponent implements OnInit {
   }
   userVisited() {
     const session = JSON.parse(localStorage.getItem('session') || '');
-    
-    this.communicationService.emit('userVisited', {
+
+    // this.communicationService.emit('userVisited', {
+    //   userId: this.user.id,
+    //   userName: session.username,
+    // });
+
+    this.realTimeNotificationService.emitViewProfile({
       userId: this.user.id,
       userName: session.username,
     });

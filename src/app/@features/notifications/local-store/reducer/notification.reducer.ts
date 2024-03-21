@@ -12,12 +12,22 @@ import { NotificationState } from '../../models/notification-state';
 //   loaded: false,
 //   error: null,
 // };
+
+// • When the user receives a “like”.
+// • When the user’s profile has been viewed.
+// • When the user receives a message.
+// • When “liked” user also “likes” the user back.
+// • When a connected user “unlikes” the user
+
 export const initialState: NotificationState = {
   notificationState: [],
   unreadNotificationCount: 0,
-  unreadMessageCount: 0,
-  unreadViewProfileCount: 0,
   unreadLikeProfileCount: 0,
+  unreadViewProfileCount: 0,
+  unreadMessageCount: 0,
+  unreadLikeBackProfileCount: 0,
+  unreadUnlikeProfileCount: 0,
+
   loading: false,
   loaded: false,
   error: null,
@@ -38,12 +48,12 @@ export const notificationReducer = createReducer(
     notificationActions.getNotificationSuccess,
     (state: NotificationState, { notifications }): NotificationState => {
       let unreadNotificationCount = state.unreadNotificationCount;
-      let unreadMessageCount = state.unreadMessageCount;
-      let unreadViewProfileCount = state.unreadViewProfileCount;
       let unreadLikeProfileCount = state.unreadLikeProfileCount;
-      // let viewProfileState: any = [];
-      // let likeProfileState: any = [];
-      // console.log(state);
+      let unreadViewProfileCount = state.unreadViewProfileCount;
+      let unreadMessageCount = state.unreadMessageCount;
+      let unreadLikeBackProfileCount = state.unreadLikeBackProfileCount;
+      let unreadUnlikeProfileCount = state.unreadUnlikeProfileCount;
+
       notifications.forEach((notification) => {
         unreadNotificationCount++;
         if (notification.type === 'message') {
@@ -54,6 +64,10 @@ export const notificationReducer = createReducer(
         } else if (notification.type === 'like_profile') {
           // likeProfileState.push(notification);
           unreadLikeProfileCount++;
+        } else if (notification.type === 'like_back_profile') {
+          unreadLikeBackProfileCount++;
+        } else if (notification.type === 'unlike_profile') {
+          unreadUnlikeProfileCount++;
         }
       });
       return {
@@ -62,9 +76,10 @@ export const notificationReducer = createReducer(
         loaded: true,
         unreadNotificationCount: unreadNotificationCount,
         unreadMessageCount: unreadMessageCount,
-        // viewProfileState: viewProfileState,
         unreadViewProfileCount: unreadViewProfileCount,
         unreadLikeProfileCount: unreadLikeProfileCount,
+        unreadLikeBackProfileCount: unreadLikeBackProfileCount,
+        unreadUnlikeProfileCount: unreadUnlikeProfileCount,
         notificationState: notifications,
       };
     },
@@ -133,12 +148,16 @@ export const notificationReducer = createReducer(
       };
     },
   ),
-  on(notificationActions.newNotificationMessage, (state: NotificationState) => {
-    return {
-      ...state,
-      unreadMessageCount: state.unreadMessageCount + 1,
-    };
-  }),
+  on(
+    notificationActions.newNotificationLikeProfile,
+    (state: NotificationState) => {
+      return {
+        ...state,
+        unreadLikeProfileCount: state.unreadLikeProfileCount + 1,
+        unreadViewProfileCount: state.unreadViewProfileCount + 1,
+      };
+    },
+  ),
   on(
     notificationActions.newNotificationViewProfile,
     (state: NotificationState) => {
@@ -148,15 +167,31 @@ export const notificationReducer = createReducer(
       };
     },
   ),
+  on(notificationActions.newNotificationMessage, (state: NotificationState) => {
+    return {
+      ...state,
+      unreadMessageCount: state.unreadMessageCount + 1,
+    };
+  }),
   on(
-    notificationActions.newNotificationLikeProfile,
+    notificationActions.newNotificationLikeBackProfile,
     (state: NotificationState) => {
       return {
         ...state,
-        unreadLikeProfileCount: state.unreadLikeProfileCount + 1,
+        unreadLikeBackProfileCount: state.unreadLikeBackProfileCount + 1,
       };
     },
   ),
+  on(
+    notificationActions.newNotificationUnlikeProfile,
+    (state: NotificationState) => {
+      return {
+        ...state,
+        unreadUnlikeProfileCount: state.unreadUnlikeProfileCount + 1,
+      };
+    },
+  ),
+
   on(notificationActions.resetNotification, (state: NotificationState) => {
     return {
       ...state,

@@ -38,18 +38,6 @@ export const resetNotificationFailure = createAction(
   props<{ error: any }>(),
 );
 
-export const newNotificationMessage = createAction(
-  '[NEW_NOTIFICATION_MESSAGE]',
-);
-
-export const newNotificationViewProfile = createAction(
-  '[NEW_NOTIFICATION_VIEW_PROFILE]',
-);
-
-export const newNotificationLikeProfile = createAction(
-  '[NEW_NOTIFICATION_LIKE_PROFILE]',
-);
-
 // delete notification
 export const deleteNotification = createAction(
   '[DELETE_NOTIFICATION]',
@@ -66,3 +54,32 @@ export const deleteNotificationFailure = createAction(
   '[DELETE_NOTIFICATION_FAILURE]',
   props<{ error: any }>(),
 );
+
+// • When the user receives a “like”.
+// • When the user’s profile has been viewed.
+// • When the user receives a message.
+// • When “liked” user also “likes” the user back.
+// • When a connected user “unlikes” the user
+
+export const newNotificationLikeProfile = createAction(
+  '[NEW_NOTIFICATION_LIKE_PROFILE]',
+);
+
+export const newNotificationViewProfile = createAction(
+  '[NEW_NOTIFICATION_VIEW_PROFILE]',
+);
+
+export const newNotificationMessage = createAction(
+  '[NEW_NOTIFICATION_MESSAGE]',
+);
+
+export const newNotificationLikeBackProfile = createAction(
+  '[NEW_NOTIFICATION_LIKE_BACK_PROFILE]',
+);
+
+export const newNotificationUnlikeProfile = createAction(
+  '[NEW_NOTIFICATION_UNLIKE_PROFILE]',
+);
+
+
+

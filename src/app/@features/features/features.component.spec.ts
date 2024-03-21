@@ -3,7 +3,7 @@ import { FeaturesComponent } from './features.component';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RealTimeNotificationService } from '../notifications/pages/notification.service';
+import { RealTimeNotificationService } from '../notifications/pages/real-time-notification.service';
 import { CommunicationService } from '../real-time-service/communication.service';
 
 describe('FeaturesComponent', () => {
