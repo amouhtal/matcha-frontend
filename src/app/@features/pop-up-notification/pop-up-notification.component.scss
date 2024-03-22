@@ -1,12 +1,35 @@
 :host {
+  z-index: 900;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: -40px;
+  right: 0px;
+  transform: translateX(105%);
+  font-size: 12px;
+  color: #fff;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+  perspective: 1000px;
+  border-bottom-left-radius: 0;
 }
 
+// :host::before {
+//   content: '';
+//   position: absolute;
+//   top: 35px;
+//   left: 0;
+//   width: 0;
+//   height: 0;
+//   transform: translateX(-100%) ;
+//   border-top: 13px solid transparent;
+//   border-right: 26px solid rgb(59, 96, 69);
+//   border-bottom: 13px solid transparent;
+// }
 .apply-animation {
   animation: none;
-  animation: shaking 1s infinite;
+  // animation: shaking 1s infinite;
 }
 
 .remove-animation {

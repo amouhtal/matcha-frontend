@@ -18,9 +18,9 @@
       </i>
       <h4 class="hidden md:m-2 lg:block">Messages</h4>
     </div>
-    <!-- <div
-      class="messagesNotification relative flex cursor-pointer items-center"
-      (click)="ToggleNotification()"
+    <div
+      class="notifications_list relative flex cursor-pointer items-center "
+      (click)="toggleNotification('liked_profile')"
     >
       <i
         [attr.notification-count]="notificationCount"
@@ -29,7 +29,12 @@
         notifications
       </i>
       <h4 class="hidden w-full md:m-2 lg:block">Notifications</h4>
-    </div> -->
+      <!-- <div
+        class="popup_notification flex items-center justify-between bg-secondary-color p-2"
+      > -->
+        <matcha-pop-up-notification></matcha-pop-up-notification>
+      <!-- </div> -->
+    </div>
     <div class="flex cursor-pointer items-center" (click)="Browse()">
       <i class="navbar_icon material-symbols-outlined text-gray-600"
         >volunteer_activism</i

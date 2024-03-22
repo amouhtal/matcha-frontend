@@ -1,16 +1,25 @@
 <div
   *ngIf="showNotificationMessage !== ''"
-  [ngClass]="showNotificationMessage !== '' ? 'apply-animation' : 'remove-animation'"
+  [ngClass]="
+    showNotificationMessage !== '' ? 'apply-animation' : 'remove-animation'
+  "
   id="notification"
-  class="notification absolute bottom-0 left-0 mb-20 h-24 w-48 rounded bg-white"
+  class="notification flex h-20 w-60 rounded bg-white shadow-md"
 >
-  <div class="flex justify-center bg-primary-color">
-    <i class="material-icons fa-shake mx-auto h-[20%] text-white"
-      >notifications</i
+  <div
+    class="flex items-center justify-center rounded bg-gradient-to-b from-teal-700 to-yellow-500"
+  >
+    <i class="material-icons fa-shake mx-auto text-white"
+      >{{notificationType}}</i
     >
   </div>
-  <div class="flex h-[80%] w-full items-center justify-between px-2">
-    <i class="material-icons text-yellow-500">warning</i>
+  <div class="flex w-full items-center ">
+    <img
+      class="h-12 w-12 rounded-full mx-2"
+      src="https://img.freepik.com/premium-photo/woman-with-her-eyes-closed-abstract-photo_893012-158685.jpg?w=1380"
+      alt="profile"
+    />
+    <!-- <i class="material-icons text-yellow-500">warning</i> -->
     <p class="text-sm text-gray-500">{{ this.showNotificationMessage }}</p>
   </div>
 </div>

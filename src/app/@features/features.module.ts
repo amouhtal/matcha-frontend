@@ -15,12 +15,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { UserProfileModule } from './user-profile/user-profile.module';
 import { CommunicationService } from './real-time-service/communication.service';
-import { PopUpNotificationComponent } from './pop-up-notification/pop-up-notification.component';
 import { contactsReducer } from './chat/local-store/reducers/contact.reducer';
 import { ContactEffect } from './chat/local-store/effects/contact.effect';
 
 @NgModule({
-  declarations: [FeaturesComponent, PopUpNotificationComponent],
+  declarations: [FeaturesComponent],
   providers: [NotificationEffects, CommunicationService],
   imports: [
     CommonModule,
