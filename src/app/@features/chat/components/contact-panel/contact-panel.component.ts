@@ -1,6 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ContactDTO } from './models/contact.dto';
-import { ContactsService } from 'src/app/@api/services/chat/contacts.service';
 import { Store } from '@ngrx/store';
 import * as chatAction from '../../local-store/actions/chat.action';
 import * as contactSelectors from '../../local-store/selectors/contact.selector';
@@ -30,26 +29,17 @@ export class ContactPanelComponent implements OnChanges, OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(contactActions.getContactsAction());
+    // this.store.dispatch(contactActions.getContactsAction());
     this.contacts$?.subscribe((contacts) => {
       this.contacts = contacts;
       this.onlineContacts = this.contacts;
     });
 
-    // this.selectedContact$.subscribe((contact) => {
-    //   if (contact !== undefined) {
-    //     this.selectedContact = contact;
-    //   }
-    // });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
-
-  // selectContact(contact: ContactDTO) {
-  //   this.changeContact.emit(contact);
-  // }
-
+  
   switToConversation(cnvId: number) {
+    console.log('conversationId', cnvId);
     this.store.dispatch(contactActions.switchToConversation({ cnvId: cnvId }));
     this.store.dispatch(chatAction.switchToConversation());
   }
@@ -59,4 +49,5 @@ export class ContactPanelComponent implements OnChanges, OnInit {
 
     console.log('switchToConversation');
   }
+  ngOnChanges(changes: SimpleChanges): void {}
 }

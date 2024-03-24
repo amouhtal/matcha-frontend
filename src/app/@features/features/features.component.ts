@@ -7,7 +7,9 @@ import {
   faInstagramSquare,
 } from '@fortawesome/free-brands-svg-icons';
 import { RealTimeNotificationService } from '../notifications/pages/real-time-notification.service';
-
+import { Store } from '@ngrx/store';
+import { IContactsState } from '../chat/local-store/reducers/contact.reducer';
+import * as contactActions from '../chat/local-store/actions/contact.action';
 @Component({
   selector: 'matcha-features',
   templateUrl: './features.component.html',
@@ -21,12 +23,17 @@ export class FeaturesComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private store: Store<{
+      clickContact: boolean;
+      contactState: IContactsState;
+    }>,
     private realTimeNotificationService: RealTimeNotificationService,
   ) {
     this.realTimeNotificationService.listenForProfileViews();
     this.realTimeNotificationService.listenForProfileLikes();
     this.realTimeNotificationService.listenForLikeBacks();
     this.realTimeNotificationService.listenForUnlikes();
+    this.store.dispatch(contactActions.getContactsAction())
   }
 
   ngOnInit() {

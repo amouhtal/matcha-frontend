@@ -10,7 +10,6 @@
     >
     </matcha-contact-panel>
     <matcha-conversation-panel
-      [friendContact]="contact"
       [ngClass]="{
         'show-panel': !(switchToConversation$ | async),
         'hide-panel': (switchToConversation$ | async) || contact.id === 0

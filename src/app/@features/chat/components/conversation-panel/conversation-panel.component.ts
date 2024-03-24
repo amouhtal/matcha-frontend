@@ -13,7 +13,7 @@ import { IContactsState } from '../../local-store/reducers/contact.reducer';
 export class ConversationPanelComponent implements OnChanges, OnInit {
   message!: MessageDTO;
   contact$ = this.store.select(contactSelectors.selectedContactSelector);
-  @Input() friendContact: ContactDTO = {
+  friendContact: ContactDTO = {
     id: 0,
     name: '',
     lastMessage: '',
@@ -28,9 +28,15 @@ export class ConversationPanelComponent implements OnChanges, OnInit {
   ngOnChanges(): void {}
 
   ngOnInit(): void {
-    // this.contact$.subscribe((contact) => {
-    //   this.friendContact = contact;
-    // });
+    this.contact$.subscribe((contact) => {
+      console.log(
+        '🚀 ~ file: conversation-panel.component.ts ~ line 42 ~ ConversationPanelComponent ~ this.contact$.subscribe ~ contact',
+        contact
+      );
+      if (contact) {
+        this.friendContact = contact;
+      }
+    });
   }
 
   addMessage(message: MessageDTO) {

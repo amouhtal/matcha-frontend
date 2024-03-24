@@ -11,8 +11,10 @@
           <mat-icon class="cancelImg">close</mat-icon>
         </span>
         <div
+
           class="messageBox"
           [ngClass]="{ desiableButton: userStatus != 'matched' }"
+          (click)="openChat()"
         >
           <img
             src="./../../../../../assets/images/Message Icon.svg"

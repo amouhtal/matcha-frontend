@@ -94,6 +94,13 @@ export const contactsReducer = createReducer(
   on(
     contactActions.switchToConversation,
     (contactsState: IContactsState, { cnvId }): IContactsState => {
+
+      console.log(
+        '🚀 ~ file: contact.reducer.ts ~ line 95 ~ contactsState: IContactsState ~ cnvId',
+        cnvId,
+        contactsState.contacts,
+      
+      );
       return {
         ...contactsState,
         selectedContact: contactsState.contacts.find(
