@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './@shared/page-not-found/page-not-found.component';
-
 import { CompleteSignupPageComponent } from './@features/complete-signup/pages/complete-signup-page/complete-signup-page.component';
 import { FeaturesGuardService } from './@core/guards/features-guard.service';
 

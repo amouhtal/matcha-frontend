@@ -1,4 +1,3 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OtherUserDto } from '../../DTO/other-user.dto';
@@ -6,6 +5,12 @@ import { UserApiService } from 'src/app/@api/services/user/user-api.service';
 import { MatchsApiService } from 'src/app/@api/services/matchs/matchs-api.service';
 import { CommunicationService } from 'src/app/@features/real-time-service/communication.service';
 import { RealTimeNotificationService } from 'src/app/@features/notifications/pages/real-time-notification.service';
+import { Store } from '@ngrx/store';
+import { IContactsState } from 'src/app/@features/chat/local-store/reducers/contact.reducer';
+
+import * as contactActions from 'src/app/@features/chat/local-store/actions/contact.action';
+import * as chatAction from 'src/app/@features/chat/local-store/actions/chat.action';
+
 
 @Component({
   selector: 'matcha-other-user-page',
@@ -26,6 +31,10 @@ export class OtherUserPageComponent implements OnInit {
     private userApiService: UserApiService,
     private matchsApiService: MatchsApiService,
     private realTimeNotificationService: RealTimeNotificationService,
+    private store: Store<{
+      clickContact: boolean;
+      contactState: IContactsState;
+    }>
   ) {
     this.route.queryParams.subscribe((params) => {
       if (params['username']) {
@@ -34,9 +43,19 @@ export class OtherUserPageComponent implements OnInit {
     });
   }
 
+  openChat() {
+    console.log('open chat', this.user);
+    this.store.dispatch(contactActions.switchToConversation({ cnvId: this.user.conversationId }));
+    this.store.dispatch(chatAction.switchToConversation());
+    this.router.navigate(['/features/chat'], {
+      queryParams: { user: this.user.username },
+    });
+  }
+
   ngOnInit() {
     this.userApiService.getUser(this.user.username).subscribe({
       next: (ret) => {
+        console.log('hamra ', ret);
         this.user = ret.user;
         if (this.user && Object.keys(this.user).length > 0) {
           this.mainPicture = this.user.images[0];
@@ -155,3 +174,4 @@ export class OtherUserPageComponent implements OnInit {
     });
   }
 }
+

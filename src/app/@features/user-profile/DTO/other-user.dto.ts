@@ -34,4 +34,5 @@ export class OtherUserDto {
   country: string = 'Loading...';
   birthdate: Date = new Date();
   rating: number = 4;
+  conversationId: number = -1;
 }

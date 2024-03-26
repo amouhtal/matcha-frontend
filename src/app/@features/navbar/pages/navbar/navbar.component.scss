@@ -22,6 +22,10 @@
   // background-color: burlywood;
 }
 
+.popup_notification {
+
+}
+
 .notification_count::after {
   content: attr(notification-count);
   background: #3e747d;
